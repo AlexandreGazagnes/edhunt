@@ -29,14 +29,14 @@
   .ehSelector{font-size: 1.1rem; }       }
 
 @media (min-width: 992px) {
-  .ehLabel{font-size: 1.8rem;}
+  .ehLabel{font-size: 1.7rem;}
   .ehLegend{ font-size: 2.5rem; }
   .ehTextArea{font-size: 1.2rem; height:200px;}
   .ehInput{font-size: 1.2rem; }
   .ehSelector{font-size: 1.2rem; }      }
 
 @media (min-width: 1280px) {
-  .ehLabel{font-size: 1.8rem;}
+  .ehLabel{font-size: 1.7rem;}
   .ehLegend{ font-size: 2.5rem; }
   .ehTextArea{font-size: 1.2rem; height:200px;}
   .ehInput{font-size: 1.2rem; }

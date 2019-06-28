@@ -158,6 +158,16 @@ def faq():
                          text2=MainText.apropos)
 
 
+@main.route("/manifeste/", methods=["GET"])
+@main.route("/manifeste", methods=["GET"])
+@gzipped
+def manifeste():
+  return render_template('main/faq.html',
+                         title="FAQ",
+                         text=MainText.faq,
+                         text2=MainText.apropos)
+
+
 @main.route("/contact/", methods=["GET", "POST"])
 @main.route("/contact", methods=["GET", "POST"])
 @gzipped
