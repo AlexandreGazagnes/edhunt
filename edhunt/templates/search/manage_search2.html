@@ -1,0 +1,238 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- imports -->
+<!-- ------------------------------------------- -->
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user/manage_user2.css') }}">
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/search/manage_search2.js') }}" type="text/javascript"></script>
+
+
+<!-- Inner NAV -->
+<span id="ehNav" style="display: none;">{{''}}</span>
+
+
+<!-- content section -->
+<!-- ------------------------------------------- -->
+<div class="content-section">
+
+
+<!-- ehHeader -->
+<!-- --------------------- -->
+<div class="ehHeader">
+
+  <!-- Title -->
+  <h1 class="account - heading">Modifier ma recherche  ' {{search.name }} ' </h1>
+  <!-- Sub Title -->
+      <h2> Ma recherche est paramétrée à  <strong> {{ search.global_score }}% </strong></h2>
+  <!-- Head-->
+  <div class="article-content" style="margin: 20px; text-align: justify;">Vous trouverez et pourrez modifier ici l'ensemble des paramètres de votre recherche. Une astuce? plus votre score est élevé, meilleur c'est pour vous!</div>
+  <!-- Nav -->
+  <div class="text-right form-group">
+<!--     <a class="btn btn-outline-info ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a> -->
+    <a class="btn btn-outline-info ehButton" href="{{ url_for('searchs.visualize_search', search_id=search.id) }}"> Voir détail</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+</div>
+
+
+<!-- ehBody -->
+<!-- --------------------- -->
+<div class="ehBody">
+<legend class="border-bottom mb-4"></legend>
+
+  <!-- tildes1  -->
+  <div class="ehTildes">
+    <div class="row">
+    <div class="col-2 ">
+    </div>
+      <div class="col-4 ">
+        <div id="essentielButton" class="ehTildeOff">Essentiel <br>{{ search.essentiel_score }}% </div>
+      </div>
+      <div class="col-4 ">
+        <div id="jobButton" class="ehTildeOff">Poste <br>{{search.job_score}}% </div>
+      </div>
+    </div>
+    <div class="col-2 ">
+    </div>
+  </div>
+
+
+<!-- contents -->
+  <div class="ehContents">
+    <div class="row">
+
+      <!-- essentiel content -->
+      <div id="{{ 'essentiel' }}Content" class="col-12 ehTable" style="display: none;">
+          <!-- table -->
+          <div class="table-responsive">
+            <table class="table">
+              <!-- body -->
+              <tbody>
+                {% for k, v in search.essentiel_fields %}
+                <tr>
+                  <th class="ehData" scope = "row">{{ k}}</th>
+                  <td class="ehData">{{ v }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+      <!-- CONTROLS -->
+      <div class="text-center">
+        <div class="row" style="margin: 100px 0px 100px 0px;">
+          <div class="col form-group">
+            <a href="{{url_for('searchs.update_search', search_id=search.id)}}" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">Modifier </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <!-- job content -->
+      <div id="{{ 'job' }}Content" class="col-12 ehTable" style="display: none;">
+          <!-- table -->
+          <div class="table-responsive">
+            <table class="table">
+              <!-- body -->
+              <tbody>
+                {% for k, v in search.job_fields %}
+                <tr>
+                  <th class="ehData" scope = "row">{{ k}}</th>
+                  <td class="ehData">{{ v }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- CONTROLS -->
+          <div class="text-center">
+            <div class="row" style="margin: 100px 0px 100px 0px;">
+              <div class="col form-group">
+                <a href="{{url_for('searchs.update_searched_job', search_id=search.id)}}" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">Modifier </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+
+  <!-- tildes 2  -->
+  <div class="ehTildes">
+    <div class="row">
+    <div class="col-2 ">
+    </div>
+      <div class="col-4 ">
+        <div id="statusButton" class="ehTildeOff">Status <br>{{ search.status_score }}% </div>
+      </div>
+      <div class="col-4 ">
+        <div id="languageButton" class="ehTildeOff">Langues <br>{{search.language_score}}% </div>
+      </div>
+    </div>
+    <div class="col-2 ">
+    </div>
+  </div>
+
+
+
+<!-- status -->
+  <div class="ehContents">
+    <div class="row">
+
+      <!-- essentiel content -->
+      <div id="{{ 'status' }}Content" class="col-12 ehTable" style="display: none;">
+          <!-- table -->
+          <div class="table-responsive">
+            <table class="table">
+              <!-- body -->
+              <tbody>
+                {% for k, v in search.status_fields %}
+                <tr>
+                  <th class="ehData" scope = "row">{{ k}}</th>
+                  <td class="ehData">{{ v }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+  <!-- CONTROLS -->
+          <div class="text-center">
+            <div class="row" style="margin: 100px 0px 100px 0px;">
+              <div class="col form-group">
+                <a href="{{url_for('searchs.update_searched_status', search_id=search.id)}}" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">Modifier </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      <!-- job content -->
+      <div id="{{ 'language' }}Content" class="col-12 ehTable" style="display: none;">
+          <!-- table -->
+          <div class="table-responsive">
+            <table class="table">
+              <!-- body -->
+              <tbody>
+                {% for k, v in search.language_fields %}
+                <tr>
+                  <th class="ehData" scope = "row">{{ k}}</th>
+                  <td class="ehData">{{ v }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+  <!-- CONTROLS -->
+          <div class="text-center">
+            <div class="row" style="margin: 100px 0px 100px 0px;">
+              <div class="col form-group">
+                <a href="{{url_for('searchs.update_searched_language', search_id=search.id)}}" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">Modifier </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+</div>
+
+
+
+  <!-- Nav -->
+  <legend class="border-bottom mb-4"></legend>
+  <div class="text-right form-group">
+<!--     <a class="btn btn-outline-info ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a> -->
+    <a class="btn btn-outline-info ehButton" href="{{ url_for('searchs.visualize_search', search_id=search.id) }}"> Voir détail</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %}

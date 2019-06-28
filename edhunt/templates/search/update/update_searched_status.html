@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="" >
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Modifier le(s) status recherché(s)</legend>
+
+                    <!-- contract -->
+                    <div class="form-group">
+                        {{ form.contract.label(class="form-control-label") }}
+                        {% if form.contract.errors %}
+                            {{ form.contract(title=form.contract.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.contract.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.contract(title=form.contract.description, class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- employer -->
+                    <div class="form-group">
+                        {{ form.employer.label(class="form-control-label") }}
+                        {% if form.employer.errors %}
+                            {{ form.employer(title=form.contract.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.employer.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.employer(title=form.contract.description, class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- status -->
+                    <div class="form-group">
+                        {{ form.status.label(class="form-control-label") }}
+                        {% if form.status.errors %}
+                            {{ form.status(title=form.contract.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.status.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.status(title=form.contract.description,
+                                class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- rem -->
+                    <div class="form-group">
+                        {{ form.rem.label(class="form-control-label") }}
+                        {% if form.rem.errors %}
+                            {{ form.rem(title=form.contract.description, class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.rem.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.rem(title=form.contract.description, class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- currency -->
+                    <div class="form-group">
+                        {{ form.currency.label(class="form-control-label") }}
+                        {% if form.currency.errors %}
+                            {{ form.currency(title=form.currency.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.currency.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.currency(title=form.currency.description,
+                                class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- management -->
+                    <div class="form-group">
+                        {{ form.management.label(class="form-control-label") }}
+                        {% if form.management.errors %}
+                            {{ form.management(title=form.management.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.management.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.management(title=form.management.description,
+                                class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+                <a class="btn btn-outline-danger" href="{{ url_for('searchs.manage_search', search_id=search_id )}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

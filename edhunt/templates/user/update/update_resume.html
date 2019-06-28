@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Ajouter / Modifier un CV</legend>
+                <div class="form-group">
+                    {{ form.resume_name.label(class="form-control-label") }}
+                    {{ form.resume_name(class="form-control form-control-lg") }}
+                    {{ form.resume_doc.label(class="form-control-label") }}
+                    {{ form.resume_doc(class="form-control form-control-lg") }}
+                </div>
+            </fieldset>
+
+            <!-- -subimt -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

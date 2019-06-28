@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ title }}</legend>
+
+                <!-- company -->
+                <div class="form-group">
+                    {{ form.company.label(class="form-control-label") }}
+                    {% if form.company.errors %}
+                        {{ form.company(list="company_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.company.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.company(list="company_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- xp_at_company -->
+                <div class="form-group">
+                    {{ form.xp_at_company.label(class="form-control-label") }}
+                    {% if form.xp_at_company.errors %}
+                        {{ form.xp_at_company(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.xp_at_company.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.xp_at_company(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- company size -->
+                <div class="form-group">
+                    {{ form.company_size.label(class="form-control-label") }}
+                    {% if form.company_size.errors %}
+                        {{ form.company_size(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.company_size.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.company_size(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- sector -->
+                <div class="form-group">
+                    {{ form.sector.label(class="form-control-label") }}
+                    {% if form.sector.errors %}
+                        {{ form.sector(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sector.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.sector(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- job -->
+                <div class="form-group">
+                    {{ form.job.label(class="form-control-label") }}
+                    {% if form.job.errors %}
+                        {{ form.job(list="job_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.job.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.job(list="job_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- xp_at_job -->
+                <div class="form-group">
+                    {{ form.xp_at_job.label(class="form-control-label") }}
+                    {% if form.xp_at_job.errors %}
+                        {{ form.xp_at_job(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.xp_at_job.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.xp_at_job(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- function -->
+                <div class="form-group">
+                    {{ form.function.label(class="form-control-label") }}
+                    {% if form.function.errors %}
+                        {{ form.function(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.function.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.function(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- position -->
+                <div class="form-group">
+                    {{ form.position.label(class="form-control-label") }}
+                    {% if form.position.errors %}
+                        {{ form.position(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.position.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.position(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- mob -->
+                <div class="form-group">
+                    {{ form.mob.label(class="form-control-label") }}
+                    {% if form.mob.errors %}
+                        {{ form.mob(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.mob.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.mob(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- key_words -->
+                <div class="form-group">
+                    {{ form.key_words.label(class="form-control-label") }}
+                    {% if form.key_words.errors %}
+                        {{ form.key_words(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.key_words.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.key_words(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- datalist -->
+    <datalist id="company_datalist">
+    {% for entry in company_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="job_datalist">
+    {% for entry in job_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+{% endblock content %}

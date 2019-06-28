@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search/visualize_search.css') }}">
+
+
+<div class = "content-section" style="padding: 20px">
+  <div class = "media">
+    <div class = "media-body">
+      <h1 class = "account-heading"> Recherches</h1>
+      <h2> Vous avez listé <strong> {{ search_list|length }} </strong> recherches en cours</h2>
+
+      <div class="article-content" style="margin: 20px;"; text-align: justify;">
+      Vous pourez visualiser l'ensemble des informations essentielles concernant vos recherches.
+      </div>
+
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+
+
+      <!-- Recherches-->
+      <legend class="border-bottom mb-4">Recherches</legend>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table">
+
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-sm-2 myTableData" >Nom</th>
+                    <th class="col-sm-2 myTableData" >Loc</th>
+                    <th class="col-sm-2 myTableData" >Mots Clés</th>
+                    <th class="col-sm-1 myTableData" >Opps.</th>
+                    <th class="col-sm-1 myTableData" >Cands.</th>
+                    <th class="col-sm-2 myTableData" >Field</th>
+                    <th class="col-sm-1" ></th>
+                    <th class="col-sm-1" ></th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for search in search_list %}
+                  <tr class="row">
+                      <td class="col-sm-2 myTableData">{{ search.name }}</td>
+                      <td class="col-sm-2 myTableData">{{ search.town }}</td>
+                      <td class="col-sm-2 myTableData">{{ search.key_words }}</td>
+                      <td class="col-sm-1 myTableData" >{{ search.opportunities_count }}</td>
+                      <td class="col-sm-1 myTableData">{{ search.candidatures_count }}</td>
+                      <td class="col-sm-2" >Field</td>
+
+<!--                       <td class="col-sm-1">
+                      </td>
+                      <td class="col-sm-1">
+                        <a class="btn btn-outline-secondary myTableData" id = "caca" href="">Action</a>
+                      </td> -->
+                      <td class="col-sm-1">
+<div class="dropdown">
+  <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{ url_for('searchs.manage_search', search_id=search.id) }}">Modifier</a>
+    <a class="dropdown-item" href="{{ url_for('searchs.visualize_search', search_id=search.id) }}">Voir détail</a>
+    <a class="dropdown-item" href="#">Raffraichir</a>
+    <a class="dropdown-item" href="{{ url_for('searchs.delete_search', search_id=search.id )}}">Supprimer</a>
+  </div>
+</div>
+</td>
+<!--                       <td class="col-sm-1">
+                        <a class="btn btn-outline-secondary myTableData" href="{{ url_for('searchs.visualize_search', search_id=search.id) }}">Détail</a>
+                      </td>
+                      <td class="col-sm-1">
+                        <a class="btn btn-outline-danger myTableData" href="{{ url_for('searchs.delete_search', search_id=search.id )}}">Suppr.</a>
+                      </td> -->
+                   </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+
+
+<!-- controls -->
+<div class="form-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+          <a class="btn btn-outline-info myButtonLarge"  href="{{ url_for('searchs.maj_searchs') }}">Mettre à Jour les résultats</a>
+      </div>
+      <div class="col-md-6">
+                  <a class="btn btn-outline-info myButtonLarge" href="">Postuler sur toutes les offres</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <div class="text-center">
+        <div class="form-group">
+          <a class="btn btn-outline-info myButton" style="width: 100% ; margin: -20px 0px 50px 0px ; padding: 20px 0px" href="{{ url_for('searchs.create_search') }}" >Ajouter une recherche</a>
+        </div>
+      </div>
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}
+
+

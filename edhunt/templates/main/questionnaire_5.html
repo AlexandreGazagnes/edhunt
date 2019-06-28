@@ -1,0 +1,113 @@
+{% extends "main/questionnaire_parent.html" %}
+{% block fieldset %}
+
+
+<!-- fond_already -->
+<div class="form-group">
+  {{ form.fond_already.label(class="form-control-label ehLabel") }}
+  {% if form.fond_already.errors %}
+    {{ form.fond_already(class="form-control form-control-lg is-invalid myTextArea", onmouseover="swapConcurrencyDisplay()", onchange="swapConcurrencyDisplay()") }}
+    <div class="invalid-feedback">
+    {% for error in form.fond_already.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.fond_already(class="form-control form-control-lg myTextArea", onmouseover="swapConcurrencyDisplay()", onchange="swapConcurrencyDisplay()") }}
+  {% endif %}
+</div>
+
+<!-- fond_concurency -->
+<div class="form-group" id="fondConcurency" style="display: none">
+  {{ form.fond_concurency.label(class="form-control-label ehLabel") }}
+  {% if form.fond_concurency.errors %}
+    {{ form.fond_concurency(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.fond_concurency.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.fond_concurency(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- fond_compr_level -->
+<div class="form-group">
+  {{ form.fond_compr_level.label(class="form-control-label ehLabel") }}
+  {% if form.fond_compr_level.errors %}
+    {{ form.fond_compr_level(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.fond_compr_level.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.fond_compr_level(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- fond_painful_level -->
+<div class="form-group">
+  {{ form.fond_painful_level.label(class="form-control-label ehLabel") }}
+  {% if form.fond_painful_level.errors %}
+    {{ form.fond_painful_level(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.fond_painful_level.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.fond_painful_level(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- fond_interest_level -->
+<div class="form-group">
+  {{ form.fond_interest_level.label(class="form-control-label ehLabel") }}
+  {% if form.fond_interest_level.errors %}
+    {{ form.fond_interest_level(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.fond_interest_level.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.fond_interest_level(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- device_type -->
+<div class="form-group">
+  {{ form.device_type.label(class="form-control-label ehLabel") }}
+  {% if form.device_type.errors %}
+    {{ form.device_type(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.device_type.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.device_type(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- remarque -->
+<div class="form-group">
+  {{ form.remarque.label(class="form-control-label ehLabel") }}
+  {% if form.remarque.errors %}
+    {{ form.remarque(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.remarque.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.remarque(class="form-control form-control-lg myTextArea", style="min-height:200px") }}
+  {% endif %}
+</div>
+
+{% endblock fieldset %}
+
+
+device_type

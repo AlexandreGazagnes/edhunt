@@ -1,0 +1,252 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <div class = "content-section" style= "padding: 20px">
+    <div class = "media">
+    <div class = "media-body">
+      <h1 class = "account-heading"> Recherche : {{ search.name }} </h1>
+      <h2> Votre recherche est paramétré à <strong> 15 % </strong> </h2>
+
+      <div class="article-content" style="margin: 20px; text-align: justify;">
+        Vous trouverez et pourrez modifier ici l'ensemble des paramètres de votre recherche. Une astuce? plus votre score est élevé, meilleur c'est pour vous!
+      </div>
+
+      <div  id=deroullerall1  class = "form-group" style="display:block">
+        <div class = "account-link">
+          <a href = "#" onclick="deroullerall1Option()" class = "btn btn-outline-secondary"> Dérouller All </a>
+          <a href = "{{ url_for('main.edhunt') }}" class = "btn btn-outline-danger myButton"> Retour </a>
+        </div>
+      </div>
+      <div id=reduireall1 class = "form-group" style="display:none">
+        <div class = "account-link">
+          <a href = "#" onclick="reduireall1Option()" class = "btn btn-outline-secondary"> reduire All </a>
+          <a href = "{{ url_for('main.edhunt') }}" class = "btn btn-outline-danger myButton"> Retour </a>
+        </div>
+      </div>
+
+      <!-- Search -->
+      <legend class = "border-bottom mb-4"> Essentiel </legend>
+      <div  id="searchButton" class="article-content" style="margin: 20px; text-align: justify;">Vous trouverez et pourrez modifier ici l'ensemble des informations essentielles sans lesquelles aucune recherche ne pourra être lancée : nom de la recherche, secteur géographique, mots clés.
+        <div class="text-right" >
+          <button type="button" onclick="expandsearchOption()" style="margin-bottom:20px" class="btn btn-outline-secondary">Dérouller</button>
+        </div>
+      </div>
+      <div id = "searchOption" style="display:none" >
+        <article class = "media content-section">
+          <div class = "media-body">
+            <div class = "article-content">
+              <div class = "table-responsive">
+                <table class = "table">
+                  <tbody>
+                    <tr>
+                      <th scope = "row"> Nom </th>
+                      <td> {{search.name if search.name else "-"}} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Mobilité </th>
+                      <td> {{search.mob if search.mob else "-"}} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Destination(s) </th>
+                      {% if search.mob == "Ville" %}
+                        <td> {{search.town if search.town else "-" }} </td>
+                      {% elif search.mob == "Département" %}
+                        <td> {{search.departement if search.departement  else "-" }} </td>
+                     {% elif search.mob == "Région" %}
+                       <td> {{search.region if search.region else "-" }} </td>
+                     {% elif search.mob == "Pays" %}
+                       <td> {{search.country if search.country else "-" }} </td>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Mots Clés </th>
+                      <td> {{search.key_words if search.key_words else '-' }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class = "form-group">
+          <div class = "account-link">
+            <a href = # onclick="reducesearchOption()" class = "btn btn-outline-secondary"> Réduire </a>
+            <a href = "{{ url_for('searchs.update_search', search_id=search.id) }}" class = "btn btn-outline-info"> update </a>
+
+          </div>
+        </div>
+    </div>
+
+      <!-- Status -->
+      <legend class = "border-bottom mb-4"> Type d'emploi </legend>
+      <div id="statusButton" class="article-content" style="margin: 20px; text-align: justify;">Vous trouverez et pourrez modifier ici l'ensemble des informations liées au statut et au type d'emploi : le type de contrat, le salaire, le statut etc...
+        <div class="text-right" >
+          <button type="button" onclick="expandstatusOption()" style="margin-bottom:20px" class="btn btn-outline-secondary">Dérouller</button>
+        </div>
+      </div>
+      <div id = "statusOption" style="display:none" >
+        <article class = "media content-section">
+          <div class = "media-body">
+            <div class = "article-content">
+              <div class = "table-responsive">
+                <table class = "table">
+                  <tbody>
+                    <tr>
+                      <th scope = "row"> Contrat(s) </th>
+                      <td> {{search.contract if search.contract  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Type(s) d'employeur(s) </th>
+                      <td> {{search.employer if search.employer  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Statut(s) </th>
+                      <td> {{search.status if search.status  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Remuneration </th>
+                      <td> {{search.rem if search.rem  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Monnaie </th>
+                      <td> {{search.currency if search.currency  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Management </th>
+                      <td> {{search.management if search.management  else "-" }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+      <div class = "form-group">
+        <div class = "account-link">
+            <a href = # onclick="reducestatusOption()" class = "btn btn-outline-secondary"> Réduire </a>
+          <a href = "{{ url_for('searchs.update_searched_status', search_id=search.id) }}" class = "btn btn-outline-info"> update </a>
+        </div>
+    </div>
+      </div>
+
+      <!-- Job -->
+      <legend class = "border-bottom mb-4"> Type de poste </legend>
+      <div id="jobButton" class="article-content" style="margin: 20px; text-align: justify;">Vous trouverez et pourrez modifier ici l'ensemble des informations liées à l'entreprise que vous voudriez intégrer, ou pas, au type de poste, au secteur d'activité ou à votre futur statut hiéarchique
+      <div class="text-right" >
+        <button type="button" onclick="expandjobOption()" style="margin-bottom:20px" class="btn btn-outline-secondary">Dérouller</button>
+      </div>
+    </div>
+      <div id = "jobOption" style="display:none" >
+        <article class = "media content-section">
+          <div class = "media-body">
+            <div class = "article-content">
+              <div class = "table-responsive">
+                <table class = "table">
+                  <tbody>
+                    <tr>
+                      <th scope = "row"> Entreprise(s) recherchée(s) </th>
+                      <td> {{search.company if search.company  else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Entreprise(s) évitée(s) </th>
+                      <td> {{search.not_company if search. not_company else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Taille(s) d'entreprise(s) recherchée(s)</th>
+                      <td> {{search.company_size if search.company_size  else "-" }} </td>
+                    </tr>
+
+                    <tr>
+                      <th scope = "row"> Poste(s) </th>
+                      <td> {{search.job if search.job else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Secteur(s) recherché(s) </th>
+                      <td> {{search.sector if search.sector else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Fonction(s) </th>
+                      <td> {{search.function if search.function else "-" }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Mot(s) clé(s) évité(s) </th>
+                      <td> {{search.not_key_words if search.not_key_words else "-" }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class = "form-group">
+          <div class = "account-link">
+            <a href = # onclick="reducejobOption()" class = "btn btn-outline-secondary"> Réduire </a>
+            <a href = "{{ url_for('searchs.update_searched_job', search_id=search.id) }}" class = "btn btn-outline-info"> update </a>
+          </div>
+        </div>
+    </div>
+
+      <!-- Langues -->
+      <legend class = "border-bottom mb-4"> Langues </legend>
+      <div id="languagesButton" class="article-content" style="margin: 20px; text-align: justify;">Vous voulez un peu, beaucoup, ou pas du tout d'anglais dans votre quotidien professionnel? A vous de choisir, à moins que, petit veinard, vous ne parliez couramment l'espéranto?
+      <div class="text-right" >
+        <button type="button" onclick="expandlanguagesOption()" style="margin-bottom:20px" class="btn btn-outline-secondary">Dérouller</button>
+      </div>
+    </div>
+      <div id = "languagesOption" style="display:none" >
+
+        <article class = "media content-section">
+          <div class = "media-body">
+            <div class = "article-content">
+              <div class = "table-responsive">
+                <table class = "table">
+                  <tbody>
+                    <tr>
+                      <th scope = "row"> Anglais </th>
+                      <td> {{ search.english_mandatory if search.english_mandatory else '-' }} </td>
+                    </tr>
+                    <tr>
+                      <th scope = "row"> Autres langues </th>
+                      <td> {{search.other_languages if search.other_languages else '-' }} </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </article>
+        <div class = "form-group">
+          <div class = "account-link">
+            <a href = # onclick="reducelanguagesOption()" class = "btn btn-outline-secondary"> Réduire </a>
+            <a href = "{{ url_for('searchs.update_searched_language', search_id=search.id) }}" class = "btn btn-outline-info"> update </a>
+          </div>
+        </div>
+  </div>
+     </div>
+     </div>
+   </div>
+
+
+      <div  id=deroullerall2  class = "form-group" style="display:block">
+        <div class = "account-link">
+          <a href = "#" onclick="deroullerall2Option()" class = "btn btn-outline-secondary"> Dérouller All </a>
+          <a href = "{{ url_for('main.edhunt') }}" class = "btn btn-outline-danger myButton"> Retour </a>
+        </div>
+      </div>
+      <div id=reduireall2 class = "form-group" style="display:none">
+        <div class = "account-link">
+          <a href = "#" onclick="reduireall2Option()" class = "btn btn-outline-secondary"> reduire All </a>
+          <a href = "{{ url_for('main.edhunt') }}" class = "btn btn-outline-danger myButton"> Retour </a>
+        </div>
+      </div>
+
+
+
+     </div>
+     </div>
+   </div>
+
+
+  <script src=" {{ url_for('static', filename='js/search/search.js') }}" type="text/javascript"></script>
+
+{% endblock content %}

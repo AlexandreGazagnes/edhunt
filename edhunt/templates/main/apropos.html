@@ -1,0 +1,466 @@
+{% extends "main/apropos_parent.html" %}
+
+<!-- title -->
+{% block title %}
+<div class="ehTitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehH1">{{text.page.title}} </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock title %}
+
+
+<!-- subtitle -->
+{% block subtitle %}
+<div class="ehSubtitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock subtitle %}
+
+
+<!-- deja dit -->
+{% block dejadit %}
+<div class="ehDejadit">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehTextBoxApropos text-left'>
+        {{text.dejadit.name}}
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+  <div class="row dejaDitRow1" style="background-color: var(--myWhite)">
+  {% for i, text in text.dejadit.text[0:3] %}
+    <div class="col-sm-4" style=" margin: 20px 0px ; background-color: var(--myWhite);">
+      <div class="ehTextBoxGridNeuf" id="dejaDitButton{{i}}" style="min-height: 100px; padding:30px 40px; border : 1px solid var(--myBrown">
+          <span id="dejaDitKeyContent{{i}}">mauvaise <br>excuse <br>n°{{ i }}</span>
+          <span id="dejaDitValContent{{i}}" style= "display: none;">{{text}}</span>
+      </div>
+    </div>
+  {% endfor %}
+    <div class="col-sm-12 ">
+      <div class="ehInscriptionSmall dejaDitButton1" style="border:none">
+        <span class=""><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="row dejaDitRow2" style="background-color: var(--myWhite); display:none">
+  {% for i, text in text.dejadit.text[3:] %}
+    <div class="col-sm-4" style=" margin: 20px 0px ; background-color: var(--myWhite);">
+      <div class="ehTextBoxGridNeuf" id="dejaDitButton{{i}}" style="min-height: 100px; padding:30px 40px; border : 1px solid var(--myBrown">
+          <span id="dejaDitKeyContent{{i}}">mauvaise <br>excuse <br>n°{{ i }}</span>
+          <span id="dejaDitValContent{{i}}" style= "display: none;">{{text}}</span>
+      </div>
+    </div>
+  {% endfor %}
+    <div class="col-sm-12 ">
+      <div class="ehInscriptionSmall dejaDitButton2" style="border:none">
+        <span class=""><i class="fas fa-chevron-up"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm text-right">
+      <div class="ehTextBoxApropos text-right">
+        {{text.dejadit.answer}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock dejadit %}
+
+
+{% block about_laptop %}
+<div class="ehAbout">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-left">
+      <div class="ehTextBoxApropos text-leftt">
+        {{ text.about.name}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm" id="faitButtonLaptop">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[0]}}
+      </div>
+    </div>
+    <div class="col-sm" id="cadButtonLaptop">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[1]}}
+      </div>
+    </div>
+    <div class="col-sm" id="marcheButtonLaptop">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[2]}}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="defaultContentLaptop">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style=" margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.default %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="faitContentLaptop" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.fait %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="cadContentLaptop" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.cad %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="marcheContentLaptop" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.marche %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm text-right">
+      <div class="ehTextBoxApropos text-right">
+        {{ text.about.answer}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock about_laptop%}
+
+
+{% block about_mobile %}
+<div class="ehAbout">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm text-left">
+      <div class="ehTextBoxApropos text-leftt">
+        {{ text.about.name}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm" id="faitButtonMobile">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[0]}}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="faitContentMobile" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.fait %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm" id="cadButtonMobile">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[1]}}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="cadContentMobile" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.cad %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm" id="marcheButtonMobile">
+      <div class="ehTextBox3" style="margin:10px 0px;">
+        {{ text.about.questions[2]}}
+      </div>
+    </div>
+  </div>
+  <div class="row" id="marcheContentMobile" style="display: none">
+    <div class='col-sm'>
+      <div class="ehTextBoxBottom" style="margin : 20px 0px; border : 1px solid var(--myBrown">
+        {% for text in text.about.marche %} {{ text }}<br>  {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm text-right">
+      <div class="ehTextBoxApropos text-right">
+        {{ text.about.answer}}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock about_mobile%}
+
+
+
+
+<!-- fin -->
+{% block fin %}
+<div class="ehFin">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehTextBoxApropos text-left'>
+        {{ text.fin.name }}
+      </div>
+    </div>
+    <div class="col-sm">
+    </div>
+  </div>
+
+  <!-- row1 -->
+  <div class="row finRow1" style="background-color: var(--myWhite)">
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        de ce bon vieux <br>tableau excel <br>qui n'est jamais <br>vraiment à jour
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        des 12 sites <br> d’emploi différents <br> avec autant de <br> mots de passe
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        des 2h par jour <br>à lire des <br> annonces souvent <br>non pertinentes
+      </div>
+    </div>
+    <div class="col-sm-12 ">
+      <div class="ehInscriptionSmall finButton1" style="border:none">
+        <span class=""><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- row2 -->
+  <div class="row finRow2" style="display:none; background-color: var(--myWhite)">
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        des 25 clics<br>par jour sur ce <br>fameux bouton <br>- envoyer mon CV -
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        des problèmes <br>d'identifiants et <br> de mots de passe <br>perdus ou oubliés
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        de la création manuelle <br> des 18 nouveaux comptes <br> en ligne juste <br>pour pouvoir candidater
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall finButton2up" style="border:none">
+        <span class=""><i class="fas fa-chevron-up"></i></span>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall finButton2down" style="border:none">
+        <span class=""><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- row3 -->
+  <div class="row finRow3" style="display:none; background-color: var(--myWhite)">
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        de la suppression à la main <br> les  mails 'nous avons <br>bien recu votre <br>candidature mais...'
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        de la recherche <br> fastidieuse du le nom du <br>responsable opérationnel <br>ou du RH décisionnaire<br>
+      </div>
+    </div>
+    <div class=col-sm-4 style="margin :20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" style="background-color: var(--myWhite); border:1px solid var(--myBrown);">
+        des remords pour avoir  <br>raté ce poste parfait <br>dont vous réviez <br>depuis des mois<br>
+      </div>
+    </div>
+    <div class="col-sm ">
+      <div class="ehInscriptionSmall finButton3" style="border:none">
+        <span class=""><i class="fas fa-chevron-up"></i></span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+    </div>
+    <div class="col-sm text-right">
+      <div class="ehTextBoxApropos text-right">
+        {{ text.fin.answer }}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock fin%}
+
+
+
+
+
+
+{% block saviez  %}
+<div class="ehSaviez">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class=col-sm>
+      <div class="ehH1">
+        LE SAVIEZ VOUS
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock saviez  %}
+
+
+
+
+
+
+  <!-- foot -->
+{% block foot %}
+<div class="ehFoot">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="border-bottom"></div>
+  <div class="row ">
+      {% for ref, name in [ ('main.apropos', 'A propos'),
+                            ('main.loffre', 'L\'offre'),
+                            ('main.blog', 'Blog'),
+                            ('main.faq', 'FAQ'),
+                            ('main.contact', 'Contact'), ] %}
+    <div class="col-sm">
+      <a href="{{ url_for(ref) }}">
+        <div class="ehTextBoxFoot">
+          {{ name }}
+        </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+  <!-- <div class="border-bottom"></div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+   -->
+</div>
+{% endblock foot %}
+
+
+
+

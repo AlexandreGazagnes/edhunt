@@ -1,0 +1,57 @@
+{% extends "layout2.html" %}
+{% block content %}
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/home.js') }}" type="text/javascript"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home.css') }}">
+
+<div class="container-fluid">
+
+
+
+  <!-- sep -->
+<!--   <div class="row">
+    <div class="col-sm">
+      <div id="avatar" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src=""{{ url_for('static', filename=slide) }}" alt="{{ url_for('static', filename=slide) }}">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  {% for slide in corpo.data.slides %}
+  <div class="content-section">
+    <div class="row">
+      <div class="col-sm">
+        <div id="connait" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" style="border : solid 1px var(--myBlue);"  src="{{ url_for('static', filename=slide) }}" alt="{{ url_for('static', filename=slide) }}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+
+    <div class="row">
+      <div class="col-sm">
+        <div id="avatar" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block w-100" src="{{ url_for('static', filename=text.avatar.loc)}}" alt="{{ url_for('static', filename=text.avatar.loc) }}">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

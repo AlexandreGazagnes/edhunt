@@ -1,0 +1,68 @@
+
+            <!-- Plateform -->
+            <legend class="border-bottom mb-4">Plateforms</legend>
+            <article class="media content-section">
+                <div class="media-body">
+                    <div class="article-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">apec</th>
+                                        <td>{{ current_user.apec}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">cadremploi</th>
+                                        <td>{{ current_user.cadremploi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">indeed</th>
+                                        <td>{{ current_user.indeed}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">jobintree</th>
+                                        <td>{{ current_user.jobintree}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">leboncoin</th>
+                                        <td>{{ current_user.leboncoin}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">lesjeudis</th>
+                                        <td>{{ current_user.lesjeudis}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">linkedin</th>
+                                        <td>{{ current_user.linkedin}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">meteojob</th>
+                                        <td>{{ current_user.meteojob}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">meteojob</th>
+                                        <td>{{ current_user.meteojob}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">monster</th>
+                                        <td>{{ current_user.monster}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">polemploi</th>
+                                        <td>{{ current_user.polemploi}}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">regionjob</th>
+                                        <td>{{ current_user.regionjob}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div class="form-group">
+                <div class="account-link">
+                <a href="{{ url_for('update_plateform') }}" class="btn btn-outline-info">update</a>
+                </div>
+            </div>

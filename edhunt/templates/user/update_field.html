@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ title }}</legend>
+
+
+                {% for field in fields %}
+                <div class="form-group">
+                    {{ form[field].label(class="form-control-label") }}
+
+                    {% if form[field].errors %}
+                        {{ form[field](class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form[field].errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form[field](class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </fieldset>
+            <!-- -subimt -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                                <a class="btn btn-outline-danger" href="{{url_for('users.manage_user')}}">back</a>            </div>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Delete this Account? <a class="ml-2" href="{{ url_for('users.delete_user') }}">Delete</a>
+        </small>
+    </div>
+{% endblock content %}

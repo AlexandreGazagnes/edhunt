@@ -1,0 +1,25 @@
+{% extends "main/questionnaire_parent.html" %}
+{% block fieldset %}
+
+<div class="ehH2" style="text-align: left;">Mon profil</div>
+
+{% for i in ["status", "sector", "function", "rem", "diploma_level",
+"diploma_year", "zip_code" ]%}
+
+<div class="form-group">
+{{ form[i].label(class="form-control-label ehLabel") }}
+{% if form[i].errors %}
+  {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
+  <div class="invalid-feedback">
+  {% for error in form[i].errors %}
+    <span>{{ error }}</span>
+  {% endfor %}
+  </div>
+{% else %}
+  {{ form[i](class="form-control form-control-lg myTextArea") }}
+{% endif %}
+</div>
+
+{% endfor %}
+
+{% endblock fieldset %}

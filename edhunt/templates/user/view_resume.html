@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h1>Voir CV</h1>
+
+      <legend class="border-bottom mb-4">{{ "" }}</legend>
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info myButton">Modifier</a>
+          <a href="{{ url_for('users.manage_user') }}" class="btn btn-outline-danger myButton">Retour</a>
+        </div>
+      </div>
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-content text-center">
+            <img style="border:solid 1px; padding: 20px; margin: 20px" src="{{ img }}" alt="Your Resume" />
+          </div>
+        </div>
+      </article>
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info myButton">Modifier</a>
+          <a href="{{ url_for('users.manage_user') }}" class="btn btn-outline-danger myButton">Retour</a>
+        </div>
+      </div>
+
+{% endblock content %}

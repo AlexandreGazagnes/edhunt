@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section"  style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ title }}</legend>
+                 <div class="form-group">
+                    {{ form.english.label(class="form-control-label") }}
+                    {% if form.english.errors %}
+                        {{ form.english(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.english.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.english(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                 <div class="form-group">
+                    {{ form.others.label(class="form-control-label") }}
+                    {% if form.others.errors %}
+                        {{ form.others(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.others.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.others(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

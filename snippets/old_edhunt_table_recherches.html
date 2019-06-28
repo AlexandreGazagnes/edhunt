@@ -1,0 +1,123 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+    <div class="media">
+    <div class="media-body">
+
+      <h1>TABLE</h1>
+      <!-- Searchs-->
+      <legend class="border-bottom mb-4">Recherches</legend>
+      <article class="media content-section">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Nom</th>
+                    <th class="col-md-2" >Loc.</th>
+                    <th class="col-md-2" >Mots Clés</th>
+                    <th class="col-md-2" >Cand/Offr.</th>
+                    <th class="col-md-2" > </th>
+                    <th class="col-md-2" > </th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for search in search_list %}
+                  <tr class="row">
+                      <th class="col-md-2">{{ search.name }}</td>
+                      {% if search.mob == "Ville" %}
+                       <td class="col-md-2">{{ search.town }}</td>
+                      {% elif search.mob == "Département" %}
+                       <td class="col-md-2">{{ search.departement }}</td>
+                       {% elif search.mob == "Région" %}
+                       <td class="col-md-2">{{ search.region }}</td>
+                       {% elif search.mob == "Pays" %}
+                       <td class="col-md-2">{{ search.country }}</td>
+                       {% else  %}
+                       <td class="col-md-2"> - </td>
+                       {% endif %}
+                      <td class="col-md-2">{{ search.key_words[:30] }}</td>
+                      <td class="col-md-2" > 8/24</td>
+                      <td class="col-md-2">
+                        <a class="btn btn-outline-secondary" href=#>Dérouller</a> </td>
+                      <td class="col-md-2">
+                          <a class="btn btn-outline-info" href="{{url_for('manage_search', search_id=search.id)}}">Update</a>
+                        </td>
+                  </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+      <!-- Add -->
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('create_search') }}" class="btn btn-outline-info">add</a>
+        </div>
+      </div>
+
+
+
+      <h1>GRID</h1>
+      <!-- Searchs-->
+      <legend class="border-bottom mb-4">Recherches</legend>
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="container-fluid">
+
+              <!--head -->
+              <div class="row">
+                <div class="col-md-2">Nom</div>
+                <div class="col-md-2">Loc.</div>
+                <div class="col-md-2">Mots Clés</div>
+                <div class="col-md-2">Cand./Offr.</div>
+                <div class="col-md-2">Voir</div>
+                <div class="col-md-2">Update</div>
+              </div>
+
+            <!-- body -->
+            {% for search in search_list %}
+              <div class="row">
+                  <div class="col-md-2">{{ search.name }}</div>
+                  {% if search.mob == "Ville" %}
+                   <div class="col-md-2">{{ search.town }}</div>
+                  {% elif search.mob == "Département" %}
+                   <div class="col-md-2">{{ search.departement }}</div>
+                   {% elif search.mob == "Région" %}
+                   <div class="col-md-2">{{ search.region }}</div>
+                   {% elif search.mob == "Pays" %}
+                   <div class="col-md-2">{{ search.country }}</div>
+                   {% else  %}
+                   <div class="col-md-2"> - </div>
+                   {% endif %}
+
+                  <div class="col-md-2">{{ search.key_words[:30] }}</div>
+                  <div class="col-md-2" > 8/24</div>
+
+                  <div class="col-md-2">
+                    <a class="btn btn-outline-secondary" href=#>Dérouller</a> </div>
+                  <div class="col-md-2">
+                      <a class="btn btn-outline-info" href="{{url_for('manage_search', search_id=search.id)}}">Update</a>
+                    </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      <!-- Add -->
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('create_search') }}" class="btn btn-outline-info">add</a>
+        </div>
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+

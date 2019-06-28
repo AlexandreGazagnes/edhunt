@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Modifier les langues recherchée(s)</legend>
+
+                    <!-- english_mandatory -->
+                    <div class="form-group">
+                        {{ form.english_mandatory.label(class="form-control-label") }}
+                        {% if form.english_mandatory.errors %}
+                            {{ form.english_mandatory(title=form.english_mandatory.description, class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.english_mandatory.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.english_mandatory(title=form.english_mandatory.description, class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+                    <!-- other_languages -->
+                    <div class="form-group">
+                        {{ form.other_languages.label(class="form-control-label") }}
+                        {% if form.other_languages.errors %}
+                            {{ form.other_languages(
+                                title=form.other_languages.description,
+                                class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.other_languages.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.other_languages(
+                                title=form.other_languages.description,
+                                class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+
+
+
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                    <a class="btn btn-outline-danger" href="{{ url_for('searchs.manage_search', search_id=search_id )}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock content %}

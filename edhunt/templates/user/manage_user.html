@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/user/manage_user.js') }}" type="text/javascript"></script>
+
+
+<div class="content-section" style="padding: 20px">
+  <div class="media">
+    <div class="media-body">
+
+      <!-- head -->
+      <h1 class="account - heading">
+          Mon profil
+      </h1>
+      <h2>
+          Votre profil est complet à <strong>{{current_user.profile_score }}%</strong>
+      </h2>
+      <div class="article-content" style="margin: 20px; text-align: justify;">
+          {{ text.page.head }}
+      </div>
+
+      <!-- controls -->
+      <div class="text-right">
+        <div class="form-group">
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+        </div>
+      </div>
+
+      <!-- Resume-->
+      <legend class="border-bottom mb-4">{{text.resume.title}}</legend>
+      <div id="resumeField">
+      <!-- head -->
+      <div id="resumeHead" class="article-content" style="margin: 20px; text-align: justify;"> {{ text.resume.head }}
+          <!-- chevron -->
+          {% block chevron_down %}
+          <div class="text-center" id="resumeShowButton">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          {% endblock chevron_down %}
+        </div>
+    <!-- content -->
+    <div id="resumeContent" style="display:none">
+          <!-- article -->
+          {% block before_table %}
+          <article class="media content-section">
+            <div class="media-body">
+              <div class="article-content">
+                <div class="table-responsive">
+                  <table class="table">
+                    <!-- body -->
+                    <tbody>
+          {% endblock before_table %}
+                    <!-- table -->
+                    {% for n, name, doc in resume_list%}
+                      <tr>
+                        <th scope="row">CV n°{{ n }}</th>
+                        {% if name == "no resume" %}
+                          <td><a class="btn btn-outline-danger btn-off">{{ name }}</a></td>
+                          <td></td>
+                          <td>        <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info">Ajouter</a></td>
+                        {% else %}
+                          <td><a >{{ name }}</a></td>
+                        <td><a href="{{ url_for('users.view_resume', filename=doc, n=n) }}" class="btn btn-outline-secondary myButton">Voir</a></td>
+                        <td> <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info myButton">Modifier</a></td>
+                        {% endif %}
+                      </tr>
+                    {% endfor %}
+          {% block after_table %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </article>
+          {% endblock after_table %}
+
+        {% block chevron_up %}
+          <!-- chevron up -->
+          <div class="text-center" id="resumeHideButton">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span>
+          </div>
+                  {% endblock chevron_up %}
+    </div>
+ </div>
+      <!-- fields -->
+      {% set my_fields = [("account", 'users.update_user'),
+                          ('expectation', 'users.update_expectation'),
+                          ('identification', 'users.update_identification'),
+                          ('localisation', 'users.update_localisation'),
+                          ('diploma', 'users.update_diploma'),
+                          ('work_experience', 'users.update_work_experience'),
+                          ('work_status', 'users.update_work_status'),
+                          ('language', 'users.update_language')  ]  %}
+
+      {% for field, route in my_fields %}
+
+      <!-- legend -->
+        <legend class="border-bottom mb-4">{{ text[field].title }}</legend>
+      <div id="{{ field }}Field">
+
+        <!-- head -->
+        <div id="{{ field }}Head" class="article-content" style="margin: 20px; text-align: justify;">
+          {{ text[field].head }}
+          <div class="text-center" id="{{ field }}ShowButton">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span>
+          </div>
+        </div>
+
+        <!-- content -->
+        <div id="{{ field }}Content" style="display:none" >
+          {{ self.before_table() }}
+                      {% for name, data in text[field].table %}
+                      <tr>
+                        <th scope = "row" > {{name}}</th>
+                        <td> {{data}} </td>
+                      </tr>
+                    {% endfor %}
+          {{ self.after_table() }}
+
+          <!-- control -->
+          <div class="form-group">
+            <div class="account-link">
+              <a href="{{ url_for(route) }}" class="btn btn-outline-secondary myButton"> Modifier</a>
+            </div>
+          </div>
+
+          <div class="text-center" id="{{ field }}HideButton">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span>
+          </div>
+        </div>
+    </div>
+      {% endfor %}
+
+
+    </div>
+    </div>
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+  </div>
+
+
+{% endblock content %}
+
+
+

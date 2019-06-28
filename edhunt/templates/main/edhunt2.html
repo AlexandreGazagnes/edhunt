@@ -1,0 +1,437 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<!-- imports -->
+<!-- ------------------------------------------- -->
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user/manage_user2.css') }}">
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/edhunt2.js') }}" type="text/javascript"></script>
+
+<!-- content section -->
+<!-- ------------------------------------------- -->
+<div class="content-section">
+
+<!-- ehHeader -->
+<!-- --------------------- -->
+<div class="ehHeader">
+  <!-- Title -->
+  <h1 class="account - heading">Tableau de Bord </h1>
+</div>
+
+<!-- ehBody -->
+<!-- --------------------- -->
+<div class="ehBody">
+<legend class="border-bottom mb-4"></legend>
+
+  <!-- tildes 1 -->
+  <div class="ehTildes">
+    <div class="row">
+      <div class="col-4 ">
+        <div id="profileButton" class="ehTildeOff">Profil <br>{{ current_user.profile_score }}% </div>
+      </div>
+      <div class="col-4 ">
+        <div id="plateformButton" class="ehTildeOff">Plateformes <br>{{ current_user.plateform_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id= "searchButton" class="ehTildeOff">Recherches <br>{{ search_list|length}} / {{current_user.searchs_max }} </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contents1 -->
+  <div class="ehContents">
+    <div class="row">
+
+      <!-- PROFILE CONTENT -->
+      <div id="profileContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+<!--             <thead>
+              <tr class="row">
+                <th class="col-2" >Champ</th>
+                <th class="col-7" >Valeurs</th>
+                <th class="col-1" >Score</th>
+                <th class="col-2" > </th>
+              </tr>
+            </thead> -->
+            <tbody>
+              <tr>
+                <td class="ehData" scope="row"><strong id="">CVs</strong> </td>
+                <td class="ehData"> {{ current_user.resume_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.resume_fields %}{{k}} : {{v if v else '-'}}  ;  {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehData" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='resume') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.manage_user', opt='resume') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ehData" scope="row"><strong id="expectationHead">Attentes</strong> </td>
+                <td class="ehData"> {{ current_user.expectation_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.expectation_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='expectation') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_expectation') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ehData" scope="row"><strong id="identificationHead">Identité</strong> </td>
+                <td class="ehData"> {{ current_user.identification_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.identification_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='identification') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_identification') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ehData" scope="row"><strong id="localisationHead">Localisation</strong> </td>
+                <td class="ehData"> {{ current_user.localisation_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.localisation_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='localisation') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_localisation') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ehData" scope="row"><strong id="diplomaHead">Formation</strong> </td>
+                <td class="ehData"> {{ current_user.diploma_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.diploma_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='diploma') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_diploma') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+             <tr>
+                <td class="ehData" scope="row"><strong id="work_experienceHead">Exp. <br> Professionnelle</strong> </td>
+                <td class="ehData"> {{ current_user.work_experience_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.work_experience_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='work_experience') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_work_experience') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+             <tr>
+                <td class="ehData" scope="row"><strong id="work_statusHead">Status</strong> </td>
+                <td class="ehData"> {{ current_user.work_status_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.work_status_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='work_status') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_work_status') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+             <tr>
+                <td class="ehData" scope="row"><strong id="languageHead">Langues</strong> </td>
+                <td class="ehData"> {{ current_user.language_score}}%</td>
+                <td class="ehData HIDE400">{% for k, v in current_user.language_fields %}{{k}} : {{v if v else '-'}}    ;   {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Action
+                    </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('users.manage_user', opt='language') }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('users.update_language') }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="form-group">
+            <a href="{{ url_for('users.manage_user', user_id=current_user.id) }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px">Gérer mon profil </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLATEFORM content -->
+      <div id="plateformContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              {% for plateform in plate_list %}
+              <tr>
+                <td class="ehData" scope="row"><strong>{{plateform.__name__}}</strong> </td>
+                {% set conn = plateform.connexion%}
+                {% set coloR = "success" if  conn =="On" else "danger" %}
+                <td class="ehData"><span class="btn btn-{{ coloR }} ehButton" style="color: white">{{ conn }}</span></td>
+                <td class="ehData HIDE600" style="display: block; "> {% for k, v in plateform.fields %} {{k}}: {{v if v else '-'}} ;  {% endfor %}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{ url_for('plateforms.manage_plateforms', opt=plateform.__name__) }}">Voir détail</a>
+                      <a class="dropdown-item" href=""> ! Tester</a>
+                      <a class="dropdown-item" href="{{ url_for('plateforms.update_plateform', plateform=plateform.__name__) }}">Modifier</a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="row">
+            <div class="col form-group">
+              <a href="" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> ! Tester mes plateformes </a>
+            </div>
+            <div class="col form-group">
+              <a href="{{ url_for('plateforms.manage_plateforms') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px">Gérer mes plateformes </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="searchContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              {% for search in search_list %}
+              <tr>
+                <td class="ehData" scope="row"><strong>{{ search.name }}</strong> </td>
+                {% if search.mob == "Ville" %}
+                 <td class="ehData">{{ search.town }}</td>
+                {% elif search.mob == "Département" %}
+                 <td class="ehData">{{ search.departement }}</td>
+                 {% elif search.mob == "Région" %}
+                 <td class="ehData">{{ search.region }}</td>
+                 {% elif search.mob == "Pays" %}
+                 <td class="ehData">{{ search.country }}</td>
+                 {% else  %}
+                 <td class="ehData"> - </td>
+                 {% endif %}
+                <td class="ehData">{{ search.key_words }}</td>
+
+                <td class="ehData HIDE600"> {% for k,v in search.search_fields %}{{k}} : {{v if v else '-'}} ; {% endfor %}</td>
+                <td class="ehData"> {{ search.candidatures_count }} / {{ search.opportunities_count }}</td>
+                <td>
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "{{ url_for('searchs.visualize_search', search_id=search.id) }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{url_for('searchs.manage_search', search_id=search.id)}}">Modifier</a>
+                            <a class="dropdown-item" href="{{url_for('searchs.delete_search', search_id=search.id)}}">Supprimer</a>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="row" style="margin: 100px 0px 20px 0px;">
+            <div class="col form-group">
+            <a href="" class="btn btn-outline-secondary ehButton" style="width: 100% ; padding: 20px 0px">! Mettre à jour mes recherches </a>
+          </div>
+          <div class="col form-group">
+            <a href="{{ url_for('searchs.visualize_searchs', src='main.edhunt') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">Gérer mes recherches </a>
+          </div>
+        </div>
+        <div class="row" style="margin: 20px 0px 100px 0px;">
+          <div class="col form-group">
+            <a href="{{ url_for('searchs.create_search') }}" class="btn btn-outline-info ehButton" style="width: 100% ;  padding: 20px 0px">Ajouter une recherche </a>
+          </div>
+        </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- tildes 2 -->
+  <div class="ehTildes">
+    <div class="row">
+      <div class="col">
+        <div id="opportunityButton" class="ehTildeOff">Opportunités <br>{{current_user.opportunities_count }} / {{current_user.opportunities_max }}</div>
+      </div>
+      <div class="col">
+        <div id= "candidatureButton" class="ehTildeOff">Candidatures <br>{{ current_user.candidatures_count }} / {{current_user.candidatures_max }} </div>
+      </div>
+      <div class="col">
+        <div id="pisteButton" class="ehTildeOff">Pistes <br>{{ "0" }} / {{current_user.pistes_max }}</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- contents2 -->
+  <div class="ehContents">
+    <div class="row">
+
+      <!-- OPPORTUNITY CONTENT -->
+      <div id="opportunityContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table" id="testDataTable">
+            <tbody>
+              {% for opp in opp_list[:10] %}
+              <tr>
+                <td class="ehData" scope="row">{{ opp.company|truncate(20, True) }} - </td>
+                <td class="ehData">{{ opp.job|truncate(30, True) }}</td>
+                <td class="ehData HIDE400">{{ opp.loc }}</td>
+                <td class="ehData"></td>
+                <td class="ehData HIDE400">{{ "Non" if not opp.send else "Oui" }}</td>
+                <td class="ehData">
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "">Voir détail</a>
+                      <span class="dropdown-item" >Postuler</span >
+                      <a class="dropdown-item" href="">Supprimer</a>
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+              {% endfor%}
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="form-group">
+            <a href="{{ url_for('opportunities.visualize_opportunities') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px">Gérer mes opportunités </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CANDIDATURE CONTENT -->
+      <div id="candidatureContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              {% for opp in opp_list[:10] %}
+              {% if opp.send %}
+              <tr>
+                <td class="ehData" scope="row" >{{ opp.company }}</td>
+                <td class="ehData">{{ opp.job }}</td>
+                <td class="ehData HIDE400">{{ "Non" if not opp.send else "Oui" }}</td>
+                <td class="ehData HIDE400">{{ opp.loc }}</td>
+                <td class="ehData">
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href= "">Voir détail</a>
+                      <a class="dropdown-item" href= "">Postuler</a>
+                      <a class="dropdown-item" href="">Supprimer</a>
+                      </div>
+                    </div>
+                  </td>
+              </tr>
+              {% endif %}
+              {% endfor%}
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="form-group">
+            <a href="{{ url_for('opportunities.visualize_opportunities') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px">Gérer mes candidatures </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PISTES CONTENT -->
+      <div id="pisteContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td scope="row" class="ehData">Cette option ne sera disponbile qu'en Sept. 2019 ! </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Nav -->
+        <legend class="border-bottom mb-4"></legend>
+        <div class="text-center">
+          <div class="form-group">
+            <a class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px">Gérer mes pistes </a>
+          </div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</div>
+
+{% endblock content %}
+

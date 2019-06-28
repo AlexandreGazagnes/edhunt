@@ -1,0 +1,131 @@
+{% extends "main/questionnaire_parent.html" %}
+{% block fieldset %}
+
+
+<!-- freeHunt -->
+<div id="ehFreeHuntContent">
+  <div class="ehH2" style="text-align: left;">Je souhaite que edhunt . . .</div>
+  {% for i in  ['1', '2', '3']%}
+  <div class="form-group">
+    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
+    {% if form["feat_"+i].errors %}
+      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
+      <div class="invalid-feedback">
+      {% for error in form["feat_"+i].errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+    {% else %}
+      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
+    {% endif %}
+  </div>
+  {% endfor %}
+  <p></p>
+  <div class="ehInscriptionSmall" style="background-color: white" id="ehSmartHuntButton">edhunt peut en faire plus
+  </div>
+<p></p>
+</div>
+
+<!-- smarteHunt -->
+<div id="ehSmartHuntContent" style="display: none">
+  <div class="ehH2">Je souhaite que edhunt</div>
+
+  {% for i in  [ '4', '5', "6"]%}
+
+  <div class="form-group">
+    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
+    {% if form["feat_"+i].errors %}
+      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
+      <div class="invalid-feedback">
+      {% for error in form["feat_"+i].errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+    {% else %}
+      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <div class="ehInscriptionSmall" style="background-color: white " id="ehBigHuntButton">
+      edhunt peut en faire plus
+  </div>
+  <p></p>
+</div>
+
+<!-- bigeHunt -->
+<div id="ehBigHuntContent" style="display: none">
+  <div class="ehH2">Je souhaite que edhunt</div>
+
+  {% for i in  ["7", '8', "9"]%}
+
+  <div class="form-group">
+    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
+    {% if form["feat_"+i].errors %}
+      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
+      <div class="invalid-feedback">
+      {% for error in form["feat_"+i].errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+    {% else %}
+      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
+    {% endif %}
+  </div>
+  {% endfor %}
+  <p></p>
+  <div class="ehInscriptionSmall" style="background-color: white " id="ehProHuntButton">
+      edhunt peut en faire plus
+  </div>
+  <p></p>
+</div>
+
+<!-- bigeHunt -->
+<div id="ehProHuntContent" style="display: none">
+  <div class="ehH2">Je souhaite que edhunt</div>
+
+  {% for i in  ["10", "11", "12", "13", "14"]%}
+
+  <div class="form-group">
+    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
+    {% if form["feat_"+i].errors %}
+      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
+      <div class="invalid-feedback">
+      {% for error in form["feat_"+i].errors %}
+        <span>{{ error }}</span>
+      {% endfor %}
+      </div>
+    {% else %}
+      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+
+{% block stars%}
+<div class="ehStars">
+  <div class="row" style="background-color: white">
+    <div class="col-sm-12" style="background-color: white">
+      <div class='ehWhiteBox' style="background-color: white"></div>
+    </div>
+  </div>
+<div class="row">
+  <div class="col">
+    <div id="starsOne" style="display:none"><p>* Vous fixez vous même le seuil minimal à partir duquel edhunt candidate pour vous. En dessous de ce seuil, edhunt vous laisse la main.</p></div>
+    <div id="starsTwo" style="display:none"><p>** Une adresse prenom.nom@edhunt.fr sera créée et vous sera attribuée. Elle sera accessible depuis votre espace edhunt ou directement depuis votre  messagerie quotidienne (gmail, outlook, yahoo...).</p></div>
+    <div id="starsThree" style="display:none"><p>*** Sous condition disponibilité de nos consultants et d'acceptation de votre profil par l'équipe edhunt</p></div>
+  </div>
+</div>
+  <div class="row" style="background-color: white">
+    <div class="col-sm-12" style="background-color: white">
+      <div class='ehWhiteBox' style="background-color: white"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock stars%}
+
+
+
+{% endblock fieldset %}

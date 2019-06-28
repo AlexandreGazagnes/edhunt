@@ -1,0 +1,20 @@
+@media (min-width: 100px) {
+    .myTableData{font-size: 0.4rem;} }
+
+@media (min-width: 300px) {
+    .myTableData{font-size: 0.5rem;} }
+
+@media (min-width: 576px) {
+    .myTableData{font-size: 0.6rem;} }
+
+@media (min-width: 768px) {
+    .myTableData{font-size: 0.7rem;} }
+
+@media (min-width: 992px) {
+    .myTableData{font-size: 1rem;} }
+
+.myButtonLarge{
+    width: 100% ;
+    margin: 50px 0px ;
+    padding: 20px 0px;    }
+

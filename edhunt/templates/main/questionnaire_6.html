@@ -1,0 +1,54 @@
+{% extends "main/questionnaire_parent.html" %}
+{% block fieldset %}
+
+
+
+<legend class="border-bottom mb-4 ehLegend"><br>Afin de valider votre inscription un consultant edhunt va vous rappeller d'ici 24h pour un échange téléphonique d'une dizaine de minutes.</legend>
+
+<!-- email -->
+<div class="form-group">
+  {{ form.email.label(class="form-control-label ehLabel") }}
+  {% if form.email.errors %}
+    {{ form.email(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.email.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.email(class="form-control form-control-lg ehInput") }}
+  {% endif %}
+</div>
+
+<!-- phone -->
+<div class="form-group">
+  {{ form.phone.label(class="form-control-label ehLabel") }}
+  {% if form.phone.errors %}
+    {{ form.phone(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.phone.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.phone(class="form-control form-control-lg ehInput") }}
+  {% endif %}
+</div>
+
+<!-- hour -->
+<div class="form-group">
+  {{ form.hour.label(class="form-control-label ehLabel") }}
+  {% if form.hour.errors %}
+    {{ form.hour(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.hour.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.hour(class="form-control form-control-lg ehInput") }}
+  {% endif %}
+</div>
+
+
+{% endblock fieldset %}

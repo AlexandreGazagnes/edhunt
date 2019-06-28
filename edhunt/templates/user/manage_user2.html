@@ -1,0 +1,324 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<!-- imports -->
+<!-- ------------------------------------------- -->
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user/manage_user2.css') }}">
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/user/manage_user2.js') }}" type="text/javascript"></script>
+
+
+<!-- Inner NAV -->
+<span id="ehNav" style="display: none;">{{nav['opt']}}</span>
+
+
+<!-- content section -->
+<!-- ------------------------------------------- -->
+<div class="content-section">
+
+
+<!-- ehHeader -->
+<!-- --------------------- -->
+<div class="ehHeader">
+
+  <!-- Title -->
+  <h1 class="account - heading">Mon profil </h1>
+  <!-- Sub Title -->
+  <h2>Mon profil est complet à <strong>{{current_user.profile_score }}%</strong></h2>
+  <!-- Head-->
+  <div class="article-content" style="margin: 20px; text-align: justify;">{{ text.page.head }}</div>
+  <!-- Nav -->
+  <div class="text-right form-group">
+    <a class="btn btn-outline-secondary ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+</div>
+
+<!-- fields -->
+{% set my_fields = [("account", 'users.update_user'),
+                    ('expectation', 'users.update_expectation'),
+                    ('identification', 'users.update_identification'),
+                    ('localisation', 'users.update_localisation'),
+                    ('diploma', 'users.update_diploma'),
+                    ('work_experience', 'users.update_work_experience'),
+                    ('work_status', 'users.update_work_status'),
+                    ('language', 'users.update_language')  ]  %}
+
+
+<!-- ehBody -->
+<!-- --------------------- -->
+<div class="ehBody">
+<legend class="border-bottom mb-4"></legend>
+
+  <!-- tildes 1 -->
+  <div class="ehTildes">
+    <div class="row">
+      <div class="col-4 ">
+        <div id="resumeButton" class="ehTildeOff">CVs <br>{{ current_user.resume_score }}% </div>
+      </div>
+      <div class="col-4 ">
+        <div id="expectationButton" class="ehTildeOff">Attentes <br>{{ current_user.expectation_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id= "accountButton" class="ehTildeOff">Compte <br>{{ '100' }}%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- contents1 -->
+  <div class="ehContents">
+    <div class="row">
+      <div id="resumeContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+            {% for n, name, doc in resume_list%}
+              <tr>
+                <th class="ehData" scope="row">CV n°{{ n }}</th>
+                {% if name == "no resume" %}
+                  <td class="ehData"><a class="btn btn-outline-danger btn-off ehButton" style="color:red;">{{ 'Pas de CV' }}</a></td>
+                  <td class="ehData">        <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info ehButton">Ajouter</a></td>
+                {% else %}
+                  <td class="ehData"><a >{{ name }}</a></td>
+                <td class="ehData"><a href="{{ url_for('users.view_resume', filename=doc, n=n) }}" class="btn btn-outline-secondary ehButton">Voir</a></td>
+                <td class="ehData"> <a href="{{ url_for('users.update_resume', n=n) }}" class="btn btn-outline-info ehButton">Modifier</a></td>
+                {% endif %}
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="expectationContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['expectation'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_expectation') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+      <div id="accountContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['account'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_user') }}"  class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tildes 2-->
+  <div class="ehTildes">
+    <div class="row">
+      <div class="col-4 ">
+        <div id="identificationButton" class="ehTildeOff">Identité<br>{{ current_user.identification_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id="localisationButton" class="ehTildeOff">Localisation<br>{{ current_user.localisation_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id= "diplomaButton" class="ehTildeOff">Formation<br>{{ current_user.diploma_score }}%</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- content2 -->
+  <div class="ehContents">
+    <div class="row">
+      <div id="identificationContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['identification'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_identification') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+      <div id="localisationContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['localisation'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_localisation') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+      <div id="diplomaContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['diploma'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_diploma') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Tildes 3-->
+  <div class="ehTildes">
+    <div class="row">
+      <div class="col-4 ">
+        <div id="work_experienceButton" class="ehTildeOff">Experience<br>{{ current_user.work_experience_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id="work_statusButton" class="ehTildeOff">Statut<br>{{ current_user.localisation_score }}%</div>
+      </div>
+      <div class="col-4 ">
+        <div id= "languageButton" class="ehTildeOff">Langues<br>{{ current_user.language_score }}%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- content3 -->
+  <div class="ehContents">
+    <div class="row">
+      <div id="work_experienceContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['work_experience'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_work_experience') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+      <div id="work_statusContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['work_status'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_work_status') }}" class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+      <div id="languageContent" class="col-12 ehTable" style="display: none">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <!-- body -->
+            <tbody>
+                {% for name, data in text['language'].table %}
+                <tr>
+                  <th class="ehData" scope = "row" > {{name}}</th>
+                  <td class="ehData"> {{data if data else '-'}} </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <!-- control -->
+        <div class="col form-group">
+          <a href="{{ url_for('users.update_language') }}"  class="btn btn-outline-secondary ehButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"> Modifier</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+<!-- </div> -->
+
+  <!-- Nav -->
+  <legend class="border-bottom mb-4"></legend>
+  <div class="text-right form-group" style="padding: 20px 0px;">
+    <a class="btn btn-outline-secondary ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+</div>
+
+{% endblock content %}
+
+
+

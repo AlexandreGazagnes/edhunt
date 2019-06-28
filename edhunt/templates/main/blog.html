@@ -1,0 +1,159 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/home2.js') }}" type="text/javascript"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home2.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/blog.css') }}">
+
+
+<div class="container-fluid">
+<div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
+
+<div class="ehResponsiveTopBox" style = "height: 0px;"></div>
+
+
+<!-- title -->
+{% block title %}
+<div class="ehTitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehH1">{{text.page.title}} </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock title %}
+
+<div class="border-bottom"></div>
+
+<!-- subtitle -->
+{% block subtitle %}
+<div class="ehSubtitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+    </div>
+    <div class="col-sm ehResponsiveSecondBox">
+    </div>
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock subtitle %}
+
+
+<div class="border-bottom"></div>
+
+
+
+<!-- blog -->
+{% block blog %}
+<div class="ehBlog">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+  {% for post in posts %}
+      <div class="col-md-6">
+      <a href="{{ url_for('main.post', post_id=post.id) }} ">
+      <article class="media content-section myContentBox" >
+        <div class="media-body">
+          <div class="article-metadata">
+            <small>écrit par </small>{{ post.author}} <small>le </small> {{post.created}}
+          </div>
+          <h2  class='ehLegend' style="padding: 20px">{{ post.title }}</h2>
+          <p class="article-content myContentText">{{ post.header }}...</p>
+        </div>
+      </article>
+      </a>
+      </div>
+  {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock blog %}
+
+
+<div class="border-bottom"></div>
+
+
+{% block sep %}
+  <!-- sep -->
+<div class="sep">
+  <div class="row">
+    <div class="col-sm">
+      <div id="avatar" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="static/images/main/avatar.png" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock sep %}
+
+
+<div class="border-bottom"></div>
+
+
+  <!-- foot -->
+{% block foot %}
+<div class="foot">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="border-bottom"></div>
+  <div class="row ">
+    {% for ref, name in [ ('main.apropos', 'A propos'),
+                          ('main.loffre', 'L\'offre'),
+                          ('main.blog', 'Blog'),
+                          ('main.faq', 'FAQ'),
+                          ('main.contact', 'Contact'), ] %}
+    <div class="col-sm">
+      <a href="{{ url_for(ref) }}">
+        <div class="ehTextBoxFoot">
+          {{ name }}
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+{% endblock foot %}
+
+
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

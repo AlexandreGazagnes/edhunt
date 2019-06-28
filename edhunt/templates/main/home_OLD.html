@@ -1,0 +1,486 @@
+{% extends "main/home_parent.html" %}
+
+
+  <!--  Bienvenue-->
+{% block title %}
+<div class="row">
+  <div class="col-sm">
+    <div class="ehH1">{{text.page.title}}</div>
+    <div class="ehH2">l'assistant 100% dédié à votre recherche d'emploi</div>
+  </div>
+  <div class="col-sm text-center">
+      <img class='ehHIm' src="static/images/logos/logo_edhunt.png">
+  </div>
+</div>
+{% endblock title %}
+
+
+<!-- second -->
+{% block second_laptop %}
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBoxTop">
+    {{text.page.head[0]}}
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBoxTop">
+    {{text.page.head[1]}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+<div class="border-bottom"></div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+{% endblock second_laptop %}
+
+
+<!-- second -->
+{% block second_mobile %}
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBoxTop">
+        {{text.page.head[0]}}
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBoxTop">
+        {{text.page.head[1]}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+{% endblock second_mobile %}
+
+
+
+<!-- third -->
+{% block third %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm ">
+    <div class="ehTextBoxBottom">
+        {{text.text_box_1.items[0]}}
+  </div>
+  </div>
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/53_2.jpg">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/57_2.jpg" style="max-width: 501px">
+  </div>
+  <div class="col-sm ">
+    <div class="ehTextBoxBottom">
+        {{text.text_box_1.items[1]}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm ">
+    <div class="ehTextBoxBottom">
+        {{text.text_box_1.items[2]}}
+    </div>
+  </div>
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/5_2.jpg">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_13.jpg" style="max-width: 501px">
+  </div>
+  <div class="col-sm ">
+    <div class="ehTextBoxBottom">
+        {{text.text_box_1.items[3]}}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+
+{% endblock third %}
+
+
+<!-- statut -->
+{% block status %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBox3" id="rechercheButton" style="margin:10px 0px;">
+      En recherche ? <br> - <br>Vous souhaitez ...
+    </div>
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBox3" id="ecouteButton" style="margin:10px 0px;">
+      A l'écoute ? <br> - <br>Vous souhaitez ...
+    </div>
+   </div>
+</div>
+<div class="row" id="defaultContent">
+  <div class="col-sm" style="padding:20px 15px;">
+    <div class="ehTextBoxBottom" style="border : 1px solid var(--myBrown);">
+        ... faciliter considérablement <br>
+        votre recherche ou <br>
+        votre veille d'emploi, <br>
+        centraliser toutes vos démarches,<br>
+        tout en automatisant les taches pénibles, <br>
+        longues ou répétitves <br>
+        -<br>
+        edhunt vous permet de le faire, <br>
+        rapidement,<br>
+        simplement et <br>
+        depuis une seule plateforme.
+    </div>
+  </div>
+</div>
+<div class="row" id="rechercheContent" style="display: none ">
+  <div class="col-sm" style="padding:20px 15px;">
+    <div class="ehTextBoxBottom" style="border : 1px solid var(--myBrown);">
+        ... vous assurer une visibilité maximale,<br>
+        multiplier les candidatures sans vous<br>
+        perdre sur les multiples plateformes et  <br>
+        pouvoir suivre vos différentes pistes.<br>
+        Tout cela, si possible,<br>
+        sans polluer votre boite mail. <br>
+        -<br>
+        edhunt vous permet de le faire, <br>
+        rapidement,<br>
+        simplement et <br>
+        depuis une seule plateforme.
+    </div>
+  </div>
+</div>
+<div class="row" id="ecouteContent" style="display:none">
+  <div class="col-sm" style="padding:20px 15px;">
+    <div class="ehTextBoxBottom" style="border : 1px solid var(--myBrown);">
+      ... sentir le marché discrètement, <br>
+      pouvoir candidater si nécessaire sur les <br>
+      quelques offres vraiment intéressantes pour vous.  <br>
+      Le tout sans mettre votre CV en ligne  <br>
+      ni vous faire harceler pour  <br>
+      des postes non pertinents.  <br>
+      -  <br>
+      edhunt vous permet de le faire,  <br>
+      rapidement,  <br>
+      simplement et  <br>
+      depuis une seule plateforme.
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+{% endblock status %}
+
+
+<!-- insciption -->
+<!-- {% block inscription %}
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+{% endblock inscription %} -->
+
+
+<!-- aide -->
+{% block aide %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBox4" style="margin: 20px 0px;  min-height: 142px; color: var(--myWhite);
+          background-color: var(--myBrown);
+          border: 1px solid var(--myBrown);
+          border-radius: 20px">
+          {{ text.aide.items[0] }}
+    </div>
+  </div>
+  <div class="col-sm">
+<!--     <div class="ehTextBox4">
+    </div> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+<!--     <div class="ehTextBox4">
+    </div> -->
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBox4" style="margin: 20px 0px;  min-height: 142px; color: var(--myWhite);
+          background-color: var(--myBrown);
+          border: 1px solid var(--myBrown);
+          border-radius: 20px">
+        {{ text.aide.items[1] }}
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBox4" style="margin: 20px 0px;  min-height: 142px; color: var(--myWhite);
+          background-color: var(--myBrown);
+          border: 1px solid var(--myBrown);
+          border-radius: 20px">
+        {{ text.aide.items[2] }}
+    </div>
+  </div>
+  <div class="col-sm">
+<!--     <div class="ehTextBox4">
+    </div> -->
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+{% endblock aide %}
+
+
+
+
+
+
+
+<!-- features -->
+{% block features %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm ">
+    <div class=" ehTextBoxBottom">
+      edhunt vous permet <br>
+      de piloter <br>
+      toutes vos candidatures depuis <br>
+      une seule plateforme
+  </div>
+  </div>
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_60.jpg">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_45.jpg" style="max-width: 501px">
+  </div>
+  <div class="col-sm">
+    <div class="  ehTextBoxBottom">
+      edhunt vous permet <br>
+      de visualiser et <br>
+      de chercher simplement des offres <br>
+      d'emploi sur l'ensemble du web
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class=" ehTextBoxBottom">
+      edhunt vous permet <br>
+      d'envoyer l'ensemble de  <br>
+      vos candidatures <br>
+      en un seul clic
+    </div>
+  </div>
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_76.jpg">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+
+
+  <div class="border-bottom"></div>
+
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_6.jpg" style="max-width: 501px">
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBoxBottom">
+      edhunt identifie <br>
+      pour vous les  décisionnaires <br>
+      RH ou opérationnels pour une <br>
+      prise de contact rapide
+        </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class="ehTextBoxBottom">
+      edhunt évalue <br>
+      pour vous vos chances de <br>
+      succès sur les différentes postes <br>
+      qui vous intéressent<br>
+    </div>
+  </div>
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_84.jpg">
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm text-center swap576">
+    <img class= "ehIm" src="static/images/photos/resized/small_02.jpg" style="max-width: 501px">
+  </div>
+  <div class="col-sm">
+    <div class="ehTextBoxBottom">
+      edhunt créé pour vous <br>
+      tous les comptes necessaires <br>
+      à la diffusion de votre profil<br>
+      ou à l'envoi d'une candidature
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <a href="{{ url_for('users.register_user') }}">
+    <div class="ehInscriptionSmall">
+        s'inscrire
+    </div>
+  </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+{% endblock features %}
+
+
+
+  <!-- foot -->
+{% block foot %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="border-bottom"></div>
+<div class="row ">
+    {% for ref, name in [ ('main.apropos', 'A propos'),
+                          ('main.loffre', 'L\'offre'),
+                          ('main.blog', 'Blog'),
+                          ('main.faq', 'FAQ'),
+                          ('main.contact', 'Contact'), ] %}
+  <div class="col-sm">
+    <a href="{{ url_for(ref) }}">
+      <div class="ehTextBoxFoot">
+        {{ name }}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+<!-- <div class="border-bottom"></div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+ -->
+{% endblock foot %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

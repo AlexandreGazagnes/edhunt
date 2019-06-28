@@ -1,0 +1,119 @@
+{% extends "layout.html" %} {% block content %}
+
+
+<div class="content-section" style="padding: 20px">
+  <div class="media">
+    <div class="media-body">
+
+      <!-- head -->
+      <h1 class="account-heading"> Opportunité : {{ opp.company }} - {{ opp.job }}
+        <small> depuis {{ opp.plateform }}</small>
+      </h1>
+      <h2> Cette opportunité est précise à
+        <strong> 15 % </strong>
+      </h2>
+      <div class="article-content" style="margin: 20px; text-align: justify;">
+                Vous pourez visualiser l'ensemble des informations essentielles concernant cette offre, enfin, celle que edhunt aura pu recueillir!
+            </div>
+
+      <legend class="border-bottom mb-4"> Essentiel </legend>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+          <div class="article-content">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="row"> Entreprise </th>
+                    <td> {{opp.company if opp.company else "-"}} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Poste </th>
+                    <td> {{opp.job if opp.job else "-"}} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Plateforme </th>
+                    <td> {{opp.plateform if opp.plateform else "-" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Localisation </th>
+                    <td> {{opp.loc if opp.loc else "-" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Recherche </th>
+                    <td> {{opp.search_name if opp.search_name else "-" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Créée </th>
+                    <td> {{opp.created if opp.created else "-" }} </td>
+                  </tr>
+                  <tr>
+                    <th scope="row"> Statut </th>
+                    <td> {{opp.applied if opp.applied else "-" }} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <legend class="border-bottom mb-4"> Corps de l'annonce </legend>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+          <div class="article-content">
+            <div class="table-responsive">
+              <table class="table">
+                <tbody>
+                  <tr>
+                    <th scope="row"> Corps </th>
+                    <td> {{opp.text if opp.text else "-"}} </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- candidate -->
+      <div class="text-center">
+        <div class="form-group">
+          <a class="btn btn-outline-info myButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px" href="">Postuler</a>
+        </div>
+      </div>
+
+      <!-- controls -->
+      <div class="text-right">
+        <div class="form-group">
+          <a class="btn btn-outline-danger myButton" href="{{ url_for('opportunities.delete_opportunity', opp_id=opp.id) }}">Suppr.</a>
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('searchs.visualize_search', search_id=nav['search_id']) }}">Retour</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- pagination -->
+<div class="form-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-right">
+          {% if nav['opp_id_past'] %}
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('opportunities.visualize_opportunity', opp_id=nav['opp_id_past']) }}">Préc.</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-left">
+          {% if nav['opp_id_next'] %}
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('opportunities.visualize_opportunity', opp_id=nav['opp_id_next']) }}">Suiv.</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

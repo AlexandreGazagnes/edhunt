@@ -1,0 +1,191 @@
+/*media*/
+
+@media (min-width: 100px) {
+    .ehButton{
+        font-size: 0.7rem;
+        width: 60px;
+        padding: 6px 2px}
+    .content-section{
+        padding: 2px;}
+    .ehContents{padding: 3px 0px}
+    .ehTable{padding: 5px 2px 10px 2px}
+    .ehTildeOn{
+        font-size: 0.7rem;
+        padding: 10px -20px;
+        margin: 1px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 0.7rem;
+        padding: 10px -20px;
+        margin: 1px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehData{
+        font-size: 0.6rem;}    }
+
+@media (min-width: 300px) {
+    .ehButton{
+        font-size: 0.8rem;
+        width: 70px;
+        padding: 6px 2px}
+    .content-section{
+        padding: 5px;}
+    .ehContents{padding: 5px 0px}
+    .ehTable{padding: 10px 5px 20px 5px}
+    .ehTildeOn{
+        font-size: 0.8rem;
+        padding: 10px 0px;
+        margin: 3px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 0.8rem;
+        padding: 10px 0px;
+        margin: 1px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehData{
+        font-size: 0.7rem;}    }
+
+@media (min-width: 400px) {
+    .ehButton{
+        font-size: 1rem;
+        width: 80px;
+        padding: 6px 5px}
+    .content-section{
+        padding: 8px;}
+    .ehContents{padding: 10px 0px}
+    .ehTable{padding: 30px 10px 60px 10px}
+    .ehTildeOn{
+        font-size: 1rem;
+        padding: 30px 0px;
+        margin: 3px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 1rem;
+        padding: 30px 0px;
+        margin: 3px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehData{
+        font-size: 0.8rem;}    }
+
+@media (min-width: 576px) {
+    .ehButton{
+        font-size: 1rem;
+        width: 101px;
+        padding: 6px 12px}
+    .content-section{
+        padding: 10px;}
+    .ehContents{padding: 15px 0px}
+    .ehTable{padding: 50px 20px 100px 20px}
+    .ehTildeOn{
+        font-size: 1.4rem;
+        padding: 40px 0px;
+        margin: 5px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 1.4rem;
+        padding: 40px 0px;
+        margin: 4px;
+        border-radius: 25% 10%;
+/*                height: 200px;*/
+/*                width:250px;*/ }
+    .ehData{
+        font-size: 0.9rem;}    }
+
+@media (min-width: 768px) {
+    .content-section{
+        padding: 20px;}
+    .ehContents{padding: 20px 0px}
+    .ehTildeOn{
+        font-size: 1.5rem;
+        padding: 50px 0px;
+        margin: 5px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 1.5rem;
+        padding: 50px 0px;
+        margin: 5px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehData{
+        font-size: 1rem;}    }
+
+@media (min-width: 992px) {
+    .content-section{
+        padding: 20px;}
+    .ehTildeOn{
+        font-size: 1.6rem;
+        padding: 80px 0px;
+        margin: 10px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehTildeOff{
+        font-size: 1.6rem;
+        padding: 80px 0px;
+        margin: 10px;
+        border-radius: 25% 10%;
+/*      height: 200px;*/
+/*      width:250px;*/ }
+    .ehData{
+        font-size: 1rem;}    }
+
+@media (min-width: 1280px) {
+    .content-section{
+        padding: 20px;}
+    .ehTildeOn{
+        font-size: 1.7rem;
+        padding: 100px 0px;
+        margin: 10px;
+        border-radius: 25% 10%;
+/*      height: 250px;*/
+/*      width:300px;*/ }
+    .ehTildeOff{
+        font-size: 1.7rem;
+        padding: 100px 0px;
+        margin: 10px;
+        border-radius: 25% 10%;
+/*      height: 250px;*/
+/*     width:300px;*/ }
+    .ehData{
+        font-size: 1rem;}    }
+
+
+/*classes*/
+
+.ehTildeOn{
+    text-align:center;
+    vertical-align: center;
+    border:1px solid var(--myBlue);
+/*  font-family: champagne;*/
+    background-color:white;
+    color:var(--myBlue); }
+
+.ehTildeOff{
+    text-align:center;
+    vertical-align: center;
+    border:1px solid var(--myBlue);
+/*  font-family: champagne;*/
+    background-color:var(--myBlue);
+    color:white;  }
+
+.ehData{
+    color:black;     }
+
+.ehControl{
+    margin: 0px 20px 20px; }

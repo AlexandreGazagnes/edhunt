@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ 'Identité' }}</legend>
+
+                <!-- firstname -->
+                <div class="form-group">
+                    {{ form.firstname.label(class="form-control-label") }}
+                    {% if form.firstname.errors %}
+                        {{ form.firstname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.firstname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.firstname(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- lastname -->
+                <div class="form-group">
+                    {{ form.lastname.label(class="form-control-label") }}
+                    {% if form.lastname.errors %}
+                        {{ form.lastname(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.lastname.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.lastname(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- birthdate -->
+                <div class="form-group">
+                    {{ form.birthdate.label(class="form-control-label") }}
+                    {% if form.birthdate.errors %}
+                        {{ form.birthdate(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.birthdate.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.birthdate(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- sex -->
+                <div class="form-group">
+                    {{ form.sex.label(class="form-control-label") }}
+                    {% if form.sex.errors %}
+                        {{ form.sex(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sex.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.sex(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- nationality -->
+                <div class="form-group">
+                    {{ form.nationality.label(class="form-control-label") }}
+                    {% if form.nationality.errors %}
+                        {{ form.nationality(list="country_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.nationality.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.nationality(list="country_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- birth_country -->
+                <div class="form-group">
+                    {{ form.birth_country.label(class="form-control-label") }}
+                    {% if form.birth_country.errors %}
+                        {{ form.birth_country(list='country_datalist', class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.birth_country.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.birth_country(list="country_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- birth_zip_code -->
+                <div class="form-group">
+                    {{ form.birth_zip_code.label(class="form-control-label") }}
+                    {% if form.birth_zip_code.errors %}
+                        {{ form.birth_zip_code(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.birth_zip_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.birth_zip_code(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- birth_town -->
+                <div class="form-group">
+                    {{ form.birth_town.label(class="form-control-label") }}
+                    {% if form.birth_town.errors %}
+                        {{ form.birth_town(list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.birth_town.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.birth_town(list="town_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- datalist -->
+    <datalist id="country_datalist">
+    {% for entry in country_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="town_datalist">
+    {% for entry in town_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+{% endblock content %}

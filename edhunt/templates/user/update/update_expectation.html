@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ title }}</legend>
+
+                <!-- employed -->
+                <div class="form-group">
+                    {{ form.employed.label(class="form-control-label") }}
+                    {% if form.employed.errors %}
+                        {{ form.employed(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.employed.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.employed(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- sub employed -->
+                <div class="form-group">
+                    {{ form.sub_employed.label(class="form-control-label") }}
+                    {% if form.sub_employed.errors %}
+                        {{ form.sub_employed(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.sub_employed.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.sub_employed(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- search -->
+                <div class="form-group">
+                    {{ form.search.label(class="form-control-label") }}
+                    {% if form.search.errors %}
+                        {{ form.search(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.search.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.search(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- order -->
+                <div class="form-group">
+                    {{ form.order.label(class="form-control-label") }}
+                    {% if form.order.errors %}
+                        {{ form.order(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.order.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.order(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.automation.label(class="form-control-label") }}
+                    {% if form.automation.errors %}
+                        {{ form.automation(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.automation.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.automation(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <!-- submit -->
+             <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

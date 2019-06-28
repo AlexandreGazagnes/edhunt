@@ -1,0 +1,46 @@
+/*media*/
+
+@media (min-width: 100px) {
+  .myContentBox {padding: 2px}
+  .myContentText{ padding: 0px 3px; font-size: 0.6rem;}   }
+
+@media (min-width: 300px) {
+  .myContentBox {padding: 5px}
+  .myContentText{ padding: 0px 5px; font-size: 0.8rem;}   }
+
+@media (min-width: 576px) {
+  .myContentBox {padding: 10px}
+  .myContentText{ padding: 0px 10px; ; font-size: 0.9rem;} }
+
+@media (min-width: 768px) {
+  .myContentBox {padding: 15px}
+  .myContentText{ padding: 0px 20px}   }
+
+@media (min-width: 992px) {
+  .myContentBox {padding: 20px}
+  .myContentText{ padding: 0px 30px}   }
+
+@media (min-width: 1280px) {
+  .myContentBox {padding: 20px}
+  .myContentText{ padding: 0px 40px} }
+
+
+.myContentText{
+  text-align: justify;
+}
+
+
+
+
+a:hover{
+  text-decoration: none;
+  color: black;
+}
+
+
+a{
+  text-decoration: none;
+    color: black;
+
+}
+

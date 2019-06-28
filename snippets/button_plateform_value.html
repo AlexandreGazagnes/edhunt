@@ -1,0 +1,21 @@
+                  <!-- Normal -->
+                  {% for jb, data, url in jb_list %}
+                    <tr>
+                      <th scope="row">{{jb}}</th>
+                      <td>{{ data }}</td>
+                      <td><a href="{{ url }}" class="btn btn-outline-info">update</a></td>
+                    </tr>
+                  {% endfor %}
+
+                  <!-- Fancy -->
+                  <tr>
+                    <th scope="row">regionjob</th>
+                    {% if current_user.regionjob == "off" %}
+                      <td><a class="btn btn-outline-danger btn-off">{{ current_user.regionjob}}</a></td>
+                    {% elif current_user.regionjob == "on" %}
+                      <td><a class="btn btn-outline-success btn-on">{{ current_user.regionjob}}</a></td>
+                    {% elif current_user.regionjob == "not available" %}
+                      <td><a class="btn btn-outline-warning not-available">{{ current_user.regionjob}}</a></td>
+                    {% endif %}
+                    <td><a href="{{ url_for('update_plateform', plateform='apec') }}" class="btn btn-outline-info">update</a></td>
+                  </tr>

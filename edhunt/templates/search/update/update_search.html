@@ -1,0 +1,397 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section" style="padding: 20px">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Update search</legend>
+
+      <!-- name -->
+      <div class="form-group">
+        {{ form.name.label(class="form-control-label") }}
+        {% if form.name.errors %}
+          {{ form.name(class="form-control form-control-lg is-invalid") }}
+          <div class="invalid-feedback">
+          {% for error in form.name.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+        {% else %}
+          {{ form.name(class="form-control form-control-lg") }}
+        {% endif %}
+      </div>
+
+      <!-- mob -->
+      <div class="form-group">
+        {{ form.mob.label(class="form-control-label") }}
+        {% if form.mob.errors %}
+          {{ form.mob(title=form.mob.description,
+          class="form-control form-control-lg is-invalid", onmouseover="swapMobDisplay()", onchange="swapMobDisplay()") }}
+          <div class="invalid-feedback">
+          {% for error in form.mob.errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+        {% else %}
+          {{ form.mob(title=form.mob.description,
+          class="form-control form-control-lg", onmouseover="swapMobDisplay()", onchange="swapMobDisplay()") }}
+        {% endif %}
+      </div>
+
+      <!-- country 1-->
+      <div id="countryBlock" class=mainField style="display:none;">
+        <div id="country1" class="form-group" style="display:block;" >
+          {{ form.country_1.label(class="form-control-label") }}
+          {% if form.country_1.errors %}
+              {{ form.country_1(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.country_1.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.country_1(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg") }}
+          {% endif %}
+          </div>
+          <div id="country2" class="form-group" style="display:none;" >
+          {{ form.country_2.label(class="form-control-label") }}
+          {% if form.country_2.errors %}
+              {{ form.country_2(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                  {% for error in form.country_2.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+          {% else %}
+              {{ form.country_2(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg") }}
+          {% endif %}
+          </div>
+              <div id="country3" class="form-group" style="display:none;" >
+              {{ form.country_3.label(class="form-control-label") }}
+              {% if form.country_3.errors %}
+                  {{ form.country_3(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.country_3.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.country_3(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg") }}
+              {% endif %}
+          </div>
+          <div id="country4" class="form-group" style="display:none;" >
+              {{ form.country_4.label(class="form-control-label") }}
+              {% if form.country_4.errors %}
+                  {{ form.country_4(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.country_4.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.country_4(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+              <div id="country5" class="form-group" style="display:none;" >
+              {{ form.country_5.label(class="form-control-label") }}
+              {% if form.country_5.errors %}
+                  {{ form.country_5(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                      {% for error in form.country_5.errors %}
+                          <span>{{ error }}</span>
+                      {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.country_5(onchange="swapCountryDisplay()", onblur="swapCountryDisplay()", list="country_datalist", class="form-control form-control-lg") }}
+              {% endif %}
+              </div>
+          </div>
+
+                <!-- region 1-->
+                <div id="regionBlock" class=mainField style="display:none;">
+                    <div id="region1" class="form-group" style="display:block;">
+                    {{ form.region_1.label(class="form-control-label") }}
+                    {% if form.region_1.errors %}
+                        {{ form.region_1( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.region_1.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.region_1( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                    </div>
+                <!-- region 2-->
+                    <div id="region2" class="form-group" style="display:none;" >
+                    {{ form.region_2.label(class="form-control-label") }}
+                    {% if form.region_2.errors %}
+                        {{ form.region_2( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.region_2.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.region_2( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                    </div>
+
+                <!-- region 3-->
+                    <div id="region3" class="form-group" style="display:none;" >
+                    {{ form.region_3.label(class="form-control-label") }}
+                    {% if form.region_3.errors %}
+                        {{ form.region_3( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.region_3.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.region_3( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                    </div>
+                <!-- region 4-->
+                    <div id="region4" class="form-group" style="display:none;" >
+                    {{ form.region_4.label(class="form-control-label") }}
+                    {% if form.region_4.errors %}
+                        {{ form.region_4( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.region_4.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.region_4( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                    </div>
+                <!-- region 5-->
+                    <div id="region5" class="form-group" style="display:none;" >
+                    {{ form.region_5.label(class="form-control-label") }}
+                    {% if form.region_5.errors %}
+                        {{ form.region_5( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.region_5.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.region_5( onchange="swapRegionDisplay()", onblur="swapRegionDisplay()",  list="region_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                    </div>
+                </div>
+
+                <!-- departement 1-->
+                <div id="departementBlock" class=mainField style="display:none;">
+                    <div id="departement1" class="form-group" style="display:block;">
+                        {{ form.departement_1.label(class="form-control-label") }}
+                        {% if form.departement_1.errors %}
+                            {{ form.departement_1(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.departement_1.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.departement_1(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                        </div>
+                <!-- departement 2-->
+                    <div id="departement2" class="form-group" style="display:none;">
+                        {{ form.departement_2.label(class="form-control-label") }}
+                        {% if form.departement_2.errors %}
+                            {{ form.departement_2(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.departement_2.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.departement_2(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                        </div>
+                <!-- departement 3-->
+                    <div id="departement3" class="form-group" style="display:none;">
+                        {{ form.departement_3.label(class="form-control-label") }}
+                        {% if form.departement_3.errors %}
+                            {{ form.departement_3(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.departement_3.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.departement_3(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                        </div>
+                <!-- departement 4-->
+                    <div id="departement4" class="form-group" style="display:none;">
+                        {{ form.departement_4.label(class="form-control-label") }}
+                        {% if form.departement_4.errors %}
+                            {{ form.departement_4(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.departement_4.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.departement_4(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                        </div>
+                <!-- departement 5-->
+                    <div id="departement5" class="form-group" style="display:none;">
+                        {{ form.departement_5.label(class="form-control-label") }}
+                        {% if form.departement_5.errors %}
+                            {{ form.departement_5(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.departement_5.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.departement_5(onchange="swapDepartementDisplay()", onblur="swapDepartementDisplay()", list="departement_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                        </div>
+                    </div>
+
+                <!--  town 1-->
+                <div id="townBlock" class=mainField style="display:none;">
+                    <div id="town1" class="form-group" style="display:block;" >
+                        {{ form.town_1.label(class="form-control-label") }}
+                        {% if form.town_1.errors %}
+                            {{ form.town_1(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.town_1.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.town_1(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <!-- town 2-->
+                    <div id="town2" class="form-group" style="display:none;" >
+                        {{ form.town_2.label(class="form-control-label") }}
+                        {% if form.town_2.errors %}
+                            {{ form.town_2(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.town_2.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.town_2(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <!-- town 3-->
+                    <div id="town3" class="form-group" style="display:none;" >
+                        {{ form.town_3.label(class="form-control-label") }}
+                        {% if form.town_3.errors %}
+                            {{ form.town_3(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.town_3.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.town_3(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <!-- town 4-->
+                    <div id="town4" class="form-group" style="display:none;" >
+                        {{ form.town_4.label(class="form-control-label") }}
+                        {% if form.town_4.errors %}
+                            {{ form.town_4(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.town_4.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.town_4(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                <!-- town 5-->
+                    <div id="town5" class="form-group" style="display:none;" >
+                        {{ form.town_5.label(class="form-control-label") }}
+                        {% if form.town_5.errors %}
+                            {{ form.town_5(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.town_5.errors %}
+                                    <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            {{ form.town_5(onchange="swapTownDisplay()", onblur="swapTownDisplay()", list="town_datalist", class="form-control form-control-lg") }}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- key_words -->
+                <div class="form-group">
+                    {{ form.key_words.label(class="form-control-label") }}
+                    {% if form.key_words.errors %}
+                        {{ form.key_words(title= form.key_words.description,
+                             class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.key_words.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.key_words(title= form.key_words.description,
+                             class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                        <a class="btn btn-outline-danger ehButton" href="{{ url_for('searchs.manage_search', search_id=search_id)}}">Annuler</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Supprimer cette recherche? <a class="ml-2" href="{{ url_for('searchs.delete_search', search_id=search_id) }}">Suppr.</a>
+        </small>
+    </div>
+
+    <!-- datalist -->
+    <datalist id="country_datalist">
+    {% for entry in country_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="town_datalist">
+    {% for entry in town_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="departement_datalist">
+    {% for entry in departement_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="region_datalist">
+    {% for entry in region_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+
+
+  <script src=" {{ url_for('static', filename='js/create_search.js') }}" type="text/javascript"></script>
+
+
+
+
+{% endblock content %}
+

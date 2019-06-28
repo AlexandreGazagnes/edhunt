@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section"  style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ title }}</legend>
+
+                <!-- town -->
+                <div class="form-group">
+                    {{ form.town.label(class="form-control-label") }}
+                    {% if form.town.errors %}
+                        {{ form.town(list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.town.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.town(list="town_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- zip code -->
+                <div class="form-group">
+                    {{ form.zip_code.label(class="form-control-label") }}
+                    {% if form.zip_code.errors %}
+                        {{ form.zip_code(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.zip_code.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.zip_code(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- country -->
+                <div class="form-group">
+                    {{ form.country.label(class="form-control-label") }}
+                    {% if form.country.errors %}
+                        {{ form.country(list="country_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.country.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.country(list="country_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- driver_licence -->
+                <div class="form-group">
+                    {{ form.driver_licence.label(class="form-control-label") }}
+                    {% if form.driver_licence.errors %}
+                        {{ form.driver_licence(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.driver_licence.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.driver_licence(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- vehicule -->
+                <div class="form-group">
+                    {{ form.vehicule.label(class="form-control-label") }}
+                    {% if form.vehicule.errors %}
+                        {{ form.vehicule(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.vehicule.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.vehicule(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Retour</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- datalist -->
+    <datalist id="country_datalist">
+    {% for entry in country_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="town_datalist">
+    {% for entry in town_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+{% endblock content %}

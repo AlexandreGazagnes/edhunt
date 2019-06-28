@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section" style="padding: 20px">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Formation</legend>
+
+                <!-- diploma_name -->
+                <div class="form-group">
+                    {{ form.diploma_name.label(class="form-control-label") }}
+                    {% if form.diploma_name.errors %}
+                        {{ form.diploma_name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- diploma_school -->
+                <div class="form-group">
+                    {{ form.diploma_school.label(class="form-control-label") }}
+                    {% if form.diploma_school.errors %}
+                        {{ form.diploma_school(list="school_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_school.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_school(list="school_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- diploma_town -->
+                <div class="form-group">
+                    {{ form.diploma_town.label(class="form-control-label") }}
+                    {% if form.diploma_town.errors %}
+                        {{ form.diploma_town(list="town_datalist", class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_town.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_town(list="town_datalist", class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- diploma_level -->
+                <div class="form-group">
+                    {{ form.diploma_level.label(class="form-control-label") }}
+                    {% if form.diploma_level.errors %}
+                        {{ form.diploma_level(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_level.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_level(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- diploma_type -->
+                <div class="form-group">
+                    {{ form.diploma_type.label(class="form-control-label") }}
+                    {% if form.diploma_type.errors %}
+                        {{ form.diploma_type(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_type.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_type(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+                <!-- diploma_year -->
+                <div class="form-group">
+                    {{ form.diploma_year.label(class="form-control-label") }}
+                    {% if form.diploma_year.errors %}
+                        {{ form.diploma_year(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.diploma_year.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.diploma_year(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+
+            </fieldset>
+
+            <!-- submit -->
+            <div class="text-right">
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info myButton") }}
+                    <a class="btn btn-outline-danger myButton" href="{{url_for('users.manage_user')}}">Annuler</a>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <!-- datalist -->
+    <datalist id="school_datalist">
+    {% for entry in school_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+    <datalist id="town_datalist">
+    {% for entry in town_list %}
+        <option value= "{{ entry }}" >
+    {% endfor %}
+    </datalist>
+
+{% endblock content %}

@@ -1,0 +1,148 @@
+# update system
+sudo apt upgrade && apt update
+
+
+# change hostname
+
+
+
+
+
+# add ip to hostname
+nano etc/hosts
+    # text -- add Second line ip + press tab + name
+    123.123.123.12 \t (tab key)edhunt
+
+
+# adduser and sudo
+adduser alex
+adduser alex sudo
+
+
+# ssh keys
+mkdir .ssh (ON SERVER)
+
+ON PERSONNAL/LOCAL (IF NEEDED)
+ssh-keygen -b 4096
+scp ~/.ssh/id_rsa.pub alex@123.123.123.12:~/.ssh/authorized_keys
+
+
+# BACK ON SERVER
+sudo chmod 700 ~/.ssh && sudo chmod 600 ~/.ssh/*
+
+
+# disable root and login
+sudo nano /etc/ssh/sshd_config
+    # text Changes Values
+    PermitRootLogin no
+    PasswordAuthentification no
+
+
+# restart
+sudo systemctl restart sshd
+
+
+# ufw
+sudo ufw default allow outgoing && sudo ufw default deny incoming && sudo ufw allow ssh && sudo ufw allow 5000 && sudo ufw enable
+
+
+# install pip venv etc etc copy project and create env
+
+# config file for app
+nano /etc/edhunt.json
+
+
+# nginx conf file
+sudo rm /etc/nginx/sites-enabled/default & sudo nano /etc/nginx/sites-enabled/edhunt
+
+    # text
+    ------------------------------------------------------
+    server {
+            listen 80;
+
+            server_name 139.162.150.126;
+
+            location /static {
+                    alias /home/alex/edhunt/sultan/static;
+                    }
+
+            location / {
+                 proxy_pass http://localhost:8000;
+                 include /etc/nginx/proxy_params;
+                 proxy_redirect off ;
+                 }
+           }
+    ------------------------------------------------------
+
+#  allow http/tcp
+sudo ufw allow http/tcp
+
+
+# dissalow port 5000
+sudo ufw delete allow 5000
+
+
+# apply
+sudo ufw enable
+
+
+# restart
+sudo systemctl restart nginx
+
+
+# gunicorn (workers - w 2 * CPU_COUNT + 1)
+cd edhunt/
+gunicorn -w 3 edhunt/run:app
+
+
+# supervisor
+sudo nano /etc/supervisor/conf.d/edhunt.conf
+
+    # text
+    ------------------------------------------------------
+    [program:edhunt]
+    directory=/home/alex/edhunt
+    command=/home/alex/env/bin/gunicorn -w 3 run:app
+    user=alex
+    autostart=true
+    autorestart=true
+    stopasgroup=true
+    killasgroup=true
+    stderr_logfile=/var/log/edhunt/edhunt.err.log
+    stdout_logfile=/var/log/edhunt/edhunt.out.log
+    ------------------------------------------------------
+
+# log errors stdout
+sudo mkdir -p /var/log/edhunt
+touch /var/log/edhunt/edhunt.err.log
+touch /var/log/edhunt/edhunt.out.log
+
+
+# reload
+sudo supervisorctl reload
+
+
+# nginx file size
+
+sudo nano /etc/nginx/nginx.conf
+    #text
+    ------------------------------------------------
+        client_max_body_size 5M; **** IN HTML SECTION ****
+    ------------------------------------------------
+
+
+# restart nginx
+sudo systemctl restart nginx
+
+
+
+
+
+# MANAGE HEADLESS WEB DRIVER
+sudo apt-get install firefoxdriver
+sudo apt-get install xvfb
+sudo apt-get install unzip
+
+
+DOWNLOAD geckodriver and
+tar xzvf < nom_archive >.tar.gz on /home/alex

@@ -1,0 +1,59 @@
+{% extends "layout_parent.html" %}
+
+  <!-- Main -->
+{% block main %}
+  <main role="main" class="container" id="responsiveContainer" style="background-color: var(--myWhite); margin-top: 56px">
+    <div class="second_main" style="background-color: var(--myWhite)">
+      <div class="row" style="background-color: var(--myWhite)">
+        <div class="col-md-12" style="background-color: var(--myWhite)">
+
+          <!-- Flash Messages -->
+          <!-- not permanent flash -->
+          <div id='flashMessage'>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{ category }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            {% endwith %}
+          </div>
+
+        <!-- Content -->
+
+        {% block content %}{% endblock %}
+      </div>
+
+      <!-- SideBar -->
+      <!--
+      <div class="col-md-4">
+      <div class="content-section">
+      <h3>Our Sidebar</h3>
+      <p class='text-muted'>You can put any information here you'd like.
+      <ul class="list-group">
+      <li class="list-group-item list-group-item-light">Latest Posts</li>
+      <li class="list-group-item list-group-item-light">Announcements</li>
+      <li class="list-group-item list-group-item-light">Calendars</li>
+      <li class="list-group-item list-group-item-light">etc</li>
+      </ul>
+      </p>
+      </div>
+      </div>
+      -->
+      </div>
+    </div>
+  </main>
+
+
+
+<script>
+function goBack() {
+  window.history.go(-1);
+}
+</script>
+
+{% endblock main %}
+
+

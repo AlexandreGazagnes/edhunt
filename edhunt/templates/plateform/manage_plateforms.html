@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/user/manage_user.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/plateform/manage_plateforms.js') }}" type="text/javascript"></script>
+
+<!-- full bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <div class="content-section" style="padding: 20px">
+    <div class="media">
+    <div class="media-body">
+
+      <!-- Head -->
+      <h1 class="account-heading">{{ text.page.title }}</h1>
+      <h2> Votre de niveau de connexion est de <strong>{{ current_user.plateform_score }}%</strong> </h2>
+
+      <div class="article-content" style="margin: 20px; text-align: justify;">
+          {{ text.page.head }}
+      </div>
+
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+
+      <legend class="border-bottom mb-4">Plateformes</legend>
+
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+
+            <div class="table-responsive">
+              <table class="table">
+              <thead>
+                  <tr>
+                      <th>Nom</th>
+                      <th>Connecté</th>
+                      <th></th>
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <!-- Normal -->
+
+                  {% for plateform, status, url1 , url2 in plateform_list %}
+                    <tr>
+                      <th scope="row">{{ plateform }}</th>
+                      {% if status == "Off" %}
+                        <td><a class="btn btn-danger myButton" style="color: white">{{ status}}</a></td>
+                      {% elif status == "On" %}
+                        <td><a class="btn btn-success myButton" style="color: white">{{ status}}</a></td>
+                      {% elif status == "Not available" %}
+                        <td><a class="btn btn-warning myButton" style="color: white">{{ status}}</a></td>
+                      {% endif %}
+                      <td><a href="{{ url1 }}" class="btn btn-outline-secondary myButton">Modif.</a></td>
+                      <td><a href="{{ url2 }}" class="btn btn-outline-info myButton" onclick="loadingButton()">
+                      <div id="notClicked" style="display:block;">Test</div>
+                      <div id="clicked" style="display: none;">
+                        <div class="spinner-border" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                    </a></td>
+                    </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+      </article>
+    </div>
+    </div>
+
+
+      <div class="text-center">
+        <div class="form-group">
+          <a class="btn btn-outline-info myButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px" href="">Tester toute les plateformes</a>
+        </div>
+      </div>
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+
+  </div>
+
+
+
+{% endblock content %}
+
+

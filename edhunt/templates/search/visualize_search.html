@@ -1,0 +1,293 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<!-- full bootstrap -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search/visualize_search.css') }}">
+
+<script src="{{ url_for('static', filename='js/plateform/manage_plateforms.js') }}" type="text/javascript"></script>
+
+<div class = "content-section" style="padding: 20px">
+  <div class = "media">
+    <div class = "media-body">
+      <h1 class = "account-heading"> Opportunités de la recherche: {{ search.name }}</h1>
+      <h2> Vous avez listé <strong> {{ opp_list|length }} </strong> opportunités pour cette recherche</h2>
+
+      <div class="article-content" style="margin: 20px;"; text-align: justify;">
+      Vous pourez visualiser l'ensemble des informations essentielles concernant cette offre, enfin, celle que edhunt aura pu recueillir!
+      </div>
+
+      <!-- Détail de la Recherche-->
+      <legend class="border-bottom mb-4">Détail de la recherche</legend>
+      <article class="media content-section" style="background-color: white">
+        <div class="media-body" style="background-color: white">
+          <div class="container"style="background-color: white">
+            <div class="row"style="background-color: white">
+
+              <!-- col 1 -->
+              <div class="col-sm">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Nom</th>
+                      <td>{{ search.name if search.name  else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Mobilité</th>
+                      <td>{{ search.mob if search.mob else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Destination</th>
+                      {% if search.mob == "Ville" %}
+                       <td>{{ search.town }}</td>
+                      {% elif search.mob == "Département" %}
+                       <td>{{ search.departement }}</td>
+                       {% elif search.mob == "Région" %}
+                       <td>{{ search.region }}</td>
+                       {% elif search.mob == "Pays" %}
+                       <td>{{ search.country }}</td>
+                       {% else  %}
+                       <td> - </td>
+                       {% endif %}
+
+                    </tr>
+                    <tr>
+                      <th>Mots clés</th>
+                      <td>{{ search.key_words if  search.key_words else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Date</th>
+                      <td>{{ search.created if search.created else '-' }}</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- col 2 -->
+              <div class="col-sm">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>contrat(s)</th>
+                      <td>{{ search.contract if search.contract else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Type d'employeur(s)</th>
+                      <td>{{ search.employer if search.employer else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Statut</th>
+                      <td>{{ search.status if search.status else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Rémunération</th>
+                      <td>{{ search.rem if search.rem else '-'}}</td>
+                    </tr>
+                    <tr>
+                      <th>Monnaie</th>
+                      <td>{{search.currency if search.currency else 'Euro'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- col 3 -->
+              <div class="col-sm">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Management</th>
+                      <td>{{ search.management if  search.management  else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Entreprise(s) recherchée(s)</th>
+                      <td>{{ search.company if search.company else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Entreprise(s) évitées(s)</th>
+                      <td>{{ search.not_company if search.not_company else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Taille(s)</th>
+                      <td>{{ search.company_size if search.company_size else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Poste(s) </th>
+                      <td>{{ search.job if search.job else '-' }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <!-- col 4 -->
+              <div class="col-sm">
+                <table class="table">
+                  <tbody>
+                    <tr>
+                      <th>Secteur(s)</th>
+                      <td>{{ search.sector if  search.sector  else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Fonction(s)</th>
+                      <td>{{ search.function if search.function else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Position hierarchique</th>
+                      <td>{{ search.position if search.position else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Mot(s) clés bannis</th>
+                      <td>{{ search.not_key_words if search.not_key_words else '-' }}</td>
+                    </tr>
+                    <tr>
+                      <th>Lanques(s) </th>
+                      <td>Anglais {{ search.english_mandatory if search.english_mandatory else '-' }} {{  search.other_langauges  }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+
+
+      <!-- controls -->
+      {% block controls %}
+      <div class="text-right">
+          <div class="form-group">
+              <a class="btn btn-outline-secondary myButton"
+              href="{{ url_for('searchs.manage_search', search_id=search.id ) }}">Modifier</a>
+              <a class="btn btn-outline-danger myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+          </div>
+      </div>
+      {% endblock controls %}
+
+      <!-- Opportunités-->
+      <legend class="border-bottom mb-4">Opportunités</legend>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-sm-2 myTableData" >Entreprise</th>
+                    <th class="col-sm-2 myTableData" >Poste</th>
+                    <th class="col-sm-2 myTableData" >Localisation</th>
+                    <th class="col-sm-2 myTableData" >Plateforme</th>
+                    <th class="col-sm-1 myTableData" >Score</th>
+                    <th class="col-sm-1" >Cand.</th>
+                    <th class="col-sm-2" ></th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for opp in opp_list %}
+                  <tr class="row">
+                      <td class="col-sm-2 myTableData">{{ opp.company }}</td>
+                      <td class="col-sm-2 myTableData">{{ opp.job }}</td>
+                      <td class="col-sm-2 myTableData" >{{ opp.loc }}</td>
+                      <td class="col-sm-2 myTableData" >{{ opp.plateform }}</td>
+                      <td class="col-sm-1 myTableData">65%</td>
+                      <td class="col-sm-1 myTableData">{{ 'Oui' if opp.send  else 'Non' }}</td>
+
+                      <td class="col-sm-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "">Postuler</a>
+                            <a class="dropdown-item" href="{{ url_for('opportunities.visualize_opportunity', opp_id=opp.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('opportunities.delete_opportunity', opp_id=opp.id) }}">Supprimer</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+
+
+
+                   </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+
+      <!-- MAJ -->
+<!--       <div class="text-center">
+        <div class="form-group">
+          <a class="btn btn-outline-info myButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"  href="{{ url_for('searchs.maj_search', search_id=search.id ) }}">Mettre à Jour les résultats</a>
+        </div>
+      </div> -->
+
+      <!-- Candidate -->
+<!--       <div class="text-center">
+        <div class="form-group">
+          <a class="btn btn-outline-info myButton" style="width: 100% ; margin: 50px 0px ; padding: 20px 0px"  href="">Postuler sur toutes les offres</a>
+        </div>
+      </div> -->
+
+<div class="form-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+
+
+<a href="{{ url_for('searchs.maj_search', search_id=search.id ) }}" class="btn btn-outline-info myButtonLarge" onclick="loadingButton()">
+                      <div id="notClicked" style="display:block;">Mettre à Jour les résultats</div>
+                      <div id="clicked" style="display: none;">
+                        <div class="spinner-border" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                    </a>
+<!--
+          <a class="btn btn-outline-info myButtonLarge"  href="{{ url_for('searchs.maj_search', search_id=search.id ) }}">Mettre à Jour les résultats</a> -->
+      </div>
+      <div class="col-md-6">
+                  <a class="btn btn-outline-info myButtonLarge" href="">Postuler sur toutes les offres</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ self.controls() }}
+
+
+    </div>
+  </div>
+</div>
+
+<!-- pagination -->
+<div class="form-group">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="text-right">
+          {% if nav['search_id_past'] %}
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('searchs.visualize_search', search_id=nav['search_id_past']) }}">Préc.</a>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="text-left">
+                {% if nav['search_id_next'] %}
+          <a class="btn btn-outline-secondary myButton" href="{{ url_for('searchs.visualize_search', search_id=nav['search_id_next']) }}">Suiv.</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}
+
+

@@ -1,0 +1,73 @@
+/*media*/
+
+@media (min-width: 100px) {
+  .ehLabel{font-size: 1.5rem;}
+  .ehLegend{ font-size: 2rem; }
+  .ehTextArea{font-size: 1rem; height:300px;}
+  .ehInput{font-size: 1rem; }
+  .ehSelector{font-size: 1rem; }       }
+
+@media (min-width: 300px) {
+  .ehLabel{font-size: 1.5rem;}
+  .ehLegend{ font-size: 2rem; }
+  .ehTextArea{font-size: 1rem; height:300px;}
+  .ehInput{font-size: 1rem; }
+  .ehSelector{font-size: 1rem; }      }
+
+@media (min-width: 576px) {
+  .ehLabel{font-size: 1.5rem;}
+  .ehLegend{ font-size: 2rem; }
+  .ehTextArea{font-size: 1rem; height:250;}
+  .ehInput{font-size: 1rem; }
+  .ehSelector{font-size: 1rem; }      }
+
+@media (min-width: 768px) {
+  .ehLabel{font-size: 1.5rem;}
+  .ehLegend{ font-size: 2rem; }
+  .ehTextArea{font-size: 1.1rem; height:220;}
+  .ehInput{font-size: 1.1rem; }
+  .ehSelector{font-size: 1.1rem; }       }
+
+@media (min-width: 992px) {
+  .ehLabel{font-size: 1.8rem;}
+  .ehLegend{ font-size: 2.5rem; }
+  .ehTextArea{font-size: 1.2rem; height:200px;}
+  .ehInput{font-size: 1.2rem; }
+  .ehSelector{font-size: 1.2rem; }      }
+
+@media (min-width: 1280px) {
+  .ehLabel{font-size: 1.8rem;}
+  .ehLegend{ font-size: 2.5rem; }
+  .ehTextArea{font-size: 1.2rem; height:200px;}
+  .ehInput{font-size: 1.2rem; }
+  .ehSelector{font-size: 1.2rem; }    }
+
+/*page*/
+
+.ehLegend{
+/*  margin: 0px;*/
+  font-family: champagne;
+  text-align: left;
+  color :var(--myBrown);     }
+
+.ehLabel{
+/*  margin: 0px;*/
+  font-family: champagne;
+  text-align: justify;
+  text-align: left;
+  color :var(--myBlue);     }
+
+.ehSelector{
+  color: grey; }
+
+.ehInput{
+  color: grey;
+  text-align: justify; }
+
+.ehTextArea{
+  color: grey;
+  text-align: justify;  }
+
+.ehButton{
+  width: 101px;
+}

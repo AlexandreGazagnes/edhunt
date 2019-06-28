@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section" style="padding: 20px">
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <legend class="border-bottom mb-4">Supprimer une opportunité</legend>
+        <!-- text -->
+        <div class="form-group">
+        Vous etes sur le point de supprimer votre opportunité, elle sera
+        definitivement perdue
+        </div>
+    </fieldset>
+
+    <!-- submit -->
+    <div class="text-right">
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info myButton") }}
+        <a class="btn btn-outline-danger myButton" href="{{ url_for('main.edhunt')}}">Retour</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+{% endblock content %}

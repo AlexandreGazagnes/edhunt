@@ -1,0 +1,650 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='js//main/edhunt.js') }}" type="text/javascript"></script>
+
+
+  <div class="content-section" style="padding:20px">
+    <div class="media">
+    <div class="media-body">
+
+      <!-- tablea de bord -->
+      <legend class="border-bottom mb-4">
+        <div class="row">
+            <div class="col-md-6">Tableau de Bord</div>
+            <div class="col-md-6 text-right">{{ current_user.username }}</div>
+        </div>
+    </legend>
+
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Profil <br><br>{{current_user.profile_score}}%</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+
+              </div>
+              <div class="col-sm">
+                <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Joboard <br><br>{{ current_user.plateform_score }}</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+              </div>
+              <div class="col-sm">
+                <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Recherches <br><br>{{search_list|length}}/3</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+              </div>
+
+            </div>
+            <div class="row">
+
+              <div class="col-sm">
+                <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Opportunités <br><br>{{search_opp|length}}/100</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+              </div>
+              <div class="col-sm">
+                                <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Candidatures <br><br>0/100</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+              </div>
+              <div class="col-sm">
+                               <a class="quicklink link1" href="#">
+                    <span class="ql_caption">
+                        <span class="outer">
+                            <span class="inner">
+                                <h4>Score <br><br>13%</h4>
+                            </span>
+                        </span>
+                    </span>
+                    <span class="ql_top"></span>
+                    <span class="ql_bottom"></span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+
+      <!-- Profil-->
+      <div style="display: block;">
+        <legend class="border-bottom mb-4">
+          <div class="row">
+              <div class="col-md-6">Profil</div>
+              <div class="col-md-6 text-right">{{ current_user.profile_score }}%</div>
+          </div>
+        </legend>
+        <div class="col-sm-12 " id="profileShowButton">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span>
+          </div>
+          </div>
+        </div>
+
+      <div id="profileContent" style="display: none">
+           <div id="profileHideButton1" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table" >
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Champ</th>
+                    <th class="col-md-7" >Valeurs</th>
+                    <th class="col-md-1" >Score</th>
+                    <th class="col-md-2" > </th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                  <!-- attetntes -->
+                  <tr class="row">
+                      <th class="col-md-2">Attentes</th>
+                      <td class="col-md-7">
+                      en poste : {{ current_user.employed if current_user.employed else '-'}} situation : {{ current_user.sub_employed if current_user.sub_employed else '-'}} recherche : {{ current_user.search if current_user.search  else '-'}}
+                      attentes : {{ current_user.order if current_user.order  else '-'}} candidatures {{ current_user.automation if current_user.automation else '-'}}
+                      </td>
+                      <td class="col-md-1">{{ current_user.expectation_score }}%</td>
+
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_expectation', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+                  </tr>
+
+                  <!-- CV -->
+                  <tr class="row">
+                      <th class="col-md-2">CVs</th>
+                      <td class="col-md-7">CV n°1 : {{current_user.resume1_name if current_user.resume1_doc else '-'}} CV n°2 : {{current_user.resume2_name if current_user.resume2_doc else '-'}} CV n°3 : {{current_user.resume3_name if current_user.resume3_doc else '-'}}
+                      </td>
+                      <td class="col-md-1">{{ current_user.resume_score }}%</td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.manage_user', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+<!--                       <td class="col-md-2">
+                          <a class="btn btn-outline-info" href="{{ url_for('users.manage_user', user_id=current_user.id) }}">Modifier</a>
+                        </td>
+                      <td class="col-md-2">
+                        <a class="btn btn-outline-secondary" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                      </td> -->
+                  </tr>
+
+                  <!-- Identité -->
+                  <tr class="row">
+                      <th class="col-md-2">Identité</th>
+                      <td class="col-md-7">
+                        prénom : {{current_user.firstname if current_user.firstname else '-'}}
+                        nom :{{current_user.lastname if current_user.lastname else '-'}}
+                        sexe : {{current_user.sex if current_user.sex else '-'}} date de naissance : {{current_user.birthdate if current_user.birthdate else '-'}}
+                        nationalité : {{current_user.nationality if current_user.nationality else '-'}} pays de naissance : {{current_user.birth_country if current_user.birth_country else '-'}} code postal de naissance : {{current_user.birth_zip_code if current_user.birth_zip_code else '-'}} ville de naissance : {{current_user.birth_town if current_user.birth_town else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.identification_score}}%</td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_identification', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+                  </tr>
+
+                  <!-- Localisation -->
+                  <tr class="row">
+                      <th class="col-md-2">Localisation</th>
+                      <td class="col-md-7">
+                        ville : {{current_user.town if current_user.town else '-'}} code postal : {{current_user.zip_code if current_user.zip_code else '-'}} pays : {{current_user.country if current_user.country else '-'}} permis de conduire : {{current_user.driver_licence if current_user.driver_licence else '-'}} véhicule : {{current_user.vehicule if current_user.vehicule else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.localisation_score}}%</td>
+
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_localisation', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+                  </tr>
+
+                  <!-- Diplôme -->
+                  <tr class="row">
+                      <th class="col-md-2">Diplôme</th>
+                      <td class="col-md-7">
+                        nom : {{current_user.diploma_name if current_user.diploma_name else '-'}} école/univ./instit. : {{current_user.diploma_school if current_user.diploma_school else '-'}} ville : {{current_user.diploma_town if current_user.diploma_town else '-'}} niveau : {{current_user.diploma_level if current_user.diploma_level else '-'}} type : {{current_user.diploma_type if current_user.diploma_type else '-'}} année : {{current_user.diploma_year if current_user.diploma_year else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.diploma_score}}%</td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_diploma', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+
+<!--                       <td class="col-md-2">
+                          <a class="btn btn-outline-info" href="{{ url_for('users.update_diploma', user_id=current_user.id) }}">Modifier</a>
+                        </td>
+                      <td class="col-md-2">
+                        <a class="btn btn-outline-secondary" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                      </td> -->
+                  </tr>
+
+                  <!-- Situation prof. -->
+                  <tr class="row">
+                      <th class="col-md-2">Situation prof.</th>
+                      <td class="col-md-7">
+                        entreprise : {{current_user.company if current_user.company else '-'}} ancienneté : {{current_user.xp_at_company if current_user.xp_at_company else '-'}} taille : {{current_user.company_size if current_user.company_size else '-'}} poste : {{current_user.job if current_user.job else '-'}} xp au poste : {{current_user.xp_at_job if current_user.xp_at_job else '-'}} secteur : {{current_user.sector if current_user.sector else '-'}} fonction : {{current_user.function if current_user.function else '-'}} position hiér. : {{current_user.position if current_user.position else '-'}} mobilité : {{current_user.mob if current_user.mob else '-'}} mots clés : {{current_user.key_words if current_user.key_words else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.work_experience_score}}%</td>
+
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_work_experience', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+                  </tr>
+
+                  <!-- Statut prof. -->
+                  <tr class="row">
+                      <th class="col-md-2">Statut prof.</th>
+                      <td class="col-md-7">
+                        contrat : {{current_user.contract if current_user.contract else '-'}} type d'employeur : {{current_user.employer if current_user.employer else '-'}} statut : {{current_user.status if current_user.status else '-'}} rémunération : {{current_user.rem if current_user.rem else '-'}} devise : {{current_user.currency if current_user.currency else '-'}} management : {{current_user.management if current_user.management else '-'}} xp professionnelle : {{current_user.xp_at_work if current_user.xp_at_work else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.work_status_score}}%</td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_work_status', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+                  </tr>
+
+                  <!-- Langues. -->
+                    <tr class="row">
+                      <th class="col-md-2">Langues</th>
+                      <td class="col-md-7">
+                        anglais : {{current_user.english if current_user.english else '-'}} autres langues : {{current_user.others if current_user.others else '-'}}
+                      </td>
+                      <td class="col-md-1">{{current_user.language_score}}%</td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('users.manage_user', user_id=current_user.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href="{{ url_for('users.update_language', user_id=current_user.id) }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+
+                    </tr>
+
+                  </tbody>
+              </table>
+        </div>
+      </article>
+      <!-- modifier -->
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('users.manage_user', user_id=current_user.id) }}" class="btn btn-outline-secondary myButton">Gérer</a>
+        </div>
+      </div>
+            <div id="profileHideButton" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span>
+          </div>
+          </div>
+          </div>
+        </div>
+    </div>
+
+      <!-- Plateform-->
+      <div  >
+      <legend class="border-bottom mb-4">
+        <div class="row">
+            <div class="col-md-6">Plateformes </div>
+            <div class="col-md-6 text-right">{{ current_user.plateform_score }}%</div>
+        </div>
+    </legend>
+          <div class="row" id="plateformShowButton">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span></div>
+          </div>
+          </div>
+        </div>
+
+
+      <div id='plateformContent' style= "display: none" >
+           <div id="plateformHideButton1" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Plateforme</th>
+                    <th class="col-md-6" >Autorisations</th>
+                    <th class="col-md-2" >Conn.</th>
+                    <th class="col-md-2" ></th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                  <!-- plateformes -->
+                  {% for plateform in plate_list %}
+                  <tr class="row">
+                      <th class="col-md-2">{{plateform.__name__}}</th>
+                      <td class="col-md-6"> CV en ligne: Oui, réponse Annonces Oui
+                      </td>
+                      {% set conn = plateform.connexion%}
+                      {% set coloR = "success" if  conn =="On" else "danger" %}
+
+
+                      <td class="col-md-2"><span class="btn btn-{{ coloR }} myButton" style="color: white">{{ conn }}</span></td>
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{{ url_for('plateforms.manage_plateforms') }}">Voir détail</a>
+                            <a class="dropdown-item" href="">Tester</a>
+                            <a class="dropdown-item" href="{{ url_for('plateforms.update_plateform', plateform='apec') }}">Modifier</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+  <!--                     <td class="col-md-2">
+                          <a class="btn btn-outline-info" href="{{ url_for('plateforms.update_plateform', plateform='apec') }}">Modifier</a>
+                        </td>
+                      <td class="col-md-2">
+                        <a class="btn btn-outline-secondary" href= "#">Voir détail</a>
+                      </td> -->
+                  </tr>
+                  {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+      <!-- modifier -->
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('plateforms.manage_plateforms') }}" class="btn btn-outline-secondary myButton">Gérer</a>
+        </div>
+      </div>
+            <div id="plateformHideButton2" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+    </div>
+
+
+
+      <!-- Searchs-->
+      <div >
+        <legend class="border-bottom mb-4">
+        <div class="row">
+            <div class="col-md-6">Recherches</div>
+            <div class="col-md-6 text-right">{{search_list|length}}/3</div>
+        </div>
+        </legend>
+            <div class="row" id="searchsShowButton">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span></div>
+          </div>
+          </div>
+      </div>
+      <div id='searchsContent' style= "display: none" >
+           <div id="searchsHideButton1" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Nom</th>
+                    <th class="col-md-2" >Loc.</th>
+                    <th class="col-md-2" >Mots Clés</th>
+                    <th class="col-md-2" >Opps.</th>
+                    <th class="col-md-2" > Cands.</th>
+                    <th class="col-md-2" > </th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for search in search_list %}
+                  <tr class="row">
+                      <th class="col-md-2">{{ search.name }}</th>
+                      {% if search.mob == "Ville" %}
+                       <td class="col-md-2">{{ search.town }}</td>
+                      {% elif search.mob == "Département" %}
+                       <td class="col-md-2">{{ search.departement }}</td>
+                       {% elif search.mob == "Région" %}
+                       <td class="col-md-2">{{ search.region }}</td>
+                       {% elif search.mob == "Pays" %}
+                       <td class="col-md-2">{{ search.country }}</td>
+                       {% else  %}
+                       <td class="col-md-2"> - </td>
+                       {% endif %}
+                      <td class="col-md-2">{{ search.key_words[:30] }}</td>
+                      <td class="col-md-2" > {{ search.opportunities_count }}</td>
+                      <td class="col-md-2" > {{ search.candidatures_count }}</td>
+
+
+                      <td class="col-md-2">
+                        <div class="dropdown">
+                          <button class="btn btn-outline-secondary myTableData dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                          </button>
+                          <div class="dropdown-menu myButton" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href= "{{ url_for('searchs.visualize_search', search_id=search.id) }}">Voir détail</a>
+                            <a class="dropdown-item" href= "{{ url_for('searchs.visualize_search', search_id=search.id) }}">Raffraichir</a>
+                            <a class="dropdown-item" href="{{url_for('searchs.manage_search', search_id=search.id)}}">Modifier</a>
+                            <a class="dropdown-item" href="{{url_for('searchs.delete_search', search_id=search.id)}}">Supprimer</a>
+                          </div>
+                        </div>
+
+                      </td>
+
+
+                  </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+      <!-- Add -->
+      <div class="form-group">
+        <div class="account-link">
+          <a href="{{ url_for('searchs.create_search') }}" class="btn btn-outline-info myButton">Ajouter</a>
+          <a href="{{ url_for('searchs.visualize_searchs') }}" class="btn btn-outline-secondary myButton">Gérer</a>
+        </div>
+      </div>
+            <div id="searchsHideButton" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+    </div>
+
+
+      <!-- Opportunités-->
+      <div >
+      <legend class="border-bottom mb-4">
+        <div class="row">
+            <div class="col-md-6">  Opportunités</div>
+            <div class="col-md-6 text-right">{{opp_list|length}}/100</div>
+        </div>
+      </legend>
+            <div class="row" id=oppShowButton >
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-down"></i></span></div>
+          </div>
+          </div>
+      </div>
+      <div id='oppContent' style="display: none">
+           <div id="oppHideButton1" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+
+      <article class="media content-section" style="padding: 20px">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Entreprise</th>
+                    <th class="col-md-2" >Poste</th>
+                    <th class="col-md-2" >Plateforme</th>
+                    <th class="col-md-2" >Recherche</th>
+                    <th class="col-md-2" >Localisation</th>
+                    <th class="col-md-1" >Statut</th>
+                    <th class="col-md-1" ></th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for opp in opp_list %}
+                  <tr class="row">
+                      <td class="col-md-2">{{ opp.company }}</td>
+                      <td class="col-md-2">{{ opp.job }}</td>
+                      <td class="col-md-2">{{ opp.plateform }}</td>
+                      <td class="col-md-2">{{ opp.search_name }}</td>
+                      <td class="col-md-2" >{{ opp.loc }}</td>
+                      <td class="col-md-1" >{{ opp.applied }}</td>
+                      <td class="col-md-1">
+                        <a class="btn btn-outline-secondary" href="{{ url_for('opportunities.visualize_opportunity', opp_id=opp.id) }}">Voir détail</a>
+                      </td>
+                   </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+            <div id="oppHideButton" class="container">
+          <div class="row">
+                <div class="col-sm-12 ">
+          <div class="text-center">
+            <span class="chevronDown"><i class="fas fa-chevron-up"></i></span></div>
+          </div>
+          </div>
+        </div>
+
+     </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

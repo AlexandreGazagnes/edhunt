@@ -1,0 +1,422 @@
+/*color*/
+:root {
+    --myBlue:#5f788a;
+/*    --myBrown:#673604;*/
+    --myBrown:#4F2C00;
+    --myWhite:#fafafa; }
+
+
+/*size*/
+
+
+/*perso font*/
+@font-face {
+    font-family: 'champagne';
+    src: url('Champagne_Limousines.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal; }
+
+
+/*html*/
+html {
+    font-size: 1rem;
+    background: #fafafa;  }
+
+
+
+
+/*media */
+
+@media (min-width: 100px) {
+  .pageTitle { font-size: 3rem; }
+  .pageHead{ font-size: 2rem; }    }
+
+@media (min-width: 300px) {
+  .pageTitle { font-size: 2.5rem; }
+  .pageHead{ font-size: 1.8rem; } }
+
+@media (min-width: 576px) {
+  .pageTitle { font-size: 4rem; }
+  .pageHead{ font-size: 2rem; }  }
+
+@media (min-width: 768px) {
+  .pageTitle { font-size: 5rem; }
+  .pageHead{ font-size: 2rem; }   }
+
+@media (min-width: 992px) {
+  .pageTitle { font-size: 5rem; }
+  .pageHead{ font-size: 2.5rem; }    }
+
+@media (min-width: 1280px) {
+  .pageTitle { font-size: 5rem; }
+  .pageHead{ font-size: 2.5rem; }    }
+
+@media (min-width: 1500px) {
+  .col-md-12{width: 100%;}
+  .pageTitle { font-size: 6rem; }
+  .pageHead{ font-size: 2.5rem; }  }
+
+
+
+
+
+body {
+  background: #fafafa;
+  color: #333333;
+  margin-top: 0em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #444444;
+}
+
+.bg-steel {
+  background-color: #5f788a;
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+.second_main {
+  background: #fafafa;
+  margin-top: 10px;
+}
+
+.content-section {
+  background: #ffffff;
+  padding: 10px 20px;
+  border: 1px solid #dddddd;
+  border-radius: 3px;
+  margin-bottom: 20px;
+  margin-top: 20px;  }
+
+.article-title {
+  color: #444444; }
+
+a.article-title:hover {
+  color: #428bca;
+  text-decoration: none; }
+
+.article-content {
+  white-space: pre-line; }
+
+.article-img {
+  height: 65px;
+  width: 65px;
+  margin-right: 16px; }
+
+.article-metadata {
+  padding-bottom: 1px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #e3e3e3 }
+
+.article-metadata a:hover {
+  color: #333;
+  text-decoration: none; }
+
+.article-svg {
+  width: 25px;
+  height: 25px;
+  vertical-align: middle; }
+
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px; }
+
+.account-heading {
+  font-size: 2.5rem; }
+
+.account-link {
+  text-align: right; }
+
+/*
+table {
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+  text-align: left;
+}
+*/
+
+th{
+  width:300px;
+}
+
+.btn-off{
+  color:#FEFEFE;
+  background-color: :#DB3545
+}
+
+.btn-off:hover{
+  color:#FEFEFE;
+  background-color: :#DB3545
+}
+
+.btn-on{
+  background-color: #28A645;
+  color:#FEFEFE;
+}
+
+.btn-on:hover{
+  background-color: #28A645;
+  color:#FEFEFE;
+}
+
+.btn-not-available{
+
+  color:#28A645;
+  background-color:orange;
+}
+
+.btn-not-available:hover{
+
+  color:#28A645;
+  background-color:orange;
+}
+
+/*----------------------------------------*/
+
+a.quicklink.link1 {
+    background: #5F7889;
+}
+
+
+a.quicklink.link1:hover {
+    text-decoration: none;
+}
+
+a.quicklink {
+    display: inline-block;
+    width: 151px;
+    height: 86px;
+    position: relative;
+    margin: 45px 15px;
+}
+a.quicklink .ql_caption {
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+.outer {
+    display: table;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-spacing: 0px;
+    padding: 0px;
+}
+.inner {
+    display: table-cell;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    border-spacing: 0px;
+    padding: 0px;
+}
+a.quicklink .ql_caption h2 {
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    line-height: 1.46em;
+    color: #fff;
+}
+a.quicklink.link1 .ql_top {
+    border-bottom-color: #5F7889;
+}
+a.quicklink.link1 .ql_bottom {
+    border-top-color: #5F7889;
+}
+
+
+.ql_top {
+    bottom: 86px;
+    border-bottom: 45px solid #ccc;
+}
+.ql_bottom {
+    top: 86px;
+    border-top: 45px solid #ccc;
+}
+.ql_top, .ql_bottom {
+    position: absolute;
+    left: 0px;
+    width: 0px;
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+}
+
+a.quickink:hover{
+text-decoration-style: none;
+}
+
+a.quicklink.link1:hover {
+
+}
+
+h4 {
+  color:white;
+}
+
+
+.loffreData{
+  font-size: 1.1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.loffreNo{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  color: #94070a;
+}
+
+.loffreCheck{
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  color: #407927;
+}
+
+
+
+.loffreBoard{
+  text-align: center;
+  vertical-align: middle;
+  background-color: #5f788a;
+  color: white;
+  }
+
+
+.loffreTitle{
+  font-family: champagne;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;
+  }
+
+
+
+.loffrePrice{
+  font-size: 1rem;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  }
+
+
+
+.cardTitle {
+  font-family: champagne;
+  color :#5f788a;
+  font-size: bold;
+}
+
+.cardPrice {
+  font-family: champagne;
+  color :#5f788a;
+}
+
+.a {
+  text-decoration: none;
+}
+
+.a:hover {
+  text-decoration: none;
+}
+
+
+
+
+
+/*child header*/
+
+.pageTitle{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);
+  margin: 0px;
+  line-height: 78px;
+  height:80px;}
+
+.pageHead{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBlue);
+  margin: 0px;
+  font-weight: normal;
+  line-height: 100%}
+
+
+
+
+
+/*footer*/
+
+.myFooter {
+  background-color: #5f788a;
+  color: white;
+  font-size: 1.2rem;
+}
+
+h5 {
+  font-family: champagne;
+  color :white;
+}
+
+.footerLink {
+  font-family: champagne;
+  color :white;
+  text-decoration: none;
+
+}
+
+.footerLink:hover{
+  font-family: champagne;
+  color :white;
+  text-decoration: none;
+
+}
+
+
+
+
+/*chevron*/
+
+.chevronDown{
+  color:#5f788a;
+  font-size: 2rem;
+}
+
+
+.myButton{
+  width: 101px;
+}
+
+.myButtonLarge{
+    width: 100% ;
+    margin: 50px 0px ;
+    padding: 20px 0px;    }
+
+.myButtonSmall{
+  width: 51px; }

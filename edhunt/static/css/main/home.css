@@ -1,0 +1,87 @@
+/*media*/
+
+@media (min-width: 100px) {
+  .homeWelcome {font-size: 1rem;}
+   h4 {font-size: 1rem;}
+  .footText {font-size: 1rem;   padding: 10px 0px;}
+   .foot{  margin: 10px 2px;}  }
+
+@media (min-width: 300px) {
+  .homeWelcome {font-size: 2.2rem;}
+   h4 {font-size: 1.5rem;}
+   .footText {font-size: 1.5rem;   padding: 10px 0px;}
+   .foot{  margin: 20px 2px;}    }
+
+@media (min-width: 576px) {
+  .homeWelcome {font-size: 2.8rem;}
+   h4 {font-size: 1.5rem;}
+   .footText {font-size: 1.5rem;   padding: 20px 0px;}
+   .foot{  margin: 50px 2px;} }
+
+@media (min-width: 768px) {
+  .homeWelcome {font-size: 3rem;}
+   h4 {font-size: 2rem;}
+   .footText {font-size: 2rem;   padding: 50px 0px;}
+   .foot{  margin: 100px 2px;}   }
+
+@media (min-width: 992px) {
+  .homeWelcome {font-size: 4rem;}
+   h4 {font-size: 3rem;}
+   .footText {font-size: 3rem;   padding: 100px 0px;}
+   .foot{  margin: 200px 2px;}  }
+
+@media (min-width: 1280px) {
+  .homeWelcome {font-size: 6rem;}
+   h4 {font-size: 3rem;}
+   .footText {font-size: 3rem;   padding: 100px 0px;}
+   .foot{  margin: 200px 2px;}  }
+
+@media (min-width: 1500px) {
+  .homeWelcome {font-size: 10rem;}
+   h4 {font-size: 3rem;}
+   .footText {font-size: 3rem;   padding: 100px 0px;}
+   .foot{  margin: 200px 2px;}    }
+
+/*@media (min-width: 1800px) {
+  .homeWelcome {font-size: 10rem;}
+   h4 {font-size: 3rem;}    }*/
+
+
+/*home*/
+
+.homeWelcome{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBlue);
+  margin: 80px; }
+
+h4{
+  margin: 0px;
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);
+  margin: 45px;  }
+
+.essaye{
+  margin : 300px 0px; }
+
+.foot{
+  background-color: var(--myBrown);
+  width: 100%;
+  border-radius: 25% 10%;
+}
+
+.footText{
+  position: relative;
+  font-family: champagne;
+  text-align: center;
+  color :var(--myWhite);
+}
+
+
+a{text-decoration: none;}
+a:hover {text-decoration: none;}
+
+
+.NoDec{text-decoration: none;}
+.NoDec:hover{text-decoration: none;}

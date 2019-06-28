@@ -1,0 +1,569 @@
+{% extends "main/loffre_parent.html" %}
+
+<!-- title -->
+{% block title %}
+<div class="ehTitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehH1">{{text.page.title}} </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock title %}
+
+
+<!-- subtitle -->
+{% block subtitle %}
+<div class="ehSubtitle">
+  <div class="row">
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+    </div>
+    <div class="col-sm">
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock subtitle %}
+
+
+<!-- offre -->
+{% block offre_laptop %}
+<div class="ehOffre">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row">
+    {% for elem in ['free', 'smart', 'big', 'pro'] %}
+    <div class="col-sm" id="{{elem}}ButtonLaptop">
+      <div class="ehTextBox3" style="margin: 10px 0px">
+        {{ text[elem]['name'] }} <br>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="row" id="defaultContentLaptop">
+    <div class="col-sm">
+      <div class='ehTextBoxBottom' style=" border: 1px solid var(--myBrown);margin: 20px 0px">
+          {% for feat in text.free.features %}
+            {{ feat }}<br>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% for elem in ['free', 'smart', 'big', 'pro'] %}
+  <div class="row" id="{{elem}}ContentLaptop" style="display:none">
+    <div class="col-sm">
+      <div class='ehTextBoxBottom' style=" border: 1px solid var(--myBrown);margin: 20px 0px">
+          {% for feat in text[elem]['features'] %}
+            {{ feat }}<br>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock offre_laptop %}
+
+
+
+<!-- offre -->
+{% block offre_mobile %}
+<div class="ehOffre">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  {% for elem in ['free', 'smart', 'big', 'pro'] %}
+  <div class="row">
+    <div class="col-sm" id="{{elem}}ButtonMobile">
+      <div class="ehTextBox3" style="margin: 10px 0px">
+        {{ text[elem]['name'] }} <br>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="{{elem}}ContentMobile" style="display:none">
+    <div class="col-sm">
+      <div class='ehTextBoxBottom' style=" border: 1px solid var(--myBrown);margin: 20px 0px">
+          {% for feat in text[elem]['features'] %}
+            {{ feat }}<br>
+          {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endfor%}
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock offre_mobile %}
+
+
+
+<div style="display:none">
+{% block Check %}
+<td class="col-sm-2"><p class="myCheck"><i class="fas fa-check"></i></p></td>
+{% endblock Check %}
+{% block noCheck %}
+<td class="col-sm-2"><p class="myNo"><i class="fas fa-times"></i></p></td>
+{% endblock noCheck %}
+</div>
+
+
+{% block tableau %}
+<div class="tableau">
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="row hide576">
+    <div class="col-sm">
+      <table class="table ">
+        <!--head -->
+        <thead>
+          <tr class="row">
+            <th class="col-sm-4" ></th>
+            <th class="col-sm-2" ><p class="pageHead" >freeHunt</p></th>
+            <th class="col-sm-2" > <p class="pageHead" >smartHunt</p></th>
+            <th class="col-sm-2" ><p class="pageHead" >bigHunt</p></th>
+            <th class="col-sm-2" ><p class="pageHead" >proHunt</p></th>
+          </tr>
+        </thead>
+
+          <!--body -->
+          <tbody>
+            <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">Prix par mois, sans engagement</td>
+                <td class="col-sm-2"><p class="myData"> Gratuit</p> </td>
+                <td class="col-sm-2"><p class="myData"> 3.95€</p></td>
+                <td class="col-sm-2"><p class="myData"> 11.95€</p></td>
+                <td class="col-sm-2"><p class="myData"> 129.95€</p> </td>
+              </tr>
+
+             <tr class="row">
+                <td class="col-sm-4" style="text-align: left;" >Plateformes disponibles </td>
+                <td class="col-sm-2"><p class="myData" >7</p></td>
+                <td class="col-sm-2"><p class="myData" >11</p></td>
+                <td class="col-sm-4"><p class="myData">illimitées</p></td>
+              </tr>
+
+             <tr class="row">
+                <td class="col-sm-4" style="text-align: left;" >Nombres de recherches </td>
+                <td class="col-sm-2"><p class="myData">3</p></td>
+                <td class="col-sm-2"><p class="myData">100</p></td>
+                <td class="col-sm-4"><p class="myData">illimitées</p></td>
+              </tr>
+
+             <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">Nombres de candidatures par mois </td>
+                <td class="col-sm-2"><p class="myData">90</p></td>
+                <td class="col-sm-2"><p class="myData">1 200</p></td>
+                <td class="col-sm-4"><p class="myData">illimitées</p></td>
+              </tr>
+
+              {% for elem in text.free.features[0:4]%}
+              <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">{{ elem }}</td>
+                {{self.Check()}} {{self.Check()}} {{self.Check()}}{{self.Check()}}
+              </tr>
+              {% endfor %}
+
+
+              {% for elem in text.smart.features[2:6]%}
+              <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">{{ elem }}</td>
+                {{self.noCheck()}} {{self.Check()}} {{self.Check()}}{{self.Check()}}
+              </tr>
+              {% endfor %}
+
+              {% for elem in text.big.features[2:7]%}
+              <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">{{ elem }}</td>
+                {{self.noCheck()}} {{self.noCheck()}} {{self.Check()}}{{self.Check()}}
+              </tr>
+              {% endfor %}
+
+              {% for elem in text.pro.features[2:7]%}
+              <tr class="row">
+                <td class="col-sm-4" style="text-align: left;">{{ elem }}</td>
+                {{self.noCheck()}} {{self.noCheck()}} {{self.noCheck()}}{{self.Check()}}
+              </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+  <div class="row show576">
+    <div class="col-sm">
+      <!-- prix -->
+      <div id="ehPrix">
+        <div class="row">
+          <div class="col">
+            <span class="" style="text-align: left; color: var(--myBrown)"> <br>Prix par mois, sans engagement <br>  </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">freeHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">Gratuit</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">smartHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">3.95€</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">bigHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">11.95€</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">proHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">129.95€</span>
+          </div>
+        </div>
+      </div>
+
+      <!--Plateformes-->
+      <div id="ehPlateforms">
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left; color: var(--myBrown)"> <br>Plateformes disponibles <br></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">freeHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">7</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">smartHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">11</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">bigHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimitées</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">proHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimitées</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- recherches -->
+      <div id="ehRecherches">
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left;color: var(--myBrown)"> <br>Nombres de recherches <br></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">freeHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">3</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">smartHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">100</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">bigHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimité</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">proHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimité</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- canidatures -->
+      <div id="ehCandidatures">
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left;color: var(--myBrown)"> <br>Nombres de canidatures par mois <br></span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">freeHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">90</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">smartHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">1 200</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">bigHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimité</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+           <span class="pageHead">proHunt</span>
+          </div>
+          <div class="col">
+            <span class="myData">illimité</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- free -->
+      <div id="ehFree">
+        {% for elem in text.free.features[0:4]%}
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left;color: var(--myBrown)"> <br>{{ elem }} <br></span>
+          </div>
+        </div>
+          {% for k, v in [('freeHunt', True), ('smartHunt', True), ('bigHunt', True), ('proHunt', True)] %}
+        <div class="row">
+          <div class="col" style="width: 194px; height: 31px">
+           <span class="pageHead">{{k}}</span>
+          </div>
+          <div class="col"  style="width: 194px; height: 31px">
+            <span class="myData">
+              {% if v %}
+              <p class="myCheck"><i class="fas fa-check"></i></p>
+              {% else %}
+              <p class="myNo"><i class="fas fa-times"></i></p>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- Smart -->
+      <div id="ehSmart">
+        {% for elem in text.smart.features[2:6]%}
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left; color: var(--myBrown)"> <br>{{ elem }} <br></span>
+          </div>
+        </div>
+          {% for k, v in [('freeHunt', False), ('smartHunt', True), ('bigHunt', True), ('proHunt', True)] %}
+        <div class="row">
+          <div class="col" style="width: 194px; height: 31px">
+           <span class="pageHead">{{k}}</span>
+          </div>
+          <div class="col"  style="width: 194px; height: 31px">
+            <span class="myData">
+              {% if v %}
+              <p class="myCheck"><i class="fas fa-check"></i></p>
+              {% else %}
+              <p class="myNo"><i class="fas fa-times"></i></p>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- Big -->
+      <div id="ehBig">
+        {% for elem in text.big.features[2:7]%}
+        <div class="row">
+          <div class="col">
+            <span class="" style=" text-align: left; color: var(--myBrown)"> <br>{{ elem }} <br></span>
+          </div>
+        </div>
+          {% for k, v in [('freeHunt', False), ('smartHunt', False), ('bigHunt', True), ('proHunt', True)] %}
+        <div class="row">
+          <div class="col" style="width: 194px; height: 31px">
+           <span class="pageHead">{{k}}</span>
+          </div>
+          <div class="col"  style="width: 194px; height: 31px">
+            <span class="myData">
+              {% if v %}
+              <p class="myCheck"><i class="fas fa-check"></i></p>
+              {% else %}
+              <p class="myNo"><i class="fas fa-times"></i></p>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+      <!-- pro -->
+      <div id="ehPro">
+        {% for elem in text.pro.features[2:8]%}
+        <div class="row">
+          <div class="col">
+            <span class="" style="text-align: left; color: var(--myBrown)"> <br>{{ elem }} <br></span>
+          </div>
+        </div>
+          {% for k, v in [('freeHunt', False), ('smartHunt', False), ('bigHunt', False), ('proHunt', True)] %}
+        <div class="row">
+          <div class="col" style="width: 194px; height: 31px">
+           <span class="pageHead">{{k}}</span>
+          </div>
+          <div class="col"  style="width: 194px; height: 31px">
+            <span class="myData">
+              {% if v %}
+              <p class="myCheck"><i class="fas fa-check"></i></p>
+              {% else %}
+              <p class="myNo"><i class="fas fa-times"></i></p>
+              {% endif %}
+            </span>
+          </div>
+        </div>
+        {% endfor %}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+            * disponible Septembre 2019  <br>  ** disponible Novembre 2019
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">
+          s'inscrire
+      </div>
+    </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+</div>
+{% endblock tableau %}
+
+
+
+
+
+
+
+
+  <!-- foot -->
+{% block foot %}
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+<div class="border-bottom"></div>
+<div class="row ">
+    {% for ref, name in [ ('main.apropos', 'A propos'),
+                          ('main.loffre', 'L\'offre'),
+                          ('main.blog', 'Blog'),
+                          ('main.faq', 'FAQ'),
+                          ('main.contact', 'Contact'), ] %}
+  <div class="col-sm">
+    <a href="{{ url_for(ref) }}">
+      <div class="ehTextBoxFoot">
+        {{ name }}
+      </div>
+    </a>
+  </div>
+  {% endfor %}
+</div>
+<!-- <div class="border-bottom"></div>
+<div class="row">
+  <div class="col-sm">
+    <div class='ehWhiteBox'></div>
+  </div>
+</div>
+ -->
+{% endblock foot %}

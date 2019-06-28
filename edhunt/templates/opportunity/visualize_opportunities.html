@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<div class = "content-section" style= "padding: 20px">
+  <div class = "media">
+    <div class = "media-body">
+      <h1 class = "account-heading"> Opportunités de : {{ user.username}}</h1>
+      <h2> Vous avez listé <strong> {{ opp_list|length }} </strong> opportunités </h2>
+
+      <div class="article-content" style="margin: 20px; text-align: justify;">
+      Vous pourez visualiser l'ensemble des informations essentielles concernant cette offre, enfin, celle que edhunt aura pu recueillir!
+      </div>
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+
+      <!-- Opportunités-->
+      <legend class="border-bottom mb-4">Opportunités</legend>
+      <article class="media content-section" style= "padding: 20px">
+        <div class="media-body">
+              <table class="table">
+                <!--head -->
+                <thead>
+                  <tr class="row">
+                    <th class="col-md-2" >Entreprise</th>
+                    <th class="col-md-2" >Poste</th>
+                    <th class="col-md-2" >Plateforme</th>
+                    <th class="col-md-2" >Recherche</th>
+                    <th class="col-md-2" >Localisation</th>
+                    <th class="col-md-1" >Statut</th>
+                    <th class="col-md-1" ></th>
+                  </tr>
+                </thead>
+
+                <!--body -->
+                <tbody>
+                {% for opp in opp_list %}
+                  <tr class="row">
+                      <td class="col-md-2">{{ opp.company }}</td>
+                      <td class="col-md-2">{{ opp.job }}</td>
+                      <td class="col-md-2">{{ opp.plateform }}</td>
+                      <td class="col-md-2">{{ opp.search_name }}</td>
+                      <td class="col-md-2" >{{ opp.loc }}</td>
+                      <td class="col-md-1" >{{ opp.applied }}</td>
+                      <td class="col-md-1">
+                        <a class="btn btn-outline-secondary" href="{{ url_for('opportunities.visualize_opportunity', opp_id=opp.id) }}">Détail</a>
+                      </td>
+                   </tr>
+                {% endfor %}
+                  </tbody>
+              </table>
+        </div>
+      </article>
+    </div>
+  </div>
+
+<!-- controls -->
+<div class="text-right">
+  <div class="form-group">
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <a class="btn btn-outline-secondary myButton" href="{{ url_for('main.edhunt') }}">Retour</a>
+  </div>
+</div>
+</div>
+
+
+{% endblock content %}
+
+

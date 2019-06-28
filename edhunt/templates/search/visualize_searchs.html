@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<!-- imports -->
+<!-- ------------------------------------------- -->
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/user/manage_user2.css') }}">
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/edhunt2.js') }}" type="text/javascript"></script>
+
+<!-- content section -->
+<!-- ------------------------------------------- -->
+<div class="content-section">
+
+<!-- ehHeader -->
+<!-- --------------------- -->
+<div class="ehHeader">
+
+  <!-- Title -->
+  <h1 class="account - heading">Mes recherches </h1>
+  <!-- Sub Title -->
+      <h2> J'ai <strong> {{ search_list|length }} </strong> recherches en cours</h2>
+  <!-- Head-->
+  <div class="article-content" style="margin: 20px; text-align: justify;">      Vous pourez visualiser l'ensemble des informations essentielles concernant vos recherches.</div>
+  <!-- Nav -->
+  <div class="text-right form-group">
+    <a class="btn btn-outline-secondary ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+</div>
+
+
+<!-- ehBody -->
+<!-- --------------------- -->
+<div class="ehBody">
+<legend class="border-bottom mb-4"></legend>
+
+  <div class="row">
+      <div id="{{ 'search' }}Content" class="col-12 ehTable">
+        <!-- table -->
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <th class="col-2 ehData" scope="row">Nom</th>
+              <th class="col-2 ehData" >Mots Clés</th>
+              <th class="col-2 ehData" >Loc.</th>
+              <th class="col-1 ehData HIDE800" >Créée le</th>
+              <th class="col-1 ehData HIDE800" >MAJ le</th>
+              <th class="col-1 ehData HIDE600" >Cands.</th>
+              <th class="col-1 ehData" >Offs.</th>
+              <th class="col-2 ehData"></th>
+
+            </thead>
+            <!-- body -->
+            <tbody>
+              {% for search in search_list %}
+              <tr>
+                <td class="col-2 ehData" scope="row">{{ search.name }}</td>
+                <td class="col-2 ehData">{{ search.key_words }}</td>
+                <td class="col-2 ehData">Loc</td>
+                <td class="col-1 ehData HIDE800">20/11/1988</td>
+                <td class="col-1 ehData HIDE800">20/11/1988</td>
+                <td class="col-1 ehData HIDE600">{{ search.candidatures_count }} </td>
+                <td class=" col-1 ehData">{{ search.opportunities_count }}</td>
+                <td class=" col-2 ehData">
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle ACTION" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Action </button>
+                    <div class="dropdown-menu ehButton" aria-labelledby="dropdownMenuButton ">
+                      <a class="dropdown-item" href="{{ url_for('searchs.manage_search', search_id=search.id) }}">Modifier</a>
+                      <a class="dropdown-item" href="{{ url_for('searchs.visualize_search', search_id=search.id) }}">Voir détail</a>
+                      <a class="dropdown-item" href="{{ url_for('searchs.delete_search', search_id=search.id )}}">Supprimer</a>
+                    </div>
+                  </div>
+                  </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+
+  <div class="text-center">
+    <div class="row" style="margin: 100px 0px 20px 0px;">
+      <div class="col form-group">
+      <a href="" class="btn btn-outline-secondary ehButton" style="width: 100% ; padding: 20px 0px">! Mettre à jour </a>
+    </div>
+    <div class="col form-group">
+      <a href="" class="btn btn-outline-secondary ehButton" style="width: 100% ;  padding: 20px 0px">! Postuler</a>
+    </div>
+  </div>
+  <div class="row" style="margin: 20px 0px 100px 0px;">
+    <div class="col form-group">
+      <a href="{{ url_for('searchs.create_search') }}" class="btn btn-outline-info ehButton" style="width: 100% ;  padding: 20px 0px">Ajouter une recherche </a>
+    </div>
+  </div>
+  </div>
+
+</div>
+
+  <!-- Nav -->
+  <legend class="border-bottom mb-4"></legend>
+  <div class="text-right form-group" style="padding: 20px 0px;">
+    <a class="btn btn-outline-secondary ehButton" href="{{ url_for('main.edhunt') }}"> edhunt</a>
+    <button class="btn btn-outline-secondary ehButton" onclick="goBack()"> Retour</button>
+  </div>
+
+</div>
+
+
+{% endblock content %}
+
+
