@@ -65,7 +65,28 @@
 {% block oui %}
 <div class="ehOui">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-6">
+      <div class="ehH1">{{text.page.title}} </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+    <div class="col-sm-6">
+<!--       <div class="ehWhiteBox"></div> -->
+  {% for i, text in text.oui.text[0:3] %}
+    <div  style="margin : 60px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; max-width: 340px; margin:0px 100px; border : 1px solid var(--myBrown)">
+        <span id="ouiKeyContent{{i}}"> {% if text[0]|length < 25 %} <br> {% endif %}  {{ text[0] }}</span>
+        <span id="ouiValContent{{i}}"style="display: none"> {% if text[1]|length < 25 %} <br> {% endif %}  {{ text[1] }}</span>
+      </div>
+    </div>
+  {% endfor %}
+    </div>
+
+  <div class="col-sm-12">
       <div class='ehWhiteBox'></div>
     </div>
   </div>
@@ -80,7 +101,7 @@
   </div> -->
   <!-- row 1 -->
   <div class="row ouiRow1" style="background-color: var(--myWhite)">
-  {% for i, text in text.oui.text[0:6] %}
+  {% for i, text in text.oui.text[3:9] %}
     <div class="col-sm-4" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
@@ -97,7 +118,7 @@
 
   <!-- row2 -->
   <div class="row ouiRow2" style="display :none; background-color: var(--myWhite)">
-  {% for i, text in text.oui.text[6:9] %}
+  {% for i, text in text.oui.text[9:] %}
     <div class="col-sm-4" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}"style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
@@ -118,8 +139,10 @@
   </div>
 
 
+
+
   <!-- row3 -->
-  <div class="row ouiRow3" style="display :none; background-color: var(--myWhite)">
+<!--   <div class="row ouiRow3" style="display :none; background-color: var(--myWhite)">
   {% for i, text in text.oui.text[9:] %}
     <div class="col-sm-4" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
@@ -138,7 +161,7 @@
         <span class=""><i class="fas fa-chevron-down"></i></span>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- row4 -->
 <!--   <div class="row ouiRow4" style="display :none; background-color: var(--myWhite)">

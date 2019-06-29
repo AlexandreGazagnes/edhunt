@@ -204,9 +204,9 @@ class _Form_4(FlaskForm):
                        description=HelpMessages.unique_select,
                        choices=UsersEnums.choices('status'))
 
-  sector = SelectField('Secteur',
-                       description=HelpMessages.unique_select,
-                       choices=UsersEnums.choices('sector'))
+  # sector = SelectField('Secteur',
+  #                      description=HelpMessages.unique_select,
+  #                      choices=UsersEnums.choices('sector'))
 
   function = SelectField('Fonction',
                          description=HelpMessages.unique_select,

@@ -16,10 +16,12 @@
 $(document).ready(function(){
     $(".ehInscriptionSmall").mouseover(function(){
         $(this).css("background-color", "var(--myBrown)")
-        .css("color", "var(--myWhite)");     });
+        .css("color", "var(--myWhite)");     })
+        .css("transition-duration", "0.3s");
     $(".ehInscriptionSmall").mouseout(function(){
         $(this).css("background-color", "var(--myWhite)")
-        .css("color", "var(--myBrown)");    });  });
+        .css("color", "var(--myBrown)")
+        .css("transition-duration", "0.3s");;    });  });
 
 
 // GENERAL
@@ -27,13 +29,13 @@ $(document).ready(function(){
 $(document).ready(function(){
   $(".ehTextBoxGridNeuf").mouseover(function(){
     $(this).css("background-color", "var(--myBrown)")
-    .css("color", "var(--myWhite)");
+    .css("color", "var(--myWhite)")
+    .css("transition-duration", "0.3s");;
   });
   $(".ehTextBoxGridNeuf").mouseout(function(){
     $(this).css("background-color", "var(--myWhite)")
-    .css("color", "var(--myBrown)");
-  });
-});
+    .css("color", "var(--myBrown)")
+    .css("transition-duration", "0.3s");   });   });
 
 
 // GENERAL
@@ -41,13 +43,13 @@ $(document).ready(function(){
 $(document).ready(function(){
   $(".ehTextBox3").mouseover(function(){
     $(this).css("background-color", "var(--myBrown)")
-    .css("color", "var(--myWhite)");
+    .css("color", "var(--myWhite)")
+    .css("transition-duration", "0.3s");;
   });
   $(".ehTextBox3").mouseout(function(){
     $(this).css("background-color", "var(--myWhite)")
-    .css("color", "var(--myBrown)");
-  });
-});
+    .css("color", "var(--myBrown)")
+    .css("transition-duration", "0.3s");   });    });
 
 // $(document).ready(function(){
 //   $(".ehTextBoxTop").mouseover(function(){
@@ -66,10 +68,12 @@ $(document).ready(function(){
 $(document).ready(function(){
     $(".ehTextBoxFoot").mouseover(function(){
         $(this).css("background-color", "var(--myBrown)")
-        .css("color", "var(--myWhite)");     });
+        .css("color", "var(--myWhite)")
+        .css("transition-duration", "0.3s");     });
     $(".ehTextBoxFoot").mouseout(function(){
         $(this).css("background-color", "var(--myWhite)")
-        .css("color", "var(--myBrown)");    });   });
+        .css("color", "var(--myBrown)")
+        .css("transition-duration", "0.3s");    });   });
 
 
 

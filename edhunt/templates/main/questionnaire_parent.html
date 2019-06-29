@@ -55,7 +55,13 @@
 {% block form %}
 <div id="ehForm">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-6">
+          <div class="ehH1">{{ text.title }}</div>
+      <div class="ehTextBoxTop">
+        {{ text.head }}
+      </div>
+    </div>
+    <div class="col-sm-6">
       <div class="content-section" style="background-color: white; padding: 20px">
         <form method="POST" action="">
           {{ form.hidden_tag() }}

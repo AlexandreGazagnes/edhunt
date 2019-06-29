@@ -1,30 +1,30 @@
 class _Questionnaire1:
-    title = "Inscription 1/6"
+    title = "1/6"
     head = "Commençons par votre situtation professionnelle actuelle"
 
 
 class _Questionnaire2:
-    title = "Inscription 2/6"
+    title = "2/6"
     head = "Parlons ensuite de votre rapport au marché de l'emploi"
 
 
 class _Questionnaire3:
-    title = "Inscription 3/6"
+    title = "3/6"
     head = "Parlons  maintenant du niveau d'accompagnement que edhunt peut vous apporter"
 
 
 class _Questionnaire4:
-    title = "Inscription 4/6"
+    title = "4/6"
     head = "Parlons enfin de votre profil et de votre expérience professionnelle"
 
 
 class _Questionnaire5:
-    title = "Inscription 5/6"
+    title = "5/6"
     head = "Une dernière chose avant de rejoindre edhunt : votre avis nous intéresse ! Une remarque, une question, un doute ? On vous écoute"
 
 
 class _Questionnaire6:
-    title = "Inscription 6/6"
+    title = "6/6"
     head = "Dans exactement un clic, on pourra  ( enfin ) vous dire : ' Bienvenue chez edhunt ! ' "
 
 

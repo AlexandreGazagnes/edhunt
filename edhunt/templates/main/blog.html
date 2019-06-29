@@ -66,12 +66,40 @@
 {% block blog %}
 <div class="ehBlog">
   <div class="row">
+    <div class="col-sm-6">
+      <div class="ehH1">{{text.page.title}} </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+      <div class="col-md-6">
+  {% for post in posts[:2] %}
+      <a href="{{ url_for('main.post', post_id=post.id) }} ">
+      <article class="media content-section myContentBox" >
+        <div class="media-body">
+          <div class="article-metadata">
+            <small>écrit par </small>{{ post.author}} <small>le </small> {{post.created}}
+          </div>
+          <h2  class='ehLegend' style="padding: 20px">{{ post.title }}</h2>
+          <p class="article-content myContentText">{{ post.header }}...</p>
+        </div>
+      </article>
+      </a>
+  {% endfor %}
+      </div>
+
+
+
+
     <div class="col-sm">
       <div class='ehWhiteBox'></div>
     </div>
   </div>
   <div class="row">
-  {% for post in posts %}
+  {% for post in posts[2:] %}
       <div class="col-md-6">
       <a href="{{ url_for('main.post', post_id=post.id) }} ">
       <article class="media content-section myContentBox" >

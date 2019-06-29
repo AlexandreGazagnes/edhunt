@@ -12,6 +12,40 @@ class BlogText:
 
         {"link": "",
             "source": "edhunt",
+            "title": "#Analyses : Le marché de l'emploi en France",
+            "tags": "analyses",
+            "created": "20/06/2019 16:13",
+            "author": "edhunt",
+            "text": """
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+"""},
+
+
+
+        {"link": "",
+            "source": "edhunt",
             "title": "#Portaits : n°2 Alice, cadre recherche active",
             "tags": "portraits",
             "created": "02/06/2019 22:19",
@@ -68,7 +102,6 @@ Attention, edhunt, ne sera jamais en capacité de passer un entretien à votre p
 
 """},
 
-
         {"title": "#Portaits : n°1 Antoine, le marketing et les rires",
             "tags": "portraits",
             "source": "",
@@ -106,7 +139,6 @@ Grave! (rires)
 
 """},
 
-
         {"title": "Le plein emploi chez cadres, vraiment?",
             "tags": "happy, enjoy",
             "source": "edhunt",
@@ -130,5 +162,37 @@ Pour edhunt, il y a 2 raisons qui peuvent expliquer en partie cette situation, e
 
 2 – A part pôle emploi, dont on connaît bien les limites, personne n’est « du coté des candidats ». Or, et c’est bien là le problème : on manque cruellement de candidats ! Peut-être qu’il faudrait – simplement – aider les candidats, un peu... On trouve de nombreux cabinets de recrutement, de nombreuses SSII… Mais il suffirait d’une plateforme pour vraiment aider les candidats dans leur recherche pour détendre le marché de l’emploi en France, apportant au passage un sucroit de croissance et de dynamisme économique. Songez donc que si on arrivait à aider suffisamment de candidats pour répondre à 2% des postes à pourvoir, on pourrait faire en sorte que tous les habitants d'une ville comme d'Annecy changent de poste en 2019 !
 
+
+"""},
+
+        {"link": "",
+            "source": "edhunt",
+            "title": "#Interview : Alex, fondateur de edhunt",
+            "tags": "interviews",
+            "created": "08/05/2019 07:11",
+            "author": "edhunt",
+            "text": """
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 """}]
