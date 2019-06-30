@@ -13,6 +13,14 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/blog.css') }}">
 
 
+<!-- aos -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
 <div class="container-fluid">
 <div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
 
@@ -66,7 +74,7 @@
 {% block blog %}
 <div class="ehBlog">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" data-aos="fade-right"  data-aos-duration="2000">
       <div class="ehH1">{{text.page.title}} </div>
       <div class="ehTextBoxTop">
         {{ text.page.head[0] }}
@@ -75,7 +83,7 @@
         {{ text.page.head[1] }}
       </div>
     </div>
-      <div class="col-md-6">
+      <div class="col-md-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
   {% for post in posts[:2] %}
       <a href="{{ url_for('main.post', post_id=post.id) }} ">
       <article class="media content-section myContentBox" >

@@ -12,6 +12,14 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/faq.css') }}">
 
+<!-- aos -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
 
 <div class="container-fluid">
 <div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
@@ -94,8 +102,24 @@
 {% block loffre2 %}
 <div class="ehOffre2">
   <div class="row">
-    <div class="col-sm">
-      <div class='ehWhiteBox'></div>
+    <div class="col-sm-6 data-aos="fade-right" data-aos-duration="2000"">
+      <div class="ehH1">{{text.page.title}} </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[0] }}
+      </div>
+      <div class="ehTextBoxTop">
+        {{ text.page.head[1] }}
+      </div>
+    </div>
+    <div class="col-sm-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
+<!--       <div class='ehWhiteBox'></div>
+ -->  {% for text in text.feats.items[0:3] %}
+    <div  style="margin : 100px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 0px solid var(--myBrown)">
+        <span id=><br>{{ text }}</span>
+      </div>
+    </div>
+  {% endfor %}
     </div>
   </div>
 <!--   <div class="row">
@@ -107,6 +131,12 @@
     <div class="col-sm">
     </div>
   </div> -->
+
+
+  <div class="col-sm-12">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
 
   <!-- row 1 -->
   <div class="row offre2Row1" style="background-color: var(--myWhite)">

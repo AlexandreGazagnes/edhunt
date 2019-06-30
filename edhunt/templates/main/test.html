@@ -10,22 +10,48 @@
 <!-- css -->
 <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/contact.css') }}"> -->
 
-<!-- PAGE -->
-<div class="content-section" style="background-color: #fafafa">
-  <div class="media">
-    <div class="media-body">
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home2.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/faq.css') }}">
 
-      <div class="article-content">
-        <div class="container">
-          <p>window size : </p>
-          <p id="mySize"></p>
-          <button id="myButton" onclick="updateMySize()">Update width</button>
-          </div>
-        </div>
-        </div>
+
+<!-- aos -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+<div class="container-fluid">
+<div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
+
+<div class="ehResponsiveTopBox" style = "height: 0px;"></div>
+
+
+<!-- test -->
+{% block test %}
+<div class="ehTest">
+  <div class="row">
+    <div class="col-sm-6" data-aos="fade-right">
+      <div class="ehH1">Test</div>
+      <div class="ehTextBoxTop">
+        ceci est un super test de la mort
+      </div>
+      <div class="ehTextBoxTop">
+        en theorie, tout ce passe bien, en theorie!
       </div>
     </div>
+    <div class="col-sm-6">
+    </div>
   </div>
+</div>
+{% endblock test %}
+
+
+
+</div>
 </div>
 
 {% endblock %}

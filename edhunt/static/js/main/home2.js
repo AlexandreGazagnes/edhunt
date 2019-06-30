@@ -210,6 +210,14 @@ function swapContractDisplay() {
 //             block.style.display = "block" ; }    }, false );    })
 
 
+// ALLL FADEOUT WHEN LEAVE THE PAHE
+$(document).ready(function(){
+    $("a").click(function() {
+        $("div").fadeOut(300); })   ;})
+
+$(document).ready(function(){
+        $("div").fadeIn(500);   ;})
+
 
 
 // A PROPOS

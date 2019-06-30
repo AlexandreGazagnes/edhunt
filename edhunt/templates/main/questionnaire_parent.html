@@ -12,6 +12,13 @@
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
 
 
+<!-- aos -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
 <div class="container-fluid">
 <div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
 
@@ -55,13 +62,13 @@
 {% block form %}
 <div id="ehForm">
   <div class="row">
-    <div class="col-sm-6">
+    <div class="col-sm-6" data-aos="fade-right" data-aos-duration="2000">
           <div class="ehH1">{{ text.title }}</div>
       <div class="ehTextBoxTop">
         {{ text.head }}
       </div>
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000"">
       <div class="content-section" style="background-color: white; padding: 20px">
         <form method="POST" action="">
           {{ form.hidden_tag() }}
