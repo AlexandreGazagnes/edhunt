@@ -128,36 +128,36 @@ $(document).ready(function(){
         $('.finButton2down').slideDown();    });    });
 
 
-// FAq
-// oui
-$(document).ready(function(){
-    $(".ouiButton1").click(function(){
-        $('.ouiRow2').slideDown();
-        $('.ouiButton1').slideUp();    });
+// // FAq
+// // oui
+// $(document).ready(function(){
+//     $(".ouiButton1").click(function(){
+//         $('.ouiRow2').slideDown();
+//         $('.ouiButton1').slideUp();    });
 
-    $(".ouiButton2up").click(function(){
-        $('.ouiRow2').slideUp();
-        $('.ouiButton1').slideDown();    });
+//     $(".ouiButton2up").click(function(){
+//         $('.ouiRow2').slideUp();
+//         $('.ouiButton1').slideDown();    });
 
-    $(".ouiButton2down").click(function(){
-        $('.ouiRow3').slideDown();
-        $('.ouiButton2up').slideUp();
-        $('.ouiButton2down').slideUp();    });
+//     $(".ouiButton2down").click(function(){
+//         $('.ouiRow3').slideDown();
+//         $('.ouiButton2up').slideUp();
+//         $('.ouiButton2down').slideUp();    });
 
-    $(".ouiButton3up").click(function(){
-        $('.ouiRow3').slideUp();
-        $('.ouiButton2up').slideDown();
-        $('.ouiButton2down').slideDown();    });
+//     $(".ouiButton3up").click(function(){
+//         $('.ouiRow3').slideUp();
+//         $('.ouiButton2up').slideDown();
+//         $('.ouiButton2down').slideDown();    });
 
-    $(".ouiButton3down").click(function(){
-        $('.ouiRow4').slideDown();
-        $('.ouiButton3up').slideUp();
-        $('.ouiButton3down').slideUp();    });
+//     $(".ouiButton3down").click(function(){
+//         $('.ouiRow4').slideDown();
+//         $('.ouiButton3up').slideUp();
+//         $('.ouiButton3down').slideUp();    });
 
-    $(".ouiButton4").click(function(){
-        $('.ouiRow4').slideUp();
-        $('.ouiButton3up').slideDown();
-        $('.ouiButton3down').slideDown();    });    });
+//     $(".ouiButton4").click(function(){
+//         $('.ouiRow4').slideUp();
+//         $('.ouiButton3up').slideDown();
+//         $('.ouiButton3down').slideDown();    });    });
 
 
 // QUESTIONNAIRE
@@ -268,52 +268,6 @@ $(document).ready(function(){
 
 
 
-// OFFRE
-// offres
-$(document).ready(function(){
-    var width = window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth;
-
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
-
-    var feat_list = ['free','smart', 'big', 'pro'];
-    if (width > 576) {
-        feat_list.forEach(function(feat, idx){
-            $("#"+feat+"ButtonLaptop").mouseover(function(){
-                $("#defaultContentLaptop").hide();
-                $("#"+ feat +"ContentLaptop").show();     });
-            $("#"+feat+"ButtonLaptop").mouseout(function(){
-                $("#"+ feat +"ContentLaptop").hide();
-                $("#defaultContentLaptop").show();   });      });}
-    else {
-        feat_list.forEach(function(feat, idx){
-            $("#"+feat+"ButtonMobile").click(function(){
-                if ( 'none' == $("#"+feat+"ContentMobile").css("display")) {
-                    $("#"+feat+"ContentMobile").slideDown();    }
-                else {
-                    $("#"+feat+"ContentMobile").slideUp();    } });});}});
-
-
-
-
-
-// OFFRE2
-$(document).ready(function(){
-    $(".offre2Button2").click(function(){
-        $('.offre2Row2').slideDown();
-        $('.offre2Button2').slideUp();   });
-
-    $(".offre2Button3").click(function(){
-        $('.offre2Row3').slideDown();
-        $('.offre2Button3').slideUp();   });
-
-    $(".offre2Button4").click(function(){
-        $('.offre2Row4').slideDown();
-        $('.offre2Button4').slideUp();   });    });
-
 
 
 // A PROPOS
@@ -340,31 +294,7 @@ $(document).ready(function(){
 
 
 
-function ouiFunct(item){
-        $("#ouiButton"+item).mouseover(function(){
-            $('#ouiKeyContent'+item).hide();
-            $('#ouiValContent'+item).show();    });
-        $("#ouiButton"+item).mouseout(function(){
-            $('#ouiValContent'+item).hide();
-            $('#ouiKeyContent'+item).show();    });   ;}
 
-
-
-// A PROPOS
-// deja dit
-$(document).ready(function(){
-    ouiFunct(1);
-    ouiFunct(2);
-    ouiFunct(3);
-    ouiFunct(4);
-    ouiFunct(5);
-    ouiFunct(6);
-    ouiFunct(7);
-    ouiFunct(8);
-    ouiFunct(9);
-    ouiFunct(10);
-    ouiFunct(11);
-    ouiFunct(12);    });
 
 
 function showResponsiveTopBox() {

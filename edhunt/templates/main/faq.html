@@ -1,72 +1,8 @@
-{% extends "layout.html" %}
-{% block content %}
+{% extends "main/main.html" %}
+{% block sub_content %}
 
-<!-- jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-
-<!-- javascrip -->
-<script src="{{ url_for('static', filename='js/main/home2.js') }}" type="text/javascript"></script>
-
-<!-- css -->
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home2.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/faq.css') }}">
-
-<!-- aos -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
-
-
-<div class="container-fluid">
-<div class="content-section" style="background-color: var(--myWhite); border-left: none;border-right: none;">
-
-<div class="ehResponsiveTopBox" style = "height: 0px;"></div>
-
-<!-- title -->
-<!-- {% block title %}
-<div class="ehTitle">
-  <div class="row">
-    <div class="col-sm">
-      <div class="ehH1">{{text.page.title}} </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm">
-      <div class='ehWhiteBox'></div>
-    </div>
-  </div>
-</div>
-{% endblock title %} -->
-
-
-<!-- <div class="border-bottom"></div> -->
-
-<!-- subtitle -->
-<!-- {% block subtitle %}
-<div class="ehSubtitle">
-  <div class="row">
-    <div class="col-sm">
-      <div class="ehTextBoxTop">
-        {{ text.page.head[0] }}
-      </div>
-    </div>
-    <div class="col-sm ehResponsiveSecondBox">
-    </div>
-    <div class="col-sm">
-      <div class="ehTextBoxTop">
-        {{ text.page.head[1] }}
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock subtitle %} -->
-
-<!--
-<div class="border-bottom"></div> -->
-
+<script src="{{ url_for('static', filename='js/main/faq.js') }}" type="text/javascript"></script>
 
 
 <!-- oui -->
@@ -84,82 +20,49 @@
     </div>
     <div class="col-sm-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
 <!--       <div class="ehWhiteBox"></div> -->
-  {% for i, text in text.oui.text[0:3] %}
-    <div  style="margin : 60px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; max-width: 340px; margin:0px 100px; border : 1px solid var(--myBrown)">
-        <span id="ouiKeyContent{{i}}"> {% if text[0]|length < 25 %} <br> {% endif %}  {{ text[0] }}</span>
-        <span id="ouiValContent{{i}}"style="display: none"> {% if text[1]|length < 25 %} <br> {% endif %}  {{ text[1] }}</span>
+      {% for i, text in text.oui.text[0:3] %}
+      <div data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000"  style="margin : 60px 0px; background-color: var(--myWhite)">
+        <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; max-width: 340px; margin:0px 100px; border : 1px solid var(--myBrown)">
+          <span id="ouiKeyContent{{i}}"> {% if text[0]|length < 25 %} <br> {% endif %}  {{ text[0] }}</span>
+          <span id="ouiValContent{{i}}" style="display: none"> {% if text[1]|length < 25 %} <br> {% endif %}  {{ text[1] }}</span>
+        </div>
       </div>
+      {% endfor %}
     </div>
-  {% endfor %}
-    </div>
-
-  <div class="col-sm-12">
+    <div class="col-sm-12">
       <div class='ehWhiteBox'></div>
     </div>
   </div>
-<!--   <div class="row">
-    <div class="col-sm">
-      <div class='ehTextBoxApropos text-left'>
-        {{text.oui.name}}
-      </div>
-    </div>
-    <div class="col-sm">
-    </div>
-  </div> -->
-  <!-- row 1 -->
-  <div class="row ouiRow1" style="background-color: var(--myWhite)">
-  {% for i, text in text.oui.text[3:9] %}
+
+
+  <!-- row2 -->
+  <div class="row ouiRow2" style="background-color: var(--myWhite)">
+    {% for i, text in text.oui.text[3:6] %}
     <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
-        <span id="ouiValContent{{i}}"style="display: none">{{text[1]}}</span>
+        <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
       </div>
     </div>
-  {% endfor %}
-    <div class="col-sm-12 ">
-      <div class="ehInscriptionSmall ouiButton1" style="border:none">
+    {% endfor %}
+<!--     <div class="col-sm-12 ">
+      <div class="ehInscriptionSmall ouiButton2" style="border:none">
         <span class=""><i class="fas fa-chevron-down"></i></span>
       </div>
-    </div>
+    </div> -->
   </div>
 
-  <!-- row2 -->
-  <div class="row ouiRow2" style="display :none; background-color: var(--myWhite)">
-  {% for i, text in text.oui.text[9:] %}
-    <div class="col-sm-4" data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
+  <!-- row3 -->
+  <div class="row ouiRow3" style=" background-color: var(--myWhite)">
+    {% for i, text in text.oui.text[6:9] %}
+    <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}"style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
         <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
       </div>
     </div>
-  {% endfor %}
-    <div class="col-sm-6 ">
-      <div class="ehInscriptionSmall ouiButton2up" style="border:none">
-        <span class=""><i class="fas fa-chevron-up"></i></span>
-      </div>
-    </div>
-    <div class="col-sm-6 ">
-      <div class="ehInscriptionSmall ouiButton2down" style="border:none">
-        <span class=""><i class="fas fa-chevron-down"></i></span>
-      </div>
-    </div>
-  </div>
-
-
-
-
-  <!-- row3 -->
-<!--   <div class="row ouiRow3" style="display :none; background-color: var(--myWhite)">
-  {% for i, text in text.oui.text[9:] %}
-    <div class="col-sm-4" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
-        <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
-        <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
-      </div>
-    </div>
-  {% endfor %}
-    <div class="col-sm-6 ">
+    {% endfor %}
+<!--     <div class="col-sm-6 ">
       <div class="ehInscriptionSmall ouiButton3up" style="border:none">
         <span class=""><i class="fas fa-chevron-up"></i></span>
       </div>
@@ -168,8 +71,59 @@
       <div class="ehInscriptionSmall ouiButton3down" style="border:none">
         <span class=""><i class="fas fa-chevron-down"></i></span>
       </div>
+    </div> -->
+  </div>
+
+  <!-- row4 -->
+  <div class="row ouiRow4" style="background-color: var(--myWhite)">
+    {% for i, text in text.oui.text[9:12] %}
+    <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+        <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
+        <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
+      </div>
     </div>
-  </div> -->
+  {% endfor %}
+<!--     <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall ouiButton3up" style="border:none">
+        <span class=""><i class="fas fa-chevron-up"></i></span>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall ouiButton3down" style="border:none">
+        <span class=""><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </div> -->
+  </div>
+
+
+
+  <!-- row5 -->
+  <div class="row ouiRow5" style="background-color: var(--myWhite)">
+    {% for i, text in text.oui.text[12:] %}
+    <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+        <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
+        <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
+      </div>
+    </div>
+  {% endfor %}
+<!--     <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall ouiButton3up" style="border:none">
+        <span class=""><i class="fas fa-chevron-up"></i></span>
+      </div>
+    </div>
+    <div class="col-sm-6 ">
+      <div class="ehInscriptionSmall ouiButton3down" style="border:none">
+        <span class=""><i class="fas fa-chevron-down"></i></span>
+      </div>
+    </div> -->
+  </div>
+
+
+
+
+
 
   <!-- row4 -->
 <!--   <div class="row ouiRow4" style="display :none; background-color: var(--myWhite)">
@@ -188,7 +142,7 @@
     </div>
   </div> -->
 
-  <div class="row">
+<!--   <div class="row">
     <div class="col-sm">
     </div>
     <div class="col-sm text-right">
@@ -196,7 +150,7 @@
         {{text.oui.answer}}
       </div>
     </div>
-  </div>
+  </div> -->
   <div class="row">
     <div class="col-sm">
       <div class='ehWhiteBox'></div>
@@ -206,11 +160,11 @@
 {% endblock oui%}
 
 
-<div class="border-bottom"></div>
+<!-- <div class="border-bottom"></div> -->
 
-{% block sep2 %}
+<!-- {% block sep2 %} -->
   <!-- sep -->
-<div class="sep">
+<!-- <div class="sep">
   <div class="row">
     <div class="col-sm">
       <div id="avatar" class="carousel slide" data-ride="carousel">
@@ -227,13 +181,11 @@
 
 
 <div class="border-bottom"></div>
-
-
-
+ -->
 
 
 <!-- faq -->
-{% block faq %}
+<!-- {% block faq %}
 <div class="ehFaq">
   <div class="row">
     <div class="col-sm">
@@ -265,66 +217,7 @@
     </div>
   </div>
 </div>
-{% endblock faq %}
+{% endblock faq %} -->
 
 
-<div class="border-bottom"></div>
-
-
-{% block sep %}
-  <!-- sep -->
-<div class="sep">
-  <div class="row">
-    <div class="col-sm">
-      <div id="avatar" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="static/images/main/avatar.png" alt="">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{% endblock sep %}
-
-
-<div class="border-bottom"></div>
-
-
-  <!-- foot -->
-{% block foot %}
-<div class="foot">
-  <div class="row">
-    <div class="col-sm">
-      <div class='ehWhiteBox'></div>
-    </div>
-  </div>
-  <div class="border-bottom"></div>
-  <div class="row ">
-    {% for ref, name in [ ('main.apropos', 'A propos'),
-                          ('main.loffre', 'L\'offre'),
-                          ('main.blog', 'Blog'),
-                          ('main.faq', 'FAQ'),
-                          ('main.contact', 'Contact'), ] %}
-    <div class="col-sm">
-      <a href="{{ url_for(ref) }}">
-        <div class="ehTextBoxFoot">
-          {{ name }}
-        </div>
-      </a>
-    </div>
-  {% endfor %}
-  </div>
-</div>
-{% endblock foot %}
-
-
-
-</div>
-</div>
-
-
-
-
-{% endblock %}
+{% endblock sub_content %}

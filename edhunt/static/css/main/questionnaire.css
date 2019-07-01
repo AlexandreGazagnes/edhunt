@@ -24,7 +24,7 @@
 @media (min-width: 768px) {
   .ehLabel{font-size: 1.5rem;}
   .ehLegend{ font-size: 2rem; }
-  .ehTextArea{font-size: 1.1rem; height:220;}
+  .ehTextArea{font-size: 1.1rem; height:200px;}
   .ehInput{font-size: 1.1rem; }
   .ehSelector{font-size: 1.1rem; }       }
 

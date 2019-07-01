@@ -21,7 +21,11 @@ class _Oui:
 
             (10, ("pas besoin de edhunt pour trouver un job", "c'est vrai, mais avec edhunt c'est plus simple, plus rapide et moins pénible!")),
             (11, ("et mes mots de passe, vous en faîtes quoi", "edhunt ne les stocke pas 'en clair' par soucis de confidentialité")),
-            (12, ("si c'est gratuit c'est forcément une arnaque", "parlez en avec nos embassadeurs, il ne sont pas du tout de cet avis"))]
+            (12, ("si c'est gratuit c'est forcément une arnaque", "parlez en avec nos embassadeurs, il ne sont pas du tout de cet avis")),
+
+            (13, ("ça veut dire quoi le nom 'edhunt'", "un chasseur de têtes en anglais c'est 'head hunter', francisé ça fait 'edhunt' ")),
+            (14, ("et pour la lettre de motivation", "deux options soit vous la faîtes, soit edhunt la fait pour vous")),
+            (15, ("si c'est gratuit c'est forcément une arnaque", "parlez en avec nos embassadeurs, il ne sont pas du tout de cet avis")),       ]
 
 
 class _Manifeste:
