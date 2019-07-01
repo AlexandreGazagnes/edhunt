@@ -1,0 +1,199 @@
+{% extends "layout2.html" %}
+{% block content %}
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/main.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/main/home2.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='js/main/questionnaire.js') }}" type="text/javascript"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/main.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home2.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
+
+
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+{% block home_1 %}
+<div class="row" id="ehHome1">
+  <div class="col-sm-6">
+    <div class="ehHomeHead text-center">
+      <p data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="ehH1">edhunt</p>
+      <p data-aos="fade-right" data-aos-delay="700" data-aos-duration="2000" class="ehH2">l'assistant 100% dédié à votre recherche d'emploi</p>
+      <p data-aos="fade-right" data-aos-delay="900" data-aos-duration="2000" class="ehH3">edhunt centralise, simplifie et automatise votre recherche d’emploi <br>donnez-lui votre profil, votre CV et votre recherche, il gère le reste <br>comme un chasseur de têtes, mais à l'envers</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div data-aos="fade-left" data-aos-delay="1200" data-aos-duration="2000" class="ehHomeQuest">
+    <form method="POST" action="">
+      {{ form.hidden_tag() }}
+      <!-- fieldset -->
+      <fieldset class="form-group">
+      {% for i in ["status", "function", "rem", "diploma_level",
+      "diploma_year", "zip_code" ]%}
+      <div class="form-group">
+      {{ form[i].label(class="form-control-label ehLabel") }}
+      {% if form[i].errors %}
+        {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
+        <div class="invalid-feedback">
+        {% for error in form[i].errors %}
+          <span>{{ error }}</span>
+        {% endfor %}
+        </div>
+      {% else %}
+        {{ form[i](class="form-control form-control-lg myTextArea") }}
+      {% endif %}
+      </div>
+      {% endfor %}
+      </fieldset>
+      <!-- submit -->
+      <div class="text-right">
+        <div class="form-group">
+          {{ form.submit(class="btn btn-outline-info ehButton") }}
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+{% endblock home_1 %}
+
+
+
+
+{% block home_2 %}
+<div class="row" id="ehHome2">
+  <div class="col-sm-12 ehHomeSecond"></div>
+
+  <!-- row1 -->
+  <div class="col-sm-2"></div>
+  <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond text-center">
+
+    <div class="ehHomeSecondTitle">Centralisez vos recherches</div>
+    <div class=ehHomeSecondContent><br>Quelque soit le site d’emploi, edhunt épluche les offres, les sélectionne et vous les présente de façon claire et centralisée
+    </div>
+  </div>
+  <div class="col-sm-6"></div>
+
+  <!-- row2 -->
+  <div class="col-sm-6"></div>
+  <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
+    <div class="ehHomeSecondTitle">Simplifiez vos candidatures</div>
+    <div class=ehHomeSecondContent><br>Avec edhunt vous candidatez en un seul clic à n'importe quelle offre d'emploi partout sur le web
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+
+  <!-- row3 -->
+  <div class="col-sm-2"></div>
+  <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
+    <div class="ehHomeSecondTitle">Automatisez les taches répétitives</div>
+    <div class=ehHomeSecondContent><br>Au besoin, mais surtout avec votre autorisation, edhunt met votre CV en ligne, le diffuse et candidate automatiquement à votre place
+    </div>
+  </div>
+  <div class="col-sm-6"></div>
+
+  <!-- row 4 -->
+  <div class="col-sm-6"></div>
+  <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
+    <div class="ehHomeSecondTitle">En recherche ou à l'écoute </div>
+    <div class=ehHomeSecondContent><br>En recherche active, à l'écoute du marché ou simplement en veille, edhunt simplifie votre accès au marché de l'emploi
+    </div>
+  </div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-12 ehHomeSecond"></div>
+  <div class="col-sm-5"></div>
+  <div class="col-sm-2">
+    <a href="{{ url_for('users.register_user') }}">
+      <div class="ehInscriptionSmall">s'inscrire</div>
+    </a>
+  </div>
+  <div class="col-sm-5"></div>
+  <div class="col-sm-12 ehHomeSecond"></div>
+</div>
+{% endblock home_2 %}
+
+
+{% block sep %}
+<div class="border-bottom"></div>
+  <!-- sep -->
+<div class="sep">
+  <div class="row">
+    <div class="col-sm">
+      <div id="avatar" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="static/images/main/avatar.png" alt=".">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="border-bottom"></div>
+{% endblock sep %}
+
+
+  <!-- foot -->
+{% block foot %}
+<div class="foot">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class='ehWhiteBox'></div>
+    </div>
+  </div>
+  <div class="border-bottom"></div>
+  <div class="row ">
+    <div class="col-sm-1"></div>
+      {% for ref, name in [ ('main.apropos', 'A propos'),
+                            ('main.loffre', 'L\'offre'),
+                            ('main.blog', 'Blog'),
+                            ('main.faq', 'FAQ'),
+                            ('main.contact', 'Contact'), ] %}
+      <div class="col-sm-2">
+        <a href="{{ url_for(ref) }}">
+          <div class="ehTextBoxFoot">
+            {{ name }}
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+    <div class="col-sm-1"></div>
+  </div>
+  <div class="border-bottom"></div>
+</div>
+{% endblock foot %}
+
+
+
+
+{% endblock content%}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

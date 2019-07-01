@@ -1,87 +1,533 @@
 /*media*/
 
 @media (min-width: 100px) {
-  .homeWelcome {font-size: 1rem;}
-   h4 {font-size: 1rem;}
-  .footText {font-size: 1rem;   padding: 10px 0px;}
-   .foot{  margin: 10px 2px;}  }
+    .ehH1{
+        font-size: 1rem;
+        padding: 5px 0px 5px 0px;
+        margin: 5px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 0.9rem;
+        padding: 5px 0px 10px 0px;
+        margin: 10px 0px 10px 0px;    }
+    .ehHIm{
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 10px 0px;    }
+    .ehInscriptionSmall{
+        font-size: 0.9rem;
+        margin: 10px 0px 0px 0px;
+        padding: 10px 10px;}
+    .ehTextBoxTop{
+        font-size: 0.9rem;
+        padding: 10px 10px 10px 10px;
+        margin: 10px 10px 10px 10px; }
+    .ehWhiteBox{
+        height: 10px }
+    .ehTextBoxBottom{
+        font-size: 0.9rem;
+        padding: 10px 10px 10px 10px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 3px 0px;
+        margin: 10px 0px;    }
+    .ehTextBox2{
+        font-size: 0.9rem;
+        padding: 10px 3px;
+        margin: 10px 3px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 0.9rem;
+        padding: 10px 3px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 0.9rem;
+        padding: 10px 10px;  }
+    .ehTextBoxFoot{
+        font-size: 0.9rem;
+        padding: 3px 3px 3px 3px;
+        margin: 0px 0px 0px 0px;  }}
 
 @media (min-width: 300px) {
-  .homeWelcome {font-size: 2.2rem;}
-   h4 {font-size: 1.5rem;}
-   .footText {font-size: 1.5rem;   padding: 10px 0px;}
-   .foot{  margin: 20px 2px;}    }
+    .ehH1{
+        font-size: 3rem;
+        padding: 5px 0px 5px 0px;
+        margin: 5px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 1.6rem;
+        padding: 5px 0px 10px 0px;
+        margin: 10px 0px 10px 0px;    }
+    .ehHIm{
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 20px 0px;    }
+    .ehIm{
+        width: 252px;
+        height: 140px;
+/*        text-align: center;*/}
+    .ehInscriptionSmall{
+        font-size: 1.6rem;
+        margin: 40px 0px 0px 0px;
+        padding: 10px 40px;}
+    .ehTextBoxTop{
+        font-size: 1.6rem;
+        padding: 50px 20px 50px 20px;
+        margin: 10px 20px 10px 20px; }
+    .ehWhiteBox{
+        height: 60px }
+    .ehTextBoxBottom{
+        font-size: 1.6rem;
+        padding: 60px 20px 60px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 1.6rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.6rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 5px 0px;
+        margin: 20px 0px;    }
+    .ehTextBox2{
+        font-size: 1.6rem;
+        padding: 20px 5px;
+        margin: 20px 5px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.6rem;
+        padding: 20px 5px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.6rem;
+        padding: 40px 20px;  }
+    .ehTextBoxFoot{
+        font-size: 1.6rem;
+        padding: 10px 5px 10px 5px;
+        margin: 0px 0px 0px 0px;  }}
+
+@media (min-width: 400px) {
+    .ehH1{
+        font-size: 4rem;
+        padding: 5px 0px 5px 0px;
+        margin: 5px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 2rem;
+        padding: 5px 0px 10px 0px;
+        margin: 10px 0px 10px 0px;    }
+    .ehHIm{
+        width: 130px;
+        height: 130px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 30px 0px;    }
+    .ehIm{
+        width: 324px;
+        height: 180px;
+/*        text-align: center;*/}
+    .ehInscriptionSmall{
+        font-size: 1.6rem;
+        margin: 40px 0px 0px 0px;
+        padding: 10px 40px;}
+    .ehTextBoxTop{
+        font-size: 1.6rem;
+        padding: 50px 20px 50px 20px;
+        margin: 10px 20px 10px 20px; }
+    .ehWhiteBox{
+        height: 60px }
+    .ehTextBoxBottom{
+        font-size: 1.6rem;
+        padding: 60px 20px 60px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 1.6rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.6rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 10px 0px;
+        margin: 20px 0px;    }
+    .ehTextBox2{
+        font-size: 1.6rem;
+        padding: 20px 5px;
+        margin: 20px 5px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.6rem;
+        padding: 20px 5px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.6rem;
+        padding: 40px 30px;  }
+    .ehTextBoxFoot{
+        font-size: 1.6rem;
+        padding: 10px 5px 10px 5px;
+        margin: 0px 0px 0px 0px;  }}
+
 
 @media (min-width: 576px) {
-  .homeWelcome {font-size: 2.8rem;}
-   h4 {font-size: 1.5rem;}
-   .footText {font-size: 1.5rem;   padding: 20px 0px;}
-   .foot{  margin: 50px 2px;} }
+    .ehH1{
+        font-size: 3rem;
+        padding: 5px 0px 5px 0px;
+        margin: 5px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 1.6rem;
+        padding: 5px 0px 10px 0px;
+        margin: 10px 0px 10px 0px;    }
+    .ehHIm{
+        width: 150px;
+        height: 150px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 40px 0px;    }
+    .ehIm{
+        width: 252px;
+        height: 140px;
+/*        text-align: center;*/
+        padding: 0px 0px;
+        margin: 30px 0px;    }
+    .ehInscriptionSmall{
+        font-size: 1.4rem;
+        margin: 40px 0px 0px 0px;
+        padding: 10px 40px;}
+    .ehTextBoxTop{
+        font-size: 1.4rem;
+        padding: 10px 20px 10px 20px;
+        margin: 10px 20px 10px 20px; }
+    .ehWhiteBox{
+        height: 60px }
+    .ehTextBoxBottom{
+        font-size: 1.4rem;
+        padding: 5px 5px 5px 5px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 1.4rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.4rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 20px 0px;
+        margin: 60px 0px;    }
+    .ehTextBox2{
+        font-size: 1.4rem;
+        padding: 60px 15px;
+        margin: 60px 15px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.4rem;
+        padding: 20px 30px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.4rem;
+        padding: 10px 20px;  }
+    .ehTextBoxFoot{
+        font-size: 1.2rem;
+        padding: 20px 3px 20px 3px;
+        margin: 0px 0px 0px 0px;  }}
 
 @media (min-width: 768px) {
-  .homeWelcome {font-size: 3rem;}
-   h4 {font-size: 2rem;}
-   .footText {font-size: 2rem;   padding: 50px 0px;}
-   .foot{  margin: 100px 2px;}   }
+    .ehH1{
+        font-size: 4rem;
+        padding: 10px 0px 5px 0px;
+        margin: 10px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 1.6rem;
+        padding: 5px 0px 20px 0px;
+        margin: 40px 0px 20px 0px;    }
+    .ehHIm{
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 30px 0px;    }
+    .ehIm{
+        width: 252px;
+        height: 140px;
+/*        text-align: center;*/
+        padding: 10px 0px;
+        margin: 10px 0px;    }
+    .ehInscriptionSmall{
+        font-size: 1.4rem;
+        margin: 40px 0px 0px 0px;
+        padding: 10px 40px;}
+    .ehTextBoxTop{
+        font-size: 1.4rem;
+        padding: 10px 20px 10px 20px;
+        margin: 10px 20px 10px 20px; }
+    .ehWhiteBox{
+        height: 60px }
+    .ehTextBoxBottom{
+        font-size: 1.4rem;
+        padding: 10px 10px 10px 10px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 1.4rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.4rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 20px 0px;
+        margin: 60px 0px;    }
+    .ehTextBox2{
+        font-size: 1.4rem;
+        padding: 60px 15px;
+        margin: 60px 15px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.4rem;
+        padding: 20px 30px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.4rem;
+        padding: 20px 20px;  }
+    .ehTextBoxFoot{
+        font-size: 1.4rem;
+        padding: 20px 5px 20px 5px;
+        margin: 0px 0px 0px 0px;  }}
 
-@media (min-width: 992px) {
-  .homeWelcome {font-size: 4rem;}
-   h4 {font-size: 3rem;}
-   .footText {font-size: 3rem;   padding: 100px 0px;}
-   .foot{  margin: 200px 2px;}  }
+@media (min-width: 892px) {
+    .ehH1{
+        font-size: 5rem;
+        padding: 10px 0px 5px 0px;
+        margin: 10px 0px 5px 0px;    }
+    .ehH2{
+        font-size: 2rem;
+        padding: 5px 0px 20px 0px;
+        margin: 40px 0px 20px 0px;    }
+    .ehHIm{
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        padding: 1px 0px;
+        margin: 1px 0px;    }
+    .ehIm{
+        width: 314px;
+        height: 174px;
+/*        text-align: center;*/
+        padding: 10px 0px;
+        margin: 10px 0px;    }
+    .ehInscriptionSmall{
+        font-size: 1.5rem;
+        margin: 60px 0px 0px 0px;
+        padding: 20px 60px;}
+    .ehTextBoxTop{
+        font-size: 1.5rem;
+        padding: 30px 20px 30px 20px;
+        margin: 30px 20px 30px 20px; }
+    .ehWhiteBox{
+        height: 100px }
+    .ehTextBoxBottom{
+        font-size: 1.5rem;
+        padding: 20px 10px 20px 10px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 1.5rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.5rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2rem;
+        padding: 20px 0px;
+        margin: 60px 0px;    }
+    .ehTextBox2{
+        font-size: 1.5rem;
+        padding: 80px 25px;
+        margin: 80px 25px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.5rem;
+        padding: 40px 50px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.5rem;
+        padding: 20px 40px;  }
+    .ehTextBoxFoot{
+        font-size: 1.5rem;
+        padding: 30px 10px 30px 10px;
+        margin: 0px 0px 0px 0px;  }}
 
-@media (min-width: 1280px) {
-  .homeWelcome {font-size: 6rem;}
-   h4 {font-size: 3rem;}
-   .footText {font-size: 3rem;   padding: 100px 0px;}
-   .foot{  margin: 200px 2px;}  }
 
-@media (min-width: 1500px) {
-  .homeWelcome {font-size: 10rem;}
-   h4 {font-size: 3rem;}
-   .footText {font-size: 3rem;   padding: 100px 0px;}
-   .foot{  margin: 200px 2px;}    }
-
-/*@media (min-width: 1800px) {
-  .homeWelcome {font-size: 10rem;}
-   h4 {font-size: 3rem;}    }*/
+@media (min-width: 1120px) {
+    .ehH1{
+        font-size: 7rem;
+        padding: 30px 0px 10px 0px;
+        margin: 30px 0px 10px 0px;    }
+    .ehH2{
+        font-size: 2.3rem;
+        padding: 10px 0px 30px 0px;
+        margin: 10px 0px 30px 0px;    }
+    .ehHIm{
+        width: 512px;
+        height: 532px;
+        text-align: center;
+        padding: 10px 0px;
+        margin: 10px 0px;    }
+    .ehIm{
+        width: 494px;
+        height: 272px;
+        text-align: center;
+/*        padding: 10px 0px;
+        margin: 10px 0px; */   }
+    .ehInscriptionSmall{
+        font-size: 2rem;
+        margin: 80px 0px 0px 0px;
+        padding: 5px 60px;}
+    .ehTextBoxTop{
+        font-size: 1.9rem;
+        padding: 30px 40px 30px 40px;
+        margin: 30px 40px 30px 40px; }
+    .ehWhiteBox{
+        height: 140px }
+    .ehTextBoxBottom{
+        font-size: 1.8rem;
+        padding: 50px 80px 50px 80px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxApropos{
+        font-size: 3rem ;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehTextBoxGridNeuf{
+        font-size: 1.8rem;
+        padding: 20px 20px 20px 20px;
+        margin: 0px 0px 0px 0px;  }
+    .ehInscription {
+        font-size: 2.6rem;
+        padding: 20px 0px;
+        margin: 80px 0px;    }
+    .ehTextBox2{
+        font-size: 1.8rem;
+        padding: 80px 25px;
+        margin: 80px 25px;  }
+    .ehTextBox3{
+        border : 1px solid var(--myBrown);
+        font-size: 1.8rem;
+        padding: 40px 50px;  }
+    .ehTextBox4{
+        border : 1px solid var(--myBrown);
+        font-size: 1.8rem;
+        padding: 80px 60px;  }
+    .ehTextBoxFoot{
+        font-size: 1.8rem;
+        padding: 50px 20px 50px 20px;
+        margin: 0px 0px 0px 0px;  }}
 
 
 /*home*/
 
-.homeWelcome{
+
+#ehHome1{
+    margin: 20px 0px;
+    padding: 0px;
+    opacity: 0.3;
+    height: 100%;
+    background-color: var(--myWhite);
+    background-position: center; /* Center the image */
+    background-image: url("../../images/main/53.jpg");
+    background-repeat: no-repeat; /* Do not repeat the image */
+    height: 840px ;
+    width: 100%;
+    background-size: cover;  }
+
+.ehH1{
   font-family: champagne;
   text-align: center;
-  color :var(--myBlue);
-  margin: 80px; }
+  color :var(--myBrown);     }
 
-h4{
-  margin: 0px;
+.ehH2{
   font-family: champagne;
   text-align: center;
-  color :var(--myBrown);
-  margin: 45px;  }
+  color :var(--myBrown);     }
 
-.essaye{
-  margin : 300px 0px; }
+.ehInscriptionSmall{
+  border : 1px solid var(--myBrown);
+  background-color: var(--myWhite);
+  border-radius: 20px;
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown); }
 
-.foot{
+.ehTextBoxTop{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);    }
+
+.ehTextBoxBottom{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);    }
+
+
+.ehTextBoxApropos{
+  font-family: champagne;
+  color :var(--myBrown);   }
+
+
+
+.ehTextBoxGridNeuf{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);    }
+
+
+.ehInscription{
+  border:1px solid var(--myBlue);
+  border-radius: 20px;
+  background-color: var(--myWhite);
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBlue);     }
+
+.ehTextBox2{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);    }
+
+.ehTextBox3{
+  font-family: champagne;
+  text-align: center;
+  color :var(--myBrown);    }
+
+.ehTextBox4{
+  font-family: champagne;
+  text-align: center;
   background-color: var(--myBrown);
-  width: 100%;
-  border-radius: 25% 10%;
-}
+  color :var(--myWhite);    }
 
-.footText{
-  position: relative;
+.ehTextBoxFoot{
   font-family: champagne;
   text-align: center;
-  color :var(--myWhite);
-}
+  color :var(--myBrown);    }
+
+
+.ehWhiteBox{
+    background-color: var(--myWhite);
+    border:none;}
 
 
 a{text-decoration: none;}
 a:hover {text-decoration: none;}
 
 
-.NoDec{text-decoration: none;}
-.NoDec:hover{text-decoration: none;}
+
+

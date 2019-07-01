@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- javascrip -->
+<script src="{{ url_for('static', filename='js/main/home2.js') }}" type="text/javascript"></script>
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/home2.css') }}">
+
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+
+<div class="container-fluid">
+
+  {% block title %} {% endblock title %}
+
+  <div class="border-bottom"></div>
+
+  {% block second %} {% endblock second %}
+
+<div class="ehLaptop" style="display: none">
+  {% block second_laptop %} {% endblock second_laptop %}
+</div>
+
+<div class="ehMobile" style="display: none">
+  {% block second_mobile %} {% endblock second_mobile %}
+</div>
+
+  <div class="border-bottom"></div>
+
+  {% block third %} {% endblock third %}
+
+  <div class="border-bottom"></div>
+
+{% block sep %}
+  <!-- sep -->
+  <div class="row">
+    <div class="col-sm">
+      <div id="avatar" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="{{ url_for('static', filename=text.avatar.loc) }}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock sep %}
+
+  <div class="border-bottom"></div>
+
+  {% block status %}{% endblock status %}
+
+  <div class="border-bottom"></div>
+
+  {% block aide %}{% endblock aide %}
+
+  <div class="border-bottom"></div>
+
+  {{ self.sep() }}
+
+  <div class="border-bottom"></div>
+
+{% block features %} {% endblock features%}
+
+  <div class="border-bottom"></div>
+
+  {{ self.sep() }}
+
+  <div class="border-bottom"></div>
+
+{% block foot %} {% endblock foot%}
+
+
+</div>
+
+
+{% endblock content %}

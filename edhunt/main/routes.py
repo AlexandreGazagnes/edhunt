@@ -70,6 +70,21 @@ def home():
                          text=MainText.home)
 
 
+@main.route("/2")
+@main.route("/home2")
+@gzipped
+def home_2():
+  """main page with latest posts"""
+  if current_user.is_authenticated:
+    return redirect(url_for("main.edhunt"))
+
+  form = MainForms.Form_4()
+
+  return render_template('main/home2.html',
+                         form=form,
+                         text=MainText.home)
+
+
 @main.route("/apropos/", methods=["GET"])
 @main.route("/apropos", methods=["GET"])
 @gzipped
