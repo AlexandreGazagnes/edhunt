@@ -4,7 +4,7 @@
 
 <!-- freeHunt -->
 <div id="ehFreeHuntContent">
-<legend class="border-bottom mb-4 ehLegend">Je souhaite que edhunt...</legend>
+<legend class="border-bottom mb-4 ehLegend">Je souhaite que edhunt . . .</legend>
   {% for i in  ['1', '2', '3']%}
   <div class="form-group">
     {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
@@ -20,18 +20,13 @@
     {% endif %}
   </div>
   {% endfor %}
-
   <div class="ehEdhuntPlus" id="ehSmartHuntButton">edhunt peut en faire plus
   </div>
-
 </div>
 
 <!-- smarteHunt -->
 <div id="ehSmartHuntContent" style="display: none">
-<!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
   {% for i in  [ '4', '5', "6"]%}
-
   <div class="form-group">
     {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
     {% if form["feat_"+i].errors %}
@@ -46,19 +41,14 @@
     {% endif %}
   </div>
   {% endfor %}
-
-  <div class="ehInscriptionSmall" style="background-color: white " id="ehBigHuntButton">
-      edhunt peut en faire plus
+  <div class="ehEdhuntPlus" id="ehSmartHuntButton">edhunt peut en faire plus
   </div>
-  <p></p>
 </div>
 
 <!-- bigeHunt -->
 <div id="ehBigHuntContent" style="display: none">
 <!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
   {% for i in  ["7", '8', "9"]%}
-
   <div class="form-group">
     {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
     {% if form["feat_"+i].errors %}
@@ -73,19 +63,13 @@
     {% endif %}
   </div>
   {% endfor %}
-  <p></p>
-  <div class="ehInscriptionSmall" style="background-color: white " id="ehProHuntButton">
-      edhunt peut en faire plus
+  <div class="ehEdhuntPlus" id="ehSmartHuntButton">edhunt peut en faire plus
   </div>
-  <p></p>
 </div>
 
 <!-- bigeHunt -->
 <div id="ehProHuntContent" style="display: none">
-<!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
   {% for i in  ["10", "11", "12", "13", "14"]%}
-
   <div class="form-group">
     {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
     {% if form["feat_"+i].errors %}
