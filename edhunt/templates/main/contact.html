@@ -3,11 +3,12 @@
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main/questionnaire.css') }}">
 
-<!-- ehContactLaptop -->
-{% block ehContactLaptop %}
-<div class="ehContactLaptop">
+
+<!-- ehContact -->
+{% block ehContact %}
+<div class="ehContact">
   <div class="row">
-    <div class="col-sm-6" data-aos="fade-right" data-aos-duration="2000">
+    <div class="col-md-6" data-aos="fade-right" data-aos-duration="2000">
       <div class="ehH1">{{text.page.title}} </div>
       <div class="ehTextBoxTop">
         {{ text.page.head[0] }}
@@ -16,89 +17,44 @@
         {{ text.page.head[1] }}
       </div>
     </div>
-  <!--       <div class=col-sm-3></div> -->
-    <div class="col-sm-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
+    <div class="col-md-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
     <div class="content-section" style="background-color: white; padding: 20px">
-
       <form method="POST" action="">
           {{ form.hidden_tag() }}
+
+          <!-- fieldset -->
           <fieldset class="form-group">
-<!--             <legend class="border-bottom mb-4 ehLegend"><br>Contact</legend> -->
-            <!-- title -->
+            {% for feat in ["title", "text", "name", "email", "phone"] %}
+            {% if feat == "text" %}
             <div class="form-group">
-              {{ form.title.label(class="form-control-label ehLabel") }}
-              {% if form.title.errors %}
-                {{ form.title(class="form-control form-control-lg is-invalid ehInput") }}
+              {{ form[feat].label(class="form-control-label ehLabel") }}
+              {% if form[feat].errors %}
+                {{ form[feat](class="form-control form-control-lg is-invalid ehTextArea") }}
                 <div class="invalid-feedback">
-                {% for error in form.title.errors %}
+                {% for error in form[feat].errors %}
                   <span>{{ error }}</span>
                 {% endfor %}
                 </div>
               {% else %}
-                {{ form.title(class="form-control form-control-lg ehInput") }}
+                {{ form[feat](class="form-control form-control-lg ehTextArea") }}
               {% endif %}
             </div>
-
-            <!-- text -->
+            {% else %}
             <div class="form-group">
-              {{ form.text.label(class="form-control-label ehLabel") }}
-              {% if form.text.errors %}
-                {{ form.text(class="form-control form-control-lg is-invalid myTextArea") }}
+              {{ form[feat].label(class="form-control-label ehLabel") }}
+              {% if form[feat].errors %}
+                {{ form[feat](class="form-control form-control-lg is-invalid ehInput") }}
                 <div class="invalid-feedback">
-                {% for error in form.text.errors %}
+                {% for error in form[feat].errors %}
                   <span>{{ error }}</span>
                 {% endfor %}
                 </div>
               {% else %}
-                {{ form.text(class="form-control form-control-lg myTextArea", style="min-height:200px") }}
+                {{ form[feat](class="form-control form-control-lg ehInput") }}
               {% endif %}
             </div>
-
-            <!-- name -->
-            <div class="form-group">
-              {{ form.name.label(class="form-control-label ehLabel") }}
-              {% if form.name.errors %}
-                {{ form.name(class="form-control form-control-lg is-invalid ehInput") }}
-                <div class="invalid-feedback">
-                {% for error in form.name.errors %}
-                  <span>{{ error }}</span>
-                {% endfor %}
-                </div>
-              {% else %}
-                {{ form.name(class="form-control form-control-lg ehInput") }}
-              {% endif %}
-            </div>
-
-            <!-- email -->
-            <div class="form-group">
-              {{ form.email.label(class="form-control-label ehLabel") }}
-              {% if form.email.errors %}
-                {{ form.email(class="form-control form-control-lg is-invalid ehInput") }}
-                <div class="invalid-feedback">
-                {% for error in form.email.errors %}
-                  <span>{{ error }}</span>
-                {% endfor %}
-                </div>
-              {% else %}
-                {{ form.email(class="form-control form-control-lg ehInput") }}
-              {% endif %}
-            </div>
-
-            <!-- phone -->
-            <div class="form-group">
-              {{ form.phone.label(class="form-control-label ehLabel") }}
-              {% if form.phone.errors %}
-                {{ form.phone(class="form-control form-control-lg is-invalid ehInput") }}
-                <div class="invalid-feedback">
-                {% for error in form.phone.errors %}
-                  <span>{{ error }}</span>
-                {% endfor %}
-                </div>
-              {% else %}
-                {{ form.phone(class="form-control form-control-lg ehInput") }}
-              {% endif %}
-            </div>
-
+            {% endif %}
+            {% endfor %}
           </fieldset>
 
           <!-- submit -->
@@ -112,11 +68,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-md">
       <div class='ehWhiteBox'></div>
     </div>
   </div>
 </div>
-{% endblock ehContactLaptop %}
+{% endblock ehContact %}
 
 {% endblock sub_content %}

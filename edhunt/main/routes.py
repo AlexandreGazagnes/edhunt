@@ -66,18 +66,6 @@ def home():
   if current_user.is_authenticated:
     return redirect(url_for("main.edhunt"))
 
-  return render_template('main/home.html',
-                         text=MainText.home)
-
-
-@main.route("/2")
-@main.route("/home2")
-@gzipped
-def home_2():
-  """main page with latest posts"""
-  if current_user.is_authenticated:
-    return redirect(url_for("main.edhunt"))
-
   form = MainForms.Form_4()
 
   return render_template('main/home2.html',

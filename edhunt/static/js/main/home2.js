@@ -1,49 +1,29 @@
+// background image top
 function changeBackgroundHeight(x) {
     var width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
+
     if (width < x) {
         $(".ehHomeOneMobile").css("height", 10+(height/2));}
     else {
         $(".ehHomeOneLaptop").css("height", 150+height-(2 * 50));} }
 
 
-
+// mobile inscription button go down
 $(function(){
     $( ".inscriptionMobileButton" ).on('click', function(e){
          e.preventDefault();
         $('html, body').animate({scrollTop:$('#ehHomeQuestMobile').offset().top-50}, 'slow');
             return false; }); });
 
-// function doNotDisplayInscription(){
-//     var width = window.innerWidth
-//     || document.documentElement.clientWidth
-//     || document.body.clientWidth;
-//     var height = window.innerHeight
-//     || document.documentElement.clientHeight
-//     || document.body.clientHeight;
-//     if(width<992){
-//         $(".ehHomeHead").css("position", "");
-//         $(".ehHomeQuest").css("display", "none");
-//         $(".ehHomeQuestInscription").css("display", "block");       }
-//     else{
-//         $(".ehHomeHead").css("position", "relative") ;
-//         $(".ehHomeQuest").css("display", "block");
-//         $(".ehHomeQuestInscription").css("display", "none");    }
-//     }
 
-
+// disable aos on small screen
 function swapAOS(x) {
     var width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
     if (width < x) {
         $('div[data-aos="fade-right"]').removeAttr("data-aos").removeAttr("data-aos-duration").removeAttr("data-aos-delay").addClass("aosRight");
         $('div[data-aos="fade-left"]').removeAttr("data-aos").removeAttr("data-aos-duration").removeAttr("data-aos-delay").addClass("aosLeft");}
@@ -52,14 +32,12 @@ function swapAOS(x) {
         $('.aosLeft').removeClass("aosRight").attr("data-aos","fade-left").attr("data-aos-duration", "2000").attr("data-aos-delay", "0");}  }
 
 
+// hide /show top header for small screen + quest mobile at bottom
 function swapLaptop(x){
     var width = window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
-    var height = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight;
     if (width < x) {
         $('.ehHomeOneLaptop').hide();
         $('.ehHomeOneMobile').show();
@@ -78,8 +56,6 @@ $(function(){
         changeBackgroundHeight(992);
         swapLaptop(992);
         swapAOS(992)}) ;   })
-
-
 
 
 

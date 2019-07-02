@@ -1,10 +1,9 @@
-@media (min-width: 100px) { }
-
-@media (min-width: 300px) { }
-
 @media (min-width: 100px) {
     .ehHomeOneLaptop{}
-    .ehHomeHead{}
+    .ehHomeHead{
+        position: relative;
+        padding: 20px 0px;
+        margin: 1% 0%;    }
     .ehH1{
         font-size:5rem;
         padding: 5px 20px 5px 20px;
@@ -16,7 +15,7 @@
     .ehH3{
         font-size: 1rem;
         padding: 5px  20px 30px 20px;
-        margin: 5px 20px 30px 20px;   }
+        margin: 5px 5px 30px 5px;   }
     .ehHomeQuestLaptop{
         min-height: 380px;
         padding: 20px 20px;       }
