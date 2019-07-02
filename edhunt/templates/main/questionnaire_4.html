@@ -1,10 +1,8 @@
 {% extends "main/questionnaire_parent.html" %}
 {% block fieldset %}
 
-<!-- <div class="ehH2" style="text-align: left;">4/6 - Mon profil</div> -->
-
-{% for i in ["status", "function", "rem", "diploma_level",
-"diploma_year", "zip_code" ]%}
+<legend class="border-bottom mb-4 ehLegend">La dernière fois que j'ai . . .</legend>
+{% for i in ["offer_timing", "candidature_timing", "call_timing", "interview_timing" ]%}
 
 <div class="form-group">
 {{ form[i].label(class="form-control-label ehLabel") }}

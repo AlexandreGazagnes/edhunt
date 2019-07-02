@@ -1,0 +1,53 @@
+{% extends "main/questionnaire_parent.html" %}
+{% block fieldset %}
+
+<!-- <div class="ehH2" style="text-align: left;">1/6 - Ma situation professionnelle</div> -->
+
+<div class='ehWhiteBox' style="background-color: white"></div>
+<!-- search -->
+<div class="form-group">
+  {{ form.search.label(class="form-control-label ehLabel") }}
+  {% if form.search.errors %}
+    {{ form.search(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.search.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.search(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<!-- employed -->
+<div class="form-group">
+  {{ form.employed.label(class="form-control-label ehLabel") }}
+  {% if form.employed.errors %}
+    {{ form.employed(class="form-control form-control-lg is-invalid myTextArea", onchange="swapContractDisplay()", onmouseover="swapContractDisplay()") }}
+    <div class="invalid-feedback">
+    {% for error in form.employed.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.employed(class="form-control form-control-lg myTextArea", onchange="swapContractDisplay()", onmouseover="swapContractDisplay()") }}
+  {% endif %}
+</div>
+
+<!-- contract -->
+<div class="form-group" id="contractBlock" style="display: none">
+  {{ form.contract.label(class="form-control-label ehLabel") }}
+  {% if form.contract.errors %}
+    {{ form.contract(class="form-control form-control-lg is-invalid myTextArea") }}
+    <div class="invalid-feedback">
+    {% for error in form.contract.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.contract(class="form-control form-control-lg myTextArea") }}
+  {% endif %}
+</div>
+
+<div class='ehWhiteBox' style="background-color: white"></div>
+{% endblock fieldset %}

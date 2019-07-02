@@ -58,15 +58,39 @@ def edhunt():
                          plate_list=plate_list)
 
 
-@main.route("/")
-@main.route("/home")
+@main.route("/", defaults={"token": None}, methods=["GET", "POST"])
+@main.route("/home/<string:token>", methods=["GET", "POST"])
 @gzipped
-def home():
+def home(token):
   """main page with latest posts"""
   if current_user.is_authenticated:
     return redirect(url_for("main.edhunt"))
 
-  form = MainForms.Form_4()
+  form = MainForms.Form_0()
+  fields = extract_fields(form)
+
+  if request.method == 'GET':
+    pass
+  else:
+    if form.validate_on_submit():
+      if not token:
+        token = token_hex(16)
+        quest = Questionnaire(token=token)
+        db.session.add(quest)
+        db.session.commit()
+      else:
+        quest = Questionnaire.query.filter_by(token=token).first()
+        if not quest:
+          flash("Désolé, une erreur c'est produite", "danger")
+          return redirect(url_for("main.home"))
+
+      for field in fields:
+        setattr(quest, field, getattr(form, field).data)
+      db.session.commit()
+
+      return redirect(url_for("main.questionnaire_1", token=token))
+    else:
+      flash_all_errors(form)
 
   return render_template('main/home2.html',
                          form=form,
@@ -199,10 +223,22 @@ def contact():
                          text=MainText.contact)
 
 
+@main.route("/questionnaire_0/<string:token>", methods=["GET", "POST"])
+@gzipped
+def questionnaire_0(token):
+
+  return redirect(url_for("main.home", token=token))
+
+
 @main.route("/questionnaire_1/", defaults={"token": None}, methods=["GET", "POST"])
 @main.route("/questionnaire_1/<string:token>", methods=["GET", "POST"])
 @gzipped
 def questionnaire_1(token):
+
+  quest = Questionnaire.query.filter_by(token=token).first()
+  if not quest:
+    flash("Désolé, une erreur c'est produite", "danger")
+    return redirect(url_for("main.home"))
 
   form = MainForms.Form_1()
   fields = extract_fields(form)
@@ -210,19 +246,7 @@ def questionnaire_1(token):
   if request.method == 'GET':
     pass
   else:
-
     if form.validate_on_submit():
-      if not token:
-        token = token_hex(16)
-        quest = Questionnaire(token=token)
-        db.session.add(quest)
-        db.session.commit()
-      else:
-        quest = Questionnaire.query.filter_by(token=token).first()
-        if not quest:
-          flash("Désolé, une erreur c'est produite", "danger")
-          return redirect(url_for("main.home"))
-
       for field in fields:
         setattr(quest, field, getattr(form, field).data)
       db.session.commit()
@@ -232,10 +256,10 @@ def questionnaire_1(token):
       flash_all_errors(form)
 
   return render_template('main/questionnaire_1.html',
-                         title="Inscription 1/6",
+                         title="Inscription 1/3",
                          form=form, token=token,
                          text=MainText.questionnaire.q1,
-                         back=None)
+                         back="0")
 
 
 @main.route("/questionnaire_2/<string:token>", methods=["GET", "POST"])
@@ -263,7 +287,7 @@ def questionnaire_2(token):
       flash_all_errors(form)
 
   return render_template('main/questionnaire_2.html',
-                         title="Inscription 2/6",
+                         title="Inscription 2/3",
                          form=form, token=token,
                          text=MainText.questionnaire.q2,
                          back="1")
@@ -284,18 +308,17 @@ def questionnaire_3(token):
   if request.method == 'GET':
     pass
   else:
-
     if form.validate_on_submit():
       for field in fields:
         setattr(quest, field, getattr(form, field).data)
       db.session.commit()
 
-      return redirect(url_for("main.questionnaire_4", token=token))
+      return redirect(url_for('main.questionnaire_4', token=token))
     else:
       flash_all_errors(form)
 
   return render_template('main/questionnaire_3.html',
-                         title="Inscription 3/6",
+                         title="Inscription 3/3",
                          form=form, token=token,
                          text=MainText.questionnaire.q3,
                          back="2")
@@ -327,7 +350,7 @@ def questionnaire_4(token):
       flash_all_errors(form)
 
   return render_template('main/questionnaire_4.html',
-                         title="Inscription 4/6",
+                         title="Bienvenue chez edhunt!",
                          form=form, token=token,
                          text=MainText.questionnaire.q4,
                          back="3")

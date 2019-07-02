@@ -23,6 +23,10 @@
 
 @media (min-width: 992px) {
   .ehLabel{font-size: 1.4rem;}
+  .ehEdhuntPlus{
+        padding: 10px 40px;
+        margin: 20px 0px;
+        font-size: 1.4rem;}
   .ehLegend{ font-size: 1.4rem; }
   .ehTextArea{font-size: 1.1rem; min-height:210px;}
   .ehInput{font-size: 1.1rem; }
@@ -30,6 +34,10 @@
 
 @media (min-width: 1280px) {
   .ehLabel{font-size: 1.7rem;}
+  .ehEdhuntPlus{
+        padding: 10px 40px;
+        margin: 20px 40px;
+        font-size: 1.7rem;}
   .ehLegend{ font-size: 2.5rem; }
   .ehTextArea{font-size: 1.2rem; min-height:210px;}
   .ehInput{font-size: 1.2rem; }
@@ -64,3 +72,11 @@
 .ehButton{
   width: 101px;
 }
+
+.ehEdhuntPlus{
+    border-radius: 20px;
+    font-family: champagne;
+    text-align: center;
+    color :var(--myBrown);
+    border: 1px solid var(--myBrown);
+    background-color: rgb(0,0,0);  }

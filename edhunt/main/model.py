@@ -67,11 +67,11 @@ class Questionnaire(db.Model):
     status = db.Column(db.Enum(*UsersEnums.status), unique=False, nullable=True)
     sector = db.Column(db.Enum(*UsersEnums.sector), unique=False, nullable=True)
     function = db.Column(db.Enum(*UsersEnums.function), unique=False, nullable=True)
-    # position = db.Column(db.Enum(*UsersEnums.position), unique=False, nullable=True)
-    # management = db.Column(db.Enum(*UsersEnums.management), unique=False,
-    #                        nullable=True)
+    position = db.Column(db.Enum(*UsersEnums.position), unique=False, nullable=True)
+    management = db.Column(db.Enum(*UsersEnums.management), unique=False,
+                           nullable=True)
     rem = db.Column(db.Enum(*UsersEnums.small_rem), unique=False, nullable=True)
-    # xp_at_work = db.Column(db.String(2), unique=False, nullable=True)
+    xp_at_work = db.Column(db.String(2), unique=False, nullable=True)
     diploma_level = db.Column(db.Enum(*UsersEnums.diploma_level), unique=False,
                               nullable=True)
     # diploma_type = db.Column(db.Enum(*UsersEnums.diploma_type), unique=False,

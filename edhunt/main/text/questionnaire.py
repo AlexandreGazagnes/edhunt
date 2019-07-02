@@ -1,21 +1,21 @@
 class _Questionnaire1:
-    title = "1/6"
-    head = "Commençons par votre situtation professionnelle actuelle"
+    title = "1/3"
+    head = "Parlons du niveau d'accompagnement que edhunt peut vous apporter..."
 
 
 class _Questionnaire2:
-    title = "2/6"
-    head = "Parlons ensuite de votre rapport au marché de l'emploi"
+    title = "2/3"
+    head = "Parlons ensuite de votre profil et de votre expérience professionnelle"
 
 
 class _Questionnaire3:
-    title = "3/6"
-    head = "Parlons  maintenant du niveau d'accompagnement que edhunt peut vous apporter"
+    title = "3/3"
+    head = " Dans exactement un clic, on pourra  ( enfin ) vous dire : ' Bienvenue chez edhunt ! "
 
 
 class _Questionnaire4:
-    title = "4/6"
-    head = "Parlons enfin de votre profil et de votre expérience professionnelle"
+    title = "Bienvenue !"
+    head = "Afin de valider votre inscription, un consultant edhunt va vous rappeller d'ici 24h pour un échange téléphonique d'une dizaine de minutes."
 
 
 class _Questionnaire5:

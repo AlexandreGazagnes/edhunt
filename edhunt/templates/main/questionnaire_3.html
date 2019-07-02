@@ -2,130 +2,66 @@
 {% block fieldset %}
 
 
-<!-- freeHunt -->
-<div id="ehFreeHuntContent">
-  <div class="ehH2" style="text-align: left;"> Je souhaite que edhunt . . .</div>
-  {% for i in  ['1', '2', '3']%}
-  <div class="form-group">
-    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
-    {% if form["feat_"+i].errors %}
-      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
-      <div class="invalid-feedback">
-      {% for error in form["feat_"+i].errors %}
-        <span>{{ error }}</span>
-      {% endfor %}
-      </div>
-    {% else %}
-      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
-    {% endif %}
-  </div>
-  {% endfor %}
+<legend class="border-bottom mb-4 ehLegend">Afin de valider votre inscription, un consultant edhunt va vous rappeller d'ici 24h pour un échange téléphonique d'une dizaine de minutes.</legend>
 
-  <div class="ehInscriptionSmall" style="background-color: white" id="ehSmartHuntButton">edhunt peut en faire plus
-  </div>
-
-</div>
-
-<!-- smarteHunt -->
-<div id="ehSmartHuntContent" style="display: none">
-<!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
-  {% for i in  [ '4', '5', "6"]%}
-
-  <div class="form-group">
-    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
-    {% if form["feat_"+i].errors %}
-      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
-      <div class="invalid-feedback">
-      {% for error in form["feat_"+i].errors %}
-        <span>{{ error }}</span>
-      {% endfor %}
-      </div>
-    {% else %}
-      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
-    {% endif %}
-  </div>
-  {% endfor %}
-
-  <div class="ehInscriptionSmall" style="background-color: white " id="ehBigHuntButton">
-      edhunt peut en faire plus
-  </div>
-  <p></p>
-</div>
-
-<!-- bigeHunt -->
-<div id="ehBigHuntContent" style="display: none">
-<!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
-  {% for i in  ["7", '8', "9"]%}
-
-  <div class="form-group">
-    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
-    {% if form["feat_"+i].errors %}
-      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
-      <div class="invalid-feedback">
-      {% for error in form["feat_"+i].errors %}
-        <span>{{ error }}</span>
-      {% endfor %}
-      </div>
-    {% else %}
-      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
-    {% endif %}
-  </div>
-  {% endfor %}
-  <p></p>
-  <div class="ehInscriptionSmall" style="background-color: white " id="ehProHuntButton">
-      edhunt peut en faire plus
-  </div>
-  <p></p>
-</div>
-
-<!-- bigeHunt -->
-<div id="ehProHuntContent" style="display: none">
-<!--   <div class="ehH2">Je souhaite que edhunt</div> -->
-
-  {% for i in  ["10", "11", "12", "13", "14"]%}
-
-  <div class="form-group">
-    {{ form["feat_"+i].label(class="form-control-label ehLabel") }}
-    {% if form["feat_"+i].errors %}
-      {{ form["feat_"+i](class="form-control form-control-lg is-invalid myTextArea") }}
-      <div class="invalid-feedback">
-      {% for error in form["feat_"+i].errors %}
-        <span>{{ error }}</span>
-      {% endfor %}
-      </div>
-    {% else %}
-      {{ form["feat_"+i](class="form-control form-control-lg myTextArea") }}
-    {% endif %}
-  </div>
-  {% endfor %}
-</div>
-
-
-{% block stars%}
-<div class="ehStars">
-  <div class="row" style="background-color: white">
-    <div class="col-sm-12" style="background-color: white">
-      <div class='ehWhiteBox' style="background-color: white"></div>
+<!-- email -->
+<div class="form-group">
+  {{ form.email.label(class="form-control-label ehLabel") }}
+  {% if form.email.errors %}
+    {{ form.email(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.email.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
     </div>
-  </div>
-<div class="row">
-  <div class="col">
-    <div id="starsOne" style="display:none"><p>* Vous fixez vous même le seuil minimal à partir duquel edhunt candidate pour vous. En dessous de ce seuil, edhunt vous laisse la main.</p></div>
-    <div id="starsTwo" style="display:none"><p>** Une adresse prenom.nom@edhunt.fr sera créée et vous sera attribuée. Elle sera accessible depuis votre espace edhunt ou directement depuis votre  messagerie quotidienne (gmail, outlook, yahoo...).</p></div>
-    <div id="starsThree" style="display:none"><p>*** Sous condition disponibilité de nos consultants et d'acceptation de votre profil par l'équipe edhunt</p></div>
-  </div>
+  {% else %}
+    {{ form.email(class="form-control form-control-lg ehInput") }}
+  {% endif %}
 </div>
-  <div class="row" style="background-color: white">
-    <div class="col-sm-12" style="background-color: white">
-      <div class='ehWhiteBox' style="background-color: white"></div>
+
+<!-- phone -->
+<div class="form-group">
+  {{ form.phone.label(class="form-control-label ehLabel") }}
+  {% if form.phone.errors %}
+    {{ form.phone(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.phone.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
     </div>
-  </div>
+  {% else %}
+    {{ form.phone(class="form-control form-control-lg ehInput") }}
+  {% endif %}
 </div>
 
-{% endblock stars%}
+<!-- hour -->
+<div class="form-group">
+  {{ form.hour.label(class="form-control-label ehLabel") }}
+  {% if form.hour.errors %}
+    {{ form.hour(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.hour.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.hour(class="form-control form-control-lg ehInput") }}
+  {% endif %}
+</div>
 
-
+<!-- email -->
+<div class="form-group">
+  {{ form.device_type.label(class="form-control-label ehLabel") }}
+  {% if form.device_type.errors %}
+    {{ form.device_type(class="form-control form-control-lg is-invalid ehInput") }}
+    <div class="invalid-feedback">
+    {% for error in form.device_type.errors %}
+      <span>{{ error }}</span>
+    {% endfor %}
+    </div>
+  {% else %}
+    {{ form.device_type(class="form-control form-control-lg ehInput") }}
+  {% endif %}
+</div>
 
 {% endblock fieldset %}

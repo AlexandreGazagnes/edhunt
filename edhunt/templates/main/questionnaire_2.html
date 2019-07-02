@@ -1,67 +1,25 @@
 {% extends "main/questionnaire_parent.html" %}
 {% block fieldset %}
 
-<div class="ehH2" style="text-align: left;"> La dernière fois que j'ai ...</div>
+<!-- <div class="ehH2" style="text-align: left;">4/6 - Mon profil</div> -->
 
-<!-- offer -->
+{% for i in ["contract", "status", "sector", "position", "diploma_level",
+"diploma_year", ]%}
+
 <div class="form-group">
-  {{ form.offer_timing.label(class="form-control-label ehLabel") }}
-  {% if form.offer_timing.errors %}
-    {{ form.offer_timing(class="form-control form-control-lg is-invalid myTextArea") }}
-    <div class="invalid-feedback">
-    {% for error in form.offer_timing.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-    </div>
-  {% else %}
-    {{ form.offer_timing(class="form-control form-control-lg myTextArea") }}
-  {% endif %}
+{{ form[i].label(class="form-control-label ehLabel") }}
+{% if form[i].errors %}
+  {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
+  <div class="invalid-feedback">
+  {% for error in form[i].errors %}
+    <span>{{ error }}</span>
+  {% endfor %}
+  </div>
+{% else %}
+  {{ form[i](class="form-control form-control-lg myTextArea") }}
+{% endif %}
 </div>
 
-<!-- fond_generic -->
-<div class="form-group">
-  {{ form.candidature_timing.label(class="form-control-label ehLabel") }}
-  {% if form.candidature_timing.errors %}
-    {{ form.candidature_timing(class="form-control form-control-lg is-invalid myTextArea") }}
-    <div class="invalid-feedback">
-    {% for error in form.candidature_timing.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-    </div>
-  {% else %}
-    {{ form.candidature_timing(class="form-control form-control-lg myTextArea") }}
-  {% endif %}
-</div>
-
-<!-- call_timing -->
-<div class="form-group">
-  {{ form.call_timing.label(class="form-control-label ehLabel") }}
-  {% if form.call_timing.errors %}
-    {{ form.call_timing(class="form-control form-control-lg is-invalid myTextArea") }}
-    <div class="invalid-feedback">
-    {% for error in form.call_timing.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-    </div>
-  {% else %}
-    {{ form.call_timing(class="form-control form-control-lg myTextArea") }}
-  {% endif %}
-</div>
-
-<!-- interview_timing -->
-<div class="form-group">
-  {{ form.interview_timing.label(class="form-control-label ehLabel") }}
-  {% if form.interview_timing.errors %}
-    {{ form.interview_timing(class="form-control form-control-lg is-invalid myTextArea") }}
-    <div class="invalid-feedback">
-    {% for error in form.interview_timing.errors %}
-      <span>{{ error }}</span>
-    {% endfor %}
-    </div>
-  {% else %}
-    {{ form.interview_timing(class="form-control form-control-lg myTextArea") }}
-  {% endif %}
-</div>
-
+{% endfor %}
 
 {% endblock fieldset %}

@@ -39,8 +39,8 @@
         {{ form.hidden_tag() }}
         <!-- fieldset -->
         <fieldset class="form-group">
-        {% for i in ["status", "function", "rem", "diploma_level",
-        "diploma_year", "zip_code" ]%}
+        {% for i in ["search", "employed", "function",
+        "xp_at_work", "rem",  "zip_code" ]%}
         <div class="form-group">
         {{ form[i].label(class="form-control-label ehLabel") }}
         {% if form[i].errors %}
@@ -260,48 +260,7 @@
 
 {% block home_Quest_Mobile %}
 <div id="ehHomeQuestMobile" style="display: none">
-  <div class="row">
-    <div class="col">
-      <div class="ehH1 text-center" style="color:var(--myBrown)"> Inscription</div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-6">
-      <form method="POST" action="">
-        {{ form.hidden_tag() }}
-        <!-- fieldset -->
-        <fieldset class="form-group">
-        {% for i in ["status", "function", "rem", "diploma_level",
-        "diploma_year", "zip_code" ]%}
-        <div class="form-group">
-        {{ form[i].label(class="form-control-label ehLabel") }}
-        {% if form[i].errors %}
-          {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
-          <div class="invalid-feedback">
-          {% for error in form[i].errors %}
-            <span>{{ error }}</span>
-          {% endfor %}
-          </div>
-        {% else %}
-          {{ form[i](class="form-control form-control-lg myTextArea") }}
-        {% endif %}
-        </div>
-        {% endfor %}
-        </fieldset>
-        <!-- submit -->
-        <div class="text-right">
-          <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info ehButton") }}
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-  <div class="col-md-3"></div>
-  </div>
 </div>
-
 {% endblock home_Quest_Mobile %}
 
   <!-- foot -->
