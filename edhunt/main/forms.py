@@ -227,20 +227,18 @@ class _Form_4(FlaskForm):
   # xp_at_work = StringField('Experience professionnelle totale',
   #                          render_kw={"placeholder": "12"})
 
-  diploma_level = SelectField('Niveau de Diplôme',
+  diploma_level = SelectField('Niveau de diplôme',
                               description=HelpMessages.unique_select,
                               choices=UsersEnums.choices('diploma_level'))
 
   # diploma_type = SelectField('Type de diplôme',
   #                            description=HelpMessages.unique_select,
   #                            choices=UsersEnums.choices('diploma_type'))
-  diploma_year = StringField('Année d\'obtention',
-                             validators=[DataRequired(), Length(min=4, max=4)])
+  diploma_year = StringField('Année d\'obtention')
 
-  zip_code = StringField('Code postal',
-                         render_kw={"placeholder": "33000"})
+  zip_code = StringField('Code postal',)
 
-  submit = SubmitField("Suivant")
+  submit = SubmitField("S'inscrire")
 
   def validate_status(self, status):
     Validator.required(status)

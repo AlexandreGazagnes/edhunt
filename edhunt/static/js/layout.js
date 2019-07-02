@@ -1,3 +1,12 @@
+function goUp() {
+    $('html,body').animate({scrollTop: 0}, 'slow');}
+
+function goDown() {
+    $('html,body').animate({scrollDown: 100}, 'slow');}
+
+function goBack() {
+    window.history.go(-1);    }
+
 function goBack() {
     window.history.go(-1);    }
 
@@ -8,10 +17,11 @@ function updateResponsiveContainer() {
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
-    if (width > 1200) {
-        cont.className = "container"     }
-    else {
-                cont.className = "container-fluid"   }    }
+    if (cont) {
+        if (width > 1200) {
+            cont.className = "container"     }
+        else {
+            cont.className = "container-fluid"   } }    }
 
 
 function giveWindowSize() {

@@ -1,6 +1,9 @@
 {% extends "layout2.html" %}
 {% block content %}
 
+<!-- jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 <!-- javascrip -->
 <script src="{{ url_for('static', filename='js/main/main.js') }}" type="text/javascript"></script>
 <script src="{{ url_for('static', filename='js/main/home2.js') }}" type="text/javascript"></script>
@@ -20,103 +23,146 @@
 </script>
 
 
-{% block home_1 %}
-<div class="row" id="ehHome1">
-  <div class="col-sm-6">
+{% block home_1_Laptop %}
+<div class="row ehHomeOneLaptop">
+  <div class="col-lg-6">
     <div class="ehHomeHead text-center">
       <p data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="ehH1">edhunt</p>
       <p data-aos="fade-right" data-aos-delay="700" data-aos-duration="2000" class="ehH2">l'assistant 100% dédié à votre recherche d'emploi</p>
       <p data-aos="fade-right" data-aos-delay="900" data-aos-duration="2000" class="ehH3">edhunt centralise, simplifie et automatise votre recherche d’emploi <br>donnez-lui votre profil, votre CV et votre recherche, il gère le reste <br>comme un chasseur de têtes, mais à l'envers</p>
-      </a>
     </div>
   </div>
-  <div class="col-sm-6">
-    <div data-aos="fade-left" data-aos-delay="1200" data-aos-duration="2000" class="ehHomeQuest">
-    <form method="POST" action="">
-      {{ form.hidden_tag() }}
-      <!-- fieldset -->
-      <fieldset class="form-group">
-      {% for i in ["status", "function", "rem", "diploma_level",
-      "diploma_year", "zip_code" ]%}
-      <div class="form-group">
-      {{ form[i].label(class="form-control-label ehLabel") }}
-      {% if form[i].errors %}
-        {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
-        <div class="invalid-feedback">
-        {% for error in form[i].errors %}
-          <span>{{ error }}</span>
-        {% endfor %}
-        </div>
-      {% else %}
-        {{ form[i](class="form-control form-control-lg myTextArea") }}
-      {% endif %}
-      </div>
-      {% endfor %}
-      </fieldset>
-      <!-- submit -->
-      <div class="text-right">
+  <div class="col-lg-6">
+    <div data-aos="fade-left" data-aos-delay="1200" data-aos-duration="2000" class="
+    ehHomeQuestLaptop">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <!-- fieldset -->
+        <fieldset class="form-group">
+        {% for i in ["status", "function", "rem", "diploma_level",
+        "diploma_year", "zip_code" ]%}
         <div class="form-group">
-          {{ form.submit(class="btn btn-outline-info ehButton") }}
+        {{ form[i].label(class="form-control-label ehLabel") }}
+        {% if form[i].errors %}
+          {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
+          <div class="invalid-feedback">
+          {% for error in form[i].errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+        {% else %}
+          {{ form[i](class="form-control form-control-lg myTextArea") }}
+        {% endif %}
         </div>
-      </div>
-    </form>
+        {% endfor %}
+        </fieldset>
+        <!-- submit -->
+        <div class="text-right">
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info ehButton") }}
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
-</div>
-{% endblock home_1 %}
+{% endblock home_1_Laptop %}
 
+
+{% block home_1_Mobile %}
+<div class="ehHomeOneMobile" style="display: none; background-color:var(--myBlue)">
+  <div class="row">
+    <div class="col">
+      <p class="ehH1 text-center">edhunt</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="ehH2 text-center">l'assistant 100% dédié à votre recherche d'emploi</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <p class="ehH3 text-center">edhunt centralise, simplifie et automatise votre recherche d’emploi <br>donnez-lui votre profil, votre CV et votre recherche, il gère le reste <br>comme un chasseur de têtes, mais à l'envers</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <div onclick="goUp()">
+        <div class="ehInscriptionSmall inscriptionMobileButton">s'inscrire</div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock home_1_Mobile %}
 
 
 
 {% block home_2 %}
-<div class="row" id="ehHome2">
-  <div class="col-sm-12 ehHomeSecond"></div>
-
-  <!-- row1 -->
-  <div class="col-sm-2"></div>
-  <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond text-center">
-
-    <div class="ehHomeSecondTitle">Centralisez vos recherches</div>
-    <div class=ehHomeSecondContent><br>Quelque soit le site d’emploi, edhunt épluche les offres, les sélectionne et vous les présente de façon claire et centralisée
+<div class="ehHome2">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center ">
+      <div class="ehHomeSecondTitle ">Centralisez et facilitez vos recherches</div>
+      <div class=ehHomeSecondContent><br>Quelque soit le site d’emploi, edhunt épluche les offres, les sélectionne et vous les présente de façon claire et centralisée
+      </div>
     </div>
-  </div>
-  <div class="col-sm-6"></div>
-
-  <!-- row2 -->
-  <div class="col-sm-6"></div>
-  <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
-    <div class="ehHomeSecondTitle">Simplifiez vos candidatures</div>
-    <div class=ehHomeSecondContent><br>Avec edhunt vous candidatez en un seul clic à n'importe quelle offre d'emploi partout sur le web
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_success.png">
     </div>
+    <div class="col-md-2"></div>
   </div>
-  <div class="col-sm-2"></div>
 
-  <!-- row3 -->
-  <div class="col-sm-2"></div>
-  <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
-    <div class="ehHomeSecondTitle">Automatisez les taches répétitives</div>
-    <div class=ehHomeSecondContent><br>Au besoin, mais surtout avec votre autorisation, edhunt met votre CV en ligne, le diffuse et candidate automatiquement à votre place
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_easy.png"></div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center">
+      <div class="ehHomeSecondTitle">Simplifiez l'envoi de vos candidatures</div>
+      <div class=ehHomeSecondContent><br>Avec edhunt vous candidatez en un seul clic à n'importe quelle offre d'emploi partout sur le web, quelque soit la plateforme d'emploi
+      </div>
     </div>
+    <div class="col-md-2"></div>
   </div>
-  <div class="col-sm-6"></div>
 
-  <!-- row 4 -->
-  <div class="col-sm-6"></div>
-  <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-sm-4 ehHomeSecond">
-    <div class="ehHomeSecondTitle">En recherche ou à l'écoute </div>
-    <div class=ehHomeSecondContent><br>En recherche active, à l'écoute du marché ou simplement en veille, edhunt simplifie votre accès au marché de l'emploi
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond">
+      <div class="ehHomeSecondTitle">Automatisez toutes les taches répétitives</div>
+      <div class=ehHomeSecondContent><br>Au besoin, mais surtout avec votre autorisation, edhunt met votre CV en ligne, le diffuse et candidate automatiquement à votre place
+      </div>
     </div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_fast.png"></div>
+    <div class="col-md-2"></div>
   </div>
-  <div class="col-sm-2"></div>
-  <div class="col-sm-12 ehHomeSecond"></div>
-  <div class="col-sm-5"></div>
-  <div class="col-sm-2">
-    <a href="{{ url_for('users.register_user') }}">
-      <div class="ehInscriptionSmall">s'inscrire</div>
-    </a>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_resume.png"></div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond">
+      <div class="ehHomeSecondTitle">Que vous soyez en recherche active ou en veille </div>
+      <div class=ehHomeSecondContent><br>En recherche active, à l'écoute du marché ou simplement en veille, edhunt simplifie votre accès au marché de l'emploi
+      </div>
+    </div>
+    <div class="col-md-2"></div>
   </div>
-  <div class="col-sm-5"></div>
-  <div class="col-sm-12 ehHomeSecond"></div>
+
+
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+      <div onclick="goUp()">
+        <div class="ehInscriptionSmall">s'inscrire</div>
+      </div>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
 </div>
 {% endblock home_2 %}
 
@@ -140,6 +186,123 @@
 <div class="border-bottom"></div>
 {% endblock sep %}
 
+
+{% block home_3 %}
+<div class="ehHome2">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center">
+      <div class="ehHomeSecondTitle">Nombreux sont ceux qui aident les recruteurs</div>
+      <div class=ehHomeSecondContent><br>SSII, joboards, cabinets de recrutement, réseaux sociaux, il existe une multitude d'outils à l'avantage des recruteurs
+      </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg " src="static/images/icons/noun_recruit.png"></div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+      <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_reverse.png"></div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond">
+      <div class="ehHomeSecondTitle">edhunt, de son côté, fait exactement l'inverse</div>
+      <div class=ehHomeSecondContent><br>Les recruteurs ont leurs robots à eux, très bien ! Les candidats ont désormais edhunt, une plateforme pensée par, avec et pour eux
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond">
+      <div class="ehHomeSecondTitle">Comme un chasseur de têtes . . . mais à l'envers</div>
+      <div class=ehHomeSecondContent><br>edhunt va chercher pour vous et à votre place les postes que vous pourriez rater, ou que vous n'avez pas le temps de chercher
+      </div>
+    </div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+        <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_help.png"></div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div data-aos="fade-right" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond text-center swap768">
+       <p class="ehBoxImg">.<br>.<br></p>
+      <img class="ehHomeImg" src="static/images/icons/noun_creative.png"></div>
+    <div data-aos="fade-left" data-aos-delay="0" data-aos-duration="2000" class="col-md-4 ehHomeSecond">
+      <div class="ehHomeSecondTitle">Le Jarvis de l'emploi, au service des candidats </div>
+      <div class=ehHomeSecondContent><br>Intiutif, simple et rapide, edhunt est votre assistant personnel, 100% dédié à votre recherche de job, 24h/24h
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-2">
+      <div onclick="goUp()">
+        <div class="ehInscriptionSmall">s'inscrire</div>
+      </div>
+    </div>
+    <div class="col-md-5"></div>
+  </div>
+</div>
+
+{% endblock home_3 %}
+
+
+{{ self.sep() }}
+
+
+{% block home_Quest_Mobile %}
+<div id="ehHomeQuestMobile" style="display: none">
+  <div class="row">
+    <div class="col">
+      <div class="ehH1 text-center" style="color:var(--myBrown)"> Inscription</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <!-- fieldset -->
+        <fieldset class="form-group">
+        {% for i in ["status", "function", "rem", "diploma_level",
+        "diploma_year", "zip_code" ]%}
+        <div class="form-group">
+        {{ form[i].label(class="form-control-label ehLabel") }}
+        {% if form[i].errors %}
+          {{ form[i](class="form-control form-control-lg is-invalid myTextArea") }}
+          <div class="invalid-feedback">
+          {% for error in form[i].errors %}
+            <span>{{ error }}</span>
+          {% endfor %}
+          </div>
+        {% else %}
+          {{ form[i](class="form-control form-control-lg myTextArea") }}
+        {% endif %}
+        </div>
+        {% endfor %}
+        </fieldset>
+        <!-- submit -->
+        <div class="text-right">
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info ehButton") }}
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+  </div>
+</div>
+
+{% endblock home_Quest_Mobile %}
 
   <!-- foot -->
 {% block foot %}
