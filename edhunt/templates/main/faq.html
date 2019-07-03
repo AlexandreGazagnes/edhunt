@@ -20,9 +20,9 @@
     <div class="col-lg-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
       {% for i, text in text.oui.text[0:3] %}
       <div data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000"  style="margin : 60px 0px; background-color: var(--myWhite)">
-        <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; max-width: 340px; margin:0px 100px; border : 1px solid var(--myBrown)">
-          <span id="ouiKeyContent{{i}}"> {% if text[0]|length < 25 %} <br> {% endif %}  {{ text[0] }}</span>
-          <span id="ouiValContent{{i}}" style="display: none"> {% if text[1]|length < 25 %} <br> {% endif %}  {{ text[1] }}</span>
+        <div class="ehTextBoxGrid3 ouiButton{{i}}" style="min-height: 170px; max-width: 340px; margin:0px 100px; border : 1px solid var(--myBrown)">
+          <span class="ouiKeyContent{{i}}"> {% if text[0]|length < 25 %} <br> {% endif %}  {{ text[0] }}</span>
+          <span class="ouiValContent{{i}}" style="display: none"> {% if text[1]|length < 25 %} <br> {% endif %}  {{ text[1] }}</span>
         </div>
       </div>
       {% endfor %}
@@ -51,10 +51,10 @@
   <!-- row1 -->
   <div class="row ouiRow1" style="background-color: var(--myWhite)">
     {% for i, text in text.oui.text[0:3] %}
-    <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
-        <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
-        <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
+    <div class="col-sm-4"  data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
+      <div class="ehTextBoxGrid3 ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+        <span class="ouiKeyContent{{i}}">{{ text[0] }}</span>
+        <span class="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>
       </div>
     </div>
     {% endfor %}
@@ -65,10 +65,10 @@
 
 {% block OuiContent %}
 <div class="ehOuiContent">
-  {% for i, j, k in [(2, 3, 9), (3, 6, 9), (4, 9, 12), (5, 12, 20)] %}
-  <div class="row ouiRow{{ i }}" style="background-color: var(--myWhite)">
+  {% for idx, j, k in [(2, 3, 9), (3, 6, 9), (4, 9, 12), (5, 12, 20)] %}
+  <div class="row ouiRow{{ idx }}" style="background-color: var(--myWhite)">
     {% for i, text in text.oui.text[j:k] %}
-    <div class="col-sm-4"  data-aos="flip-left" data-aos-delay= "{{i}}00" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
+    <div class="col-sm-4"  data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
       <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span id="ouiKeyContent{{i}}">{{ text[0] }}</span>
         <span id="ouiValContent{{i}}" style="display: none">{{text[1]}}</span>

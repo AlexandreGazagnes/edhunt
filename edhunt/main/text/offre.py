@@ -94,15 +94,18 @@ class _Feats:
         "Accès à l’ensemble des offres d’emploi disponibles sur les plateformes connectées ",
         "Envoi de vos candidatures en un clic, quelque soit la plateforme connectée",
         "Accès à l'outil myBord pour piloter vos différents process de recrutement ",
+
         "Accès à l'outil myScore qui trie et évalue automatiquement les offres d’emploi pour vous *",
         "Candidatures automatiques selon la pertinence de l'offre *",
         "Identification automatique des décisionnaires RH/opérationnels **",
         # "Mise en ligne de votre CV ou de votre profil sur les différentes plateformes connectées **",
+
         "Adresse mail personnelle prenom.nom@edhunt.fr **",
         "Accès via edhunt à tout site/interface externe nécessitant des actions d’enregistrement spécifique **",
         # "Mise en ligne et diffusion de votre CV ou de votre profil sur toutes les plateformes d'emploi **",
         "Gestion des retours aux offres d’emplois, mise à jour et intégration automatique du statut de la candidature **",
         "Prise de contact automatique ou manuelle avec des décisionnaires RH/opérationnels **",
+
         "Accompagnement d’un consultant edhunt pour la définition du projet professionnel et dans la sélection des offres sur lesquelles candidater ",
         "Accompagnement d’un consultant edhunt pour la rédaction ou l'amélioration du CV et la rédaction automatique ou manuelle des lettres de motivations ",
         "Accompagnement d’un consultant edhunt dans les différentes phases opérationnelles des process de recrutement : brief avant les entretiens, débrief après les entretiens, choix parmi les différentes pistes...",

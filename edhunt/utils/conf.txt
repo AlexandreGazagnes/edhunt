@@ -92,7 +92,7 @@ sudo systemctl restart nginx
 
 # gunicorn (workers - w 2 * CPU_COUNT + 1)
 cd edhunt/
-gunicorn -w 3 edhunt/run:app
+gunicorn -w 3 run:app
 
 
 # supervisor
