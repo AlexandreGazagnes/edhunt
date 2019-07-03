@@ -25,8 +25,7 @@ class _Form_0(FlaskForm):
                          description=HelpMessages.unique_select,
                          choices=UsersEnums.choices('function'))
 
-  xp_at_work = StringField('Experience professionnelle',
-                           render_kw={"placeholder": "12"})
+  xp_at_work = StringField('Experience professionnelle',)
 
   zip_code = StringField('Code postal',)
 

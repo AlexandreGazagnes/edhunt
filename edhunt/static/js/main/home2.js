@@ -33,11 +33,19 @@ function changeBackgroundHeight(x) {
 
 
 // mobile inscription button go down
-$(function(){
-    $( ".inscriptionMobileButton" ).on('click', function(e){
+function manageInscriptionButton(x){
+    var width = window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth;
+
+    if (width < x) {
+    $( ".ehInscriptionSmall" ).on('click', function(e){
          e.preventDefault();
         $('html, body').animate({scrollTop:$('#ehHomeQuestMobile').offset().top-20}, 'slow');
-            return false; }); });
+            return false; }); }
+    else{
+    $( ".ehInscriptionSmall" ).on('click', function(){
+         goUp();  }); }  }
 
 
 // disable aos on small screen
@@ -73,10 +81,13 @@ function swapLaptop(x){
 $(function(){
     var widthBreak = 992;
     changeBackgroundHeight(widthBreak);
+    manageInscriptionButton(widthBreak);
     swapLaptop(widthBreak);
-    swapAOS(widthBreak)
+    swapAOS(widthBreak);
+
     $(window).resize(function() {
         changeBackgroundHeight(widthBreak);
+        manageInscriptionButton(widthBreak);
         swapLaptop(widthBreak);
         swapAOS(widthBreak)}) ;   })
 

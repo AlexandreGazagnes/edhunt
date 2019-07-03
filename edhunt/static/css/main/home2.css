@@ -210,6 +210,9 @@
 .ehHomeOneLaptop{
     min-height: 780px;    }
 
+.ehHomeOneMobile{
+    min-height: 600px;    }
+
 .ehH1{
   font-family: champagne;
   text-align: left;
