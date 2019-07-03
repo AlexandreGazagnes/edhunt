@@ -10,14 +10,14 @@ $(document).ready(function(){
         .css("transition-duration", "0.3s");;    });  });
 
 
-// ehTextBoxGridNeuf
+// ehTextBoxGrid3
 $(document).ready(function(){
-  $(".ehTextBoxGridNeuf").mouseover(function(){
+  $(".ehTextBoxGrid3").mouseover(function(){
     $(this).css("background-color", "var(--myBrown)")
     .css("color", "var(--myWhite)")
     .css("transition-duration", "0.3s");;
   });
-  $(".ehTextBoxGridNeuf").mouseout(function(){
+  $(".ehTextBoxGrid3").mouseout(function(){
     $(this).css("background-color", "var(--myWhite)")
     .css("color", "var(--myBrown)")
     .css("transition-duration", "0.3s");   });   });

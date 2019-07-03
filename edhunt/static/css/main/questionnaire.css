@@ -10,13 +10,21 @@
 @media (min-width: 576px) {
   .ehLabel{font-size: 1.5rem;}
   .ehLegend{ font-size: 2rem; }
+  .ehEdhuntPlus{
+        padding: 10px 40px;
+        margin: 20px 0px;
+        font-size: 1.4rem;}
   .ehTextArea{font-size: 1rem; min-height:200px;}
   .ehInput{font-size: 1rem; }
   .ehSelector{font-size: 1rem; }      }
 
 @media (min-width: 720px) {
-  .ehLabel{font-size: 1.2rem;}
-  .ehLegend{ font-size: 1.2rem; }
+  .ehLabel{font-size: 1.5rem;}
+  .ehLegend{ font-size: 2rem; }
+  .ehEdhuntPlus{
+        padding: 10px 40px;
+        margin: 20px 0px;
+        font-size: 1.4rem;}
   .ehTextArea{font-size: 1rem; min-height:200px;}
   .ehInput{font-size: 1rem; }
   .ehSelector{font-size: 1rem; }       }

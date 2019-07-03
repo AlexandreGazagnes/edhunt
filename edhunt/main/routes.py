@@ -103,7 +103,7 @@ def home(token):
 def apropos():
   return render_template('main/apropos.html',
                          title="A propos",
-                         text=MainText.apropos)
+                         text=MainText.offre2)
 
 
 @main.route("/loffre2/", methods=["GET"])

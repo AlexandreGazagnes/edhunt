@@ -6,8 +6,6 @@
 <script src="{{ url_for('static', filename='js/main/loffre.js') }}" type="text/javascript"></script>
 
 
-
-
 <!-- loffre -->
 {% block loffre2 %}
 <div class="ehOffre2">
@@ -22,26 +20,15 @@
       </div>
     </div>
     <div class="col-sm-6" data-aos="fade-left" data-aos-delay="500" data-aos-duration="2000">
-<!--       <div class='ehWhiteBox'></div> -->
   {% for text in text.feats.items[0:3] %}
     <div  style="margin : 50px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span><br>{{ text }}</span>
       </div>
     </div>
   {% endfor %}
     </div>
   </div>
-<!--   <div class="row">
-    <div class="col-sm">
-      <div class='ehTextBoxApropos text-left'>
-        Services
-      </div>
-    </div>
-    <div class="col-sm">
-    </div>
-  </div> -->
-
 
   <div class="col-sm-12">
       <div class='ehWhiteBox'></div>
@@ -52,55 +39,40 @@
   <div class="row offre2Row1" style="background-color: var(--myWhite)">
   {% for text in text.feats.items[3:6] %}
     <div class="col-sm-12" data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span><br>{{ text }}</span>
       </div>
     </div>
   {% endfor %}
-<!--     <div class="col-sm-12 ">
-      <div class="ehInscriptionSmall offre2Button2" style="border:none">
-        <span class=""><i class="fas fa-chevron-down"></i></span>
-      </div>
-    </div> -->
   </div>
 
   <!-- ROW2 -->
   <div class="row offre2Row2" style="background-color: var(--myWhite)">
   {% for text in text.feats.items[6:9] %}
     <div class="col-sm-12" data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span><br>{{ text }}</span>
       </div>
     </div>
   {% endfor %}
-<!--     <div class="col-sm-12 ">
-      <div class="ehInscriptionSmall offre2Button3" style="border:none">
-        <span class=""><i class="fas fa-chevron-down"></i></span>
-      </div>
-    </div> -->
   </div>
 
   <!-- ROW3 -->
   <div class="row offre2Row3" style="background-color: var(--myWhite)">
   {% for text in text.feats.items[6:10] %}
     <div class="col-sm-12" data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span> {% if text|length < 90 %}<br>{% endif %}{{ text }}</span>
       </div>
     </div>
   {% endfor %}
-<!--     <div class="col-sm-12 ">
-      <div class="ehInscriptionSmall offre2Button4" style="border:none">
-        <span class=""><i class="fas fa-chevron-down"></i></span>
-      </div>
-    </div> -->
   </div>
 
   <!-- ROW4 -->
   <div class="row offre2Row4" style=" background-color: var(--myWhite)">
   {% for text in text.feats.items[10:] %}
     <div class="col-sm-12" data-aos="flip-left" data-aos-duration="2000" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" id="ouiButton{{i}}" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span>{{ text }}</span>
       </div>
     </div>
@@ -109,30 +81,21 @@
 
   <div class="row">
     <div class="col-sm">
-    </div>
-    <div class="col-sm text-right">
-      <div class="ehTextBoxApropos text-right">
-<!--         du caca -->
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm">
       <div class='ehWhiteBox'></div>
     </div>
   </div>
-</div>
 
 
-<div class="row">
-    <div class="col-sm-12">
-      <a href="{{ url_for('users.register_user') }}">
+  <div class="row">
+    <div class="col-sm-5 text-center"></div>
+    <div class="col-sm-2 text-center">
+      <a href="{{ url_for('main.home') }}">
       <div class="ehInscriptionSmall">
           s'inscrire
       </div>
     </a>
     </div>
+    <div class="col-sm-5 text-center"></div>
     <div class="col-sm-12">
       <div class='ehWhiteBox'></div>
     </div>
@@ -207,7 +170,7 @@
   <div class="row" style="background-color: var(--myWhite)">
   {% for t0, t1 in text.tools.items %}
     <div class="col-sm-12" style="margin : 20px 0px; background-color: var(--myWhite)">
-      <div class="ehTextBoxGridNeuf" style="min-height: 170px; border : 1px solid var(--myBrown)">
+      <div class="ehTextBoxGrid3" style="min-height: 170px; border : 1px solid var(--myBrown)">
         <span >{{ t0 }} <br> {{ t1 }}</span>
       </div>
     </div>

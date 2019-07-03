@@ -7,7 +7,7 @@ class _Page:
 
 
 class _Page2:
-    title = "L'offre"
+    title = "A propos"
     head = ["edhunt propose une offre de services et d'outils très différents, allant des plus légers au plus complets",
             "A vous d'arbitrer votre niveau d'accompagnement en fonction de votre de niveau de recherche",
             ]

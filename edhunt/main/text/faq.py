@@ -1,8 +1,8 @@
 class _Page:
 
     title = "FAQ"
-    head = ["Plus q'une FAQ, il s'agit là d'un vrai manifeste en faveur des candidats",
-            "Si vous ne trouvez pas ici les réponses à vos questions, direction la page - Contact - "]
+    head = ["FAQ ou ' Foire Aux Questions ' : retrouvez ici les réponses à (presque) toutes vos questions",
+            "Si ça n'est pas le cas, direction la page - Contact - "]
 
 
 class _Oui:
@@ -25,7 +25,7 @@ class _Oui:
 
             (13, ("ça veut dire quoi le nom 'edhunt'", "un chasseur de têtes en anglais c'est 'head hunter', francisé ça fait 'edhunt' ")),
             (14, ("et pour la lettre de motivation", "deux options soit vous la faîtes, soit edhunt la fait pour vous")),
-            (15, ("si c'est gratuit c'est forcément une arnaque", "parlez en avec nos embassadeurs, il ne sont pas du tout de cet avis")),       ]
+            (15, ("si c'est gratuit c'est forcément une arnaque", "parlez en avec nos embassadeurs, il ne sont pas du tout de cet avis")), ]
 
 
 class _Manifeste:

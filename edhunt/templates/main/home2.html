@@ -273,13 +273,11 @@
   </div>
   <div class="border-bottom"></div>
   <div class="row ">
-    <div class="col-sm-1"></div>
       {% for ref, name in [ ('main.apropos', 'A propos'),
-                            ('main.loffre', 'L\'offre'),
                             ('main.blog', 'Blog'),
                             ('main.faq', 'FAQ'),
                             ('main.contact', 'Contact'), ] %}
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <a href="{{ url_for(ref) }}">
           <div class="ehTextBoxFoot">
             {{ name }}
@@ -287,7 +285,6 @@
         </a>
       </div>
     {% endfor %}
-    <div class="col-sm-1"></div>
   </div>
   <div class="border-bottom"></div>
 </div>

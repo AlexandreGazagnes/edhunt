@@ -1,6 +1,6 @@
 class _Questionnaire1:
     title = "1/3"
-    head = "Parlons du niveau d'accompagnement que edhunt peut vous apporter..."
+    head = "Parlons d'abord du niveau d'accompagnement que edhunt peut vous apporter"
 
 
 class _Questionnaire2:
@@ -14,7 +14,7 @@ class _Questionnaire3:
 
 
 class _Questionnaire4:
-    title = "Bienvenue !"
+    title = "Bravo !"
     head = "Afin de valider votre inscription, un consultant edhunt va vous rappeller d'ici 24h pour un échange téléphonique d'une dizaine de minutes."
 
 

@@ -90,7 +90,7 @@
           <div class="navbar-nav mr-auto">
           {% if not current_user.is_authenticated %}
             <a class="nav-item nav-link" href="{{ url_for('main.apropos') }}">A propos</a>
-            <a class="nav-item nav-link" href="{{ url_for('main.loffre') }}">L'offre</a>
+<!--             <a class="nav-item nav-link" href="{{ url_for('main.loffre') }}">L'offre</a> -->
             <a class="nav-item nav-link" href="{{ url_for('main.blog') }}">Blog</a>
             <a class="nav-item nav-link" href="{{ url_for('main.faq') }}">FAQ</a>
             <a class="nav-item nav-link" href="{{ url_for('main.contact') }}">Contact</a>
@@ -108,7 +108,7 @@
               <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Déconnexion</a>
             {% else %}
               <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Connexion</a>
-              <a class="nav-item nav-link" href="{{ url_for('users.register_user') }}">Inscription</a>
+              <a class="nav-item nav-link" href="{{ url_for('main.home') }}">Inscription</a>
             {% endif %}
           </div>
         </div>
@@ -140,7 +140,7 @@
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4"><a class="footerLink" href="{{ url_for('main.home') }}">edhunt </a></h5>
         <ul class="list-unstyled">
           <li> <a class="footerLink" href="{{ url_for('main.apropos') }}">A propos </a></li>
-          <li> <a class="footerLink" href="{{ url_for('main.loffre') }}">L'offre</a> </li>
+<!--           <li> <a class="footerLink" href="{{ url_for('main.loffre') }}">L'offre</a> </li> -->
           <li> <a class="footerLink" href="{{ url_for('main.blog') }}">Blog</a> </li>
           <li> <a class="footerLink" href="{{ url_for('main.faq') }}">FAQ</a> </li>
         </ul>
@@ -169,7 +169,7 @@
       <div class="col-md-3 mx-auto">
         <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
         <ul class="list-unstyled">
-          <li> <a class="footerLink" href="{{ url_for('users.register_user') }}"> <h5 class="font-weight-bold text-uppercase mt-3 mb-4">inscription</h5></a> </li>
+          <li> <a class="footerLink" href="{{ url_for('main.home') }}"> <h5 class="font-weight-bold text-uppercase mt-3 mb-4">inscription</h5></a> </li>
           <li> <a class="footerLink" href="{{ url_for('users.login') }}"> <h5 class="font-weight-bold text-uppercase mt-3 mb-4">connexion</h5></a> </li>
         </ul>
       </div>
