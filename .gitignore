@@ -103,4 +103,9 @@ venv.bak/
 # mypy
 .mypy_cache/
 
+
+# my folders
 misc/*
+edhunt/site.db
+bdd_save/
+server_logs/
