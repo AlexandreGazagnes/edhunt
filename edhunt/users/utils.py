@@ -114,7 +114,7 @@ class UsersEnums():
               'Dev/IT/Tech',
               'Finance/Contrôle de gestion',
               'Import/Export/nternational',
-              "Ingénierie/Bureau d'Etudes"
+              "Ingénierie/Bureau d'Etudes",
               'Juridique/Fiscal',
               'Logistique/Transport',
               'Maintenance/Entretien',

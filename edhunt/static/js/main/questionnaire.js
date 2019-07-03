@@ -7,7 +7,6 @@ $(document).ready(function(){
         $('#ehSmartHuntButton').slideUp("slow");   });
 
     $("#ehBigHuntButton").click(function(){
-        alert("vfdv")
         $('#ehSmartHuntContent').slideUp("slow");
         $('#ehBigHuntContent').slideDown("slow");
         $('#starsTwo').slideDown("slow");

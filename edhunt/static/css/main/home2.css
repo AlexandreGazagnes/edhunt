@@ -73,24 +73,23 @@
         font-size: 1rem;
         padding: 0px 20px; } }
 
-@media (min-width: 720px) {
-    .ehHomeOneLaptop{}
-    .ehHomeHead{}
+@media (min-width: 768px) {
+    .ehHomeHeadLaptop{
+        padding: 10% 10% 10% 15%;      }
     .ehH1{
-        font-size: 5rem;
-        padding: 20px 0px 10px 0px;
-        margin: 20px 0px 10px 0px;    }
+        font-size: 7.5rem;
+        min-height: 33%;
+        margin: 0% ;  }
     .ehH2{
-        font-size: 2rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;    }
+        font-size: 2.4rem;
+        min-height: 33%;
+        margin: 0%;   }
     .ehH3{
-        font-size: 1.1rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;   }
+        font-size: 1rem;
+        min-height: 33%;
+        margin: 0%;  }
     .ehHomeQuestLaptop{
-        margin: 2% 10% 2% 10%;
-        padding: 5px 5px;       }
+        margin: 20px 15% 20px 15%}
     .ehHome2{
         margin: 80px 0px;
         padding: 20px;   }
@@ -111,23 +110,25 @@
         padding: 0px 20px; } }
 
 @media (min-width: 992px) {
-    .ehHomeOneLaptop{}
-    .ehHomeHead{}
+    .ehHomeHeadLaptop{
+        padding: 10% 15% 10% 15%;
+        min-height: 780px;     }
     .ehH1{
-        font-size: 5rem;
-        padding: 20px 0px 10px 0px;
-        margin: 20px 0px 10px 0px;    }
+        font-size: 7.5rem;
+        min-height: 33%;
+        margin: 0% ;  }
     .ehH2{
-        font-size: 2rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;    }
+        font-size: 2.4rem;
+        min-height: 33%;
+        margin: 0%;   }
     .ehH3{
         font-size: 1.1rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;   }
+        min-height: 33%;
+        margin: 0%;  }
     .ehHomeQuestLaptop{
-        margin: 2% 5% 2% 5%;
-        padding: 5px 10px;       }
+        margin: 20px 15% 20px 15%;
+        padding:20px;
+        min-height: 740px;}
     .ehHome2{
         margin: 80px 0px;
         padding: 20px;   }
@@ -149,24 +150,25 @@
 
 
 @media (min-width: 1280px) {
-    .ehHomeOneLaptop{}
-    .ehHomeHead{}
+    .ehHomeHeadLaptop{
+        padding: 10% 15% 10% 15%;
+        min-height: 780px;     }
     .ehH1{
         font-size: 7.5rem;
-        padding: 30px 0px 10px 0px;
-        margin: 30px 0px 10px 0px;    }
+        min-height: 33%;
+        margin: 0% ;  }
     .ehH2{
         font-size: 2.6rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;    }
+        min-height: 33%;
+        margin: 0%;   }
     .ehH3{
         font-size: 1.1rem;
-        padding: 10px 0px 30px 0px;
-        margin: 10px 0px 30px 0px;   }
+        min-height: 33%;
+        margin: 0%;  }
     .ehHomeQuestLaptop{
-        min-height: 380px;
-        padding: 20px 20px;
-        margin: 2% 20% 2% 10%;       }
+        margin: 20px 15% 20px 15%;
+        padding:20px;
+        min-height: 740px;}
     .ehHome2{
         margin: 80px 0px;
         padding: 20px;   }
@@ -187,7 +189,7 @@
         padding: 0px 60px; } }
 
 .ehHomeOneLaptop{
-    margin: 20px 0px;
+    margin: 20px 0px 0px 0px;
     padding: 0px;
     background-position: center; /* Center the image */
     background-image: url("../../images/main/home_original.jpg");
@@ -196,7 +198,7 @@
     background-size: cover;    }
 
 .ehHomeOneMobile{
-    margin: 20px 0px;
+    margin: 20px 0px 0px 0px;
     padding: 0px;
     background-position: center; /* Center the image */
     background-image: url("../../images/main/home_original.jpg");
@@ -204,10 +206,9 @@
     width: 100%;
     background-size: cover;    }
 
-.ehHomeHead{
-    position: relative;
-    padding: 20px 20px;
-    margin: 5% 15%;    }
+
+.ehHomeOneLaptop{
+    min-height: 780px;    }
 
 .ehH1{
   font-family: champagne;

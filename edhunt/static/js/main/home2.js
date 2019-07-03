@@ -4,17 +4,39 @@ function changeBackgroundHeight(x) {
     || document.documentElement.clientWidth
     || document.body.clientWidth;
 
+    var height = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight;
     if (width < x) {
-        $(".ehHomeOneMobile").css("height", 10+(height/2));}
+        console.log("mobile edition")
+        var height2 = -70 +(height)
+        $(".ehHomeOneMobile").css("height", height2 );
+        $(".ehH1").css("min-height", (-10 + (height2/4)));
+        $(".ehH2").css("min-height", (-10 + (height2/4))).css("padding", "0px 40px");
+        $(".ehH3").css("min-height", (-10 + (height2/4)));
+
+        $("#wtf0").css("margin-left", (width/2)-115);
+        $("#wtf1").css("margin-left", (width/2)-145);
+        $("#wtf2").css("margin-left", (width/2)-145);   }
+
     else {
-        $(".ehHomeOneLaptop").css("height", 150+height-(2 * 50));} }
+        console.log("laptop edition");
+
+        // ehHomeOneLaptop box height
+        var height2 = (-96 + height);
+        $(".ehHomeOneLaptop").css("height", height2);
+        $(".ehHomeHeadLaptop").css("height", height2);
+        console.log("ehHomeHeadLaptop height " + $(".ehHomeHeadLaptop").css("height"));
+        // quest
+        $(".ehHomeQuestLaptop").css("height", (-40+ height2));
+        console.log("ehHomeQuestLaptop height " + $(".ehHomeQuestLaptop").css("height"));} }
 
 
 // mobile inscription button go down
 $(function(){
     $( ".inscriptionMobileButton" ).on('click', function(e){
          e.preventDefault();
-        $('html, body').animate({scrollTop:$('#ehHomeQuestMobile').offset().top-50}, 'slow');
+        $('html, body').animate({scrollTop:$('#ehHomeQuestMobile').offset().top-20}, 'slow');
             return false; }); });
 
 
@@ -49,13 +71,14 @@ function swapLaptop(x){
 
 // main
 $(function(){
-    changeBackgroundHeight(992);
-    swapLaptop(992);
-    swapAOS(992)
+    var widthBreak = 992;
+    changeBackgroundHeight(widthBreak);
+    swapLaptop(widthBreak);
+    swapAOS(widthBreak)
     $(window).resize(function() {
-        changeBackgroundHeight(992);
-        swapLaptop(992);
-        swapAOS(992)}) ;   })
+        changeBackgroundHeight(widthBreak);
+        swapLaptop(widthBreak);
+        swapAOS(widthBreak)}) ;   })
 
 
 

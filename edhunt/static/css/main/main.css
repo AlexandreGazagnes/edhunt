@@ -1,6 +1,6 @@
 @media (min-width: 100px) {
     .ehH1{
-        font-size: 3rem;
+        font-size: 6rem;
         padding: 5px 0px 5px 0px;
         margin: 5px 0px 5px 0px;    }
     .ehInscriptionSmall{
@@ -28,7 +28,7 @@
 
 @media (min-width: 576px) {
     .ehH1{
-        font-size: 3rem;
+        font-size: 7.5rem;
         padding: 5px 0px 5px 0px;
         margin: 5px 0px 5px 0px;    }
     .ehInscriptionSmall{
@@ -85,11 +85,8 @@
 
 @media (min-width: 1280px) {
     .ehH1{
-        font-size: 7.5rem;
-        padding: 30px 0px 10px 0px;
-        margin: 30px 0px 10px 0px;    }
+        font-size: 7.5rem;  }
     .ehInscriptionSmall{
-        border: 1px solid var(--myBrown);
         font-size: 2rem;
         margin: 20px 0px;
         padding: 5px 30px;}
@@ -125,12 +122,13 @@
   color :var(--myBrown);    }
 
 .ehInscriptionSmall{
+  border: 1px solid var(--myBrown);
   background-color: var(--myWhite);
   border-radius: 20px;
   font-family: champagne;
   text-align: center;
   color :var(--myBrown);
-  max-width: 200px;      }
+  width : 200px;      }
 
 .ehTextBoxGrid3{
   font-family: champagne;
@@ -148,7 +146,7 @@
   color :var(--myBrown);    }
 
 .ehWhiteBox{
-    background-color: var(--myWhite);
+    background-color:none;
     border:none;}
 
 
