@@ -143,7 +143,7 @@ pytest==4.4.1
 pytest-cov==2.6.1
 python-dateutil==2.7.5
 pytz==2018.7
-PyYAML==3.13
+PyYAML==5.4
 pyzmq==17.1.2
 qtconsole==4.4.3
 queuelib==1.5.0
