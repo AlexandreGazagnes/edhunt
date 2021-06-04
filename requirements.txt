@@ -35,7 +35,7 @@ decorator==4.4.0
 defusedxml==0.5.0
 dill==0.2.8.2
 distributed==1.26.0
-Django==2.2
+Django==2.2.21
 entrypoints==0.2.3
 fastai==1.0.38
 fastprogress==0.1.18
