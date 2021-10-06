@@ -152,7 +152,7 @@ requests==2.20.1
 rsa==4.0
 scikit-learn==0.20.0
 scipy==1.1.0
-Scrapy==1.6.0
+Scrapy==1.8.1
 seaborn==0.9.0
 selenium==3.141.0
 Send2Trash==1.5.0
