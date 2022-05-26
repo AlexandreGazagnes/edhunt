@@ -184,7 +184,7 @@ Twisted==19.2.0
 typed-ast==1.3.1
 typing==3.6.6
 typing-extensions==3.7.2
-ujson==1.35
+ujson==5.2.0
 uritemplate==3.0.0
 urllib3==1.24.2
 w3lib==1.20.0
